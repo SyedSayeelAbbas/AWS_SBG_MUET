@@ -1,0 +1,757 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---------- Master Brand Scale (tints/shades of the approved purples) ---------- */
+  --color-brand-50: #faf7ff;
+  --color-brand-100: #f3e8ff;
+  --color-brand-200: #e9d5ff;
+  --color-brand-300: #d3b3ff;
+  --color-brand-400: #a97fff;
+  --color-brand-500: #8c52ff;
+  --color-brand-600: #6b46c1;
+  --color-brand-700: #59389e;
+  --color-brand-800: #472d80;
+  --color-brand-900: #362163;
+
+  /* ---------- Master Color System (exact, do not change) ---------- */
+  --color-primary: #8c52ff;
+  --color-secondary: #6b46c1;
+  --color-violet: #7c3aed;
+  --color-light-purple: #f3e8ff;
+  --color-pale-purple: #faf7ff;
+
+  --color-heading: #111827;
+  --color-body: #6b7280;
+  --color-text: #6b7280;
+  --color-muted: #6b7280;
+  --color-dark: #0f172a;
+  --color-line: #e5e7eb;
+}
+/* ===========================================================
+   AWS Student Builder Club MUET
+   Global Design System
+   =========================================================== */
+
+:root {
+  /* ---------- Brand Colors (master system) ---------- */
+
+  --brand-50: #faf7ff;
+  --brand-100: #f3e8ff;
+  --brand-200: #e9d5ff;
+  --brand-300: #d3b3ff;
+  --brand-400: #a97fff;
+  --brand-500: #8c52ff;
+  --brand-600: #6b46c1;
+  --brand-700: #59389e;
+  --brand-800: #472d80;
+  --brand-900: #362163;
+
+  --primary: #8c52ff;
+  --secondary: #6b46c1;
+  --violet: #7c3aed;
+  --light-purple: #f3e8ff;
+  --pale-purple: #faf7ff;
+
+  /* ---------- Neutral ---------- */
+
+  --white: #ffffff;
+
+  --surface: #fafafa;
+
+  --surface-2: #f7f7fb;
+
+  --border: #e5e7eb;
+
+  --heading: #111827;
+
+  --text: #6b7280;
+
+  --muted: #6b7280;
+
+  --dark: #0f172a;
+
+  /* ---------- Status (used sparingly, brand purple stays primary) ---------- */
+
+  --success: #10b981;
+
+  --warning: #f59e0b;
+
+  --danger: #ef4444;
+
+  /* ---------- Radius ---------- */
+
+  --radius-xs: 8px;
+
+  --radius-sm: 12px;
+
+  --radius-md: 18px;
+
+  --radius-lg: 24px;
+
+  --radius-xl: 32px;
+
+  /* ---------- Shadows ---------- */
+
+  --shadow-sm:
+      0 4px 14px rgba(0,0,0,.05);
+
+  --shadow-md:
+      0 10px 35px rgba(0,0,0,.07);
+
+  --shadow-lg:
+      0 25px 60px rgba(0,0,0,.09);
+
+  --shadow-glow:
+      0 0 40px rgba(124,58,237,.22);
+
+  /* ---------- Gradients ---------- */
+
+  --gradient-brand:
+      linear-gradient(
+          135deg,
+          #8c52ff,
+          #7c3aed,
+          #6b46c1
+      );
+
+  --gradient-light:
+      linear-gradient(
+          180deg,
+          #ffffff,
+          #faf7ff
+      );
+
+  --gradient-card:
+      linear-gradient(
+          145deg,
+          rgba(255,255,255,.95),
+          rgba(248,245,255,.95)
+      );
+
+  /* ---------- Transition ---------- */
+
+  --transition-fast: .15s;
+
+  --transition-normal: .3s;
+
+  --transition-slow: .55s;
+}
+
+/* =========================================================== */
+
+html {
+
+  scroll-behavior: smooth;
+
+}
+
+body {
+
+  font-family: "Inter", sans-serif;
+
+  background: var(--white);
+
+  color: var(--text);
+
+  overflow-x: hidden;
+
+}
+
+/* ===========================================================
+   Headings
+   =========================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  font-family: "Space Grotesk", sans-serif;
+
+  color: var(--heading);
+
+  font-weight: 700;
+
+}
+
+/* ===========================================================
+   Selection
+   =========================================================== */
+
+::selection {
+
+  background: var(--brand-600);
+
+  color: white;
+
+}
+
+/* ===========================================================
+   Scrollbar
+   =========================================================== */
+
+::-webkit-scrollbar {
+
+  width: 8px;
+
+}
+
+::-webkit-scrollbar-track {
+
+  background: white;
+
+}
+
+::-webkit-scrollbar-thumb {
+
+  background: var(--brand-400);
+
+  border-radius: 999px;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+  background: var(--brand-600);
+
+}
+
+/* ===========================================================
+   Glass
+   =========================================================== */
+
+.glass {
+
+  backdrop-filter: blur(18px);
+
+  background: rgba(255,255,255,.72);
+
+  border: 1px solid rgba(255,255,255,.35);
+
+}
+
+/* ===========================================================
+   Gradient Text
+   =========================================================== */
+
+/* ===========================================================
+   Premium Animated Gradient Text
+   =========================================================== */
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(
+    120deg,
+    #7c3aed,
+    #8c52ff,
+    #6b46c1,
+    #8c52ff,
+    #7c3aed,
+    #7c3aed
+  );
+
+  background-size: 300% 300%;
+
+  background-position: 0% 50%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  animation: gradientFlow 8s ease infinite;
+
+  will-change: background-position;
+}
+
+/* Alias used across About page headings — same animated purple
+   gradient as .gradient-text, kept as a separate class name since
+   several components already reference it. */
+.animated-gradient {
+  background: linear-gradient(
+    120deg,
+    #6b46c1,
+    #8c52ff,
+    #7c3aed,
+    #8c52ff,
+    #6b46c1
+  );
+
+  background-size: 300% 300%;
+
+  background-position: 0% 50%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  animation: gradientFlow 8s ease infinite;
+
+  will-change: background-position;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-text,
+  .animated-gradient {
+    animation: none;
+    background-position: 50% 50%;
+  }
+}
+
+@keyframes textGlow {
+
+  0% {
+    filter: drop-shadow(0 0 0 rgba(124,58,237,.15));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 12px rgba(124,58,237,.35));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 0 rgba(124,58,237,.15));
+  }
+
+}
+
+.gradient-glow{
+
+    animation:
+        gradientFlow 8s ease infinite,
+        textGlow 5s ease-in-out infinite;
+
+}
+
+/* ===========================================================
+   Aurora Background
+   =========================================================== */
+
+.aurora {
+
+  position: absolute;
+
+  inset: 0;
+
+  overflow: hidden;
+
+  z-index: -1;
+
+}
+
+.aurora::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 600px;
+
+  height: 600px;
+
+  left: -150px;
+
+  top: -150px;
+
+  border-radius: 50%;
+
+  background: rgba(140,82,255,.18);
+
+  filter: blur(100px);
+
+}
+
+.aurora::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+
+  height: 500px;
+
+  right: -120px;
+
+  bottom: -120px;
+
+  border-radius: 50%;
+
+  background: rgba(107,70,193,.16);
+
+  filter: blur(100px);
+
+}
+
+/* ===========================================================
+   Grid Background
+   =========================================================== */
+
+.grid-bg {
+
+  background-image:
+
+  linear-gradient(
+      rgba(0,0,0,.04) 1px,
+      transparent 1px
+  ),
+
+  linear-gradient(
+      90deg,
+      rgba(0,0,0,.04) 1px,
+      transparent 1px
+  );
+
+  background-size: 42px 42px;
+
+}
+
+/* ===========================================================
+   Floating Animation
+   =========================================================== */
+
+@keyframes floating {
+
+  0% {
+
+      transform: translateY(0px);
+
+  }
+
+  50% {
+
+      transform: translateY(-12px);
+
+  }
+
+  100% {
+
+      transform: translateY(0px);
+
+  }
+
+}
+
+.float {
+
+  animation: floating 6s ease-in-out infinite;
+
+}
+
+/* ===========================================================
+   Fade Up
+   =========================================================== */
+
+@keyframes fadeUp {
+
+  from {
+
+      opacity: 0;
+
+      transform: translateY(40px);
+
+  }
+
+  to {
+
+      opacity: 1;
+
+      transform: translateY(0);
+
+  }
+
+}
+
+.fade-up {
+
+  animation: fadeUp .8s ease forwards;
+
+}
+
+/* ===========================================================
+   Card Hover
+   =========================================================== */
+
+.card-hover {
+
+  transition: .35s;
+
+}
+
+.card-hover:hover {
+
+  transform: translateY(-8px);
+
+  box-shadow: var(--shadow-lg);
+
+}
+
+/* ===========================================================
+   Button Glow
+   =========================================================== */
+
+.btn-glow:hover {
+
+  box-shadow: var(--shadow-glow);
+
+}
+
+/* ===========================================================
+   Container Utility
+   =========================================================== */
+
+.section {
+
+  padding-block: 110px;
+
+}
+
+@media (max-width:768px){
+
+.section{
+
+padding-block:72px;
+
+}
+
+}
+
+@media (max-width:480px){
+
+.section{
+
+padding-block:56px;
+
+}
+
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ===========================================================
+   Future Dark Mode
+   =========================================================== */
+
+.dark{
+    color-scheme:dark;
+}
+
+/* ===========================================================
+   Animated Gradient Text
+   =========================================================== */
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-text-animated {
+  background: linear-gradient(
+    90deg,
+    #7c3aed,
+    #6b46c1,
+    #6b46c1,
+    #7c3aed,
+    #7c3aed
+  );
+
+  background-size: 300% 300%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  animation: gradientShift 8s ease infinite;
+}
+
+/* ===========================================================
+   Premium Button Gradient
+   =========================================================== */
+
+@keyframes buttonGradient {
+
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+
+}
+
+.animate-buttonGradient {
+
+  animation:
+      buttonGradient 7s ease infinite;
+
+}
+
+/* ===========================================================
+   Radial Glow
+   =========================================================== */
+
+.bg-gradient-radial {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(140, 82, 255, 0.18) 0%,
+      rgba(140, 82, 255, 0.06) 35%,
+      transparent 70%
+    );
+}
+
+/* ===========================================================
+   Premium Noise Overlay
+   =========================================================== */
+
+.premium-noise {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: .035;
+
+  mix-blend-mode: soft-light;
+
+  background-image:
+
+    radial-gradient(circle, rgba(0,0,0,.12) 1px, transparent 1px),
+
+    radial-gradient(circle, rgba(0,0,0,.08) 1px, transparent 1px),
+
+    radial-gradient(circle, rgba(255,255,255,.12) 1px, transparent 1px);
+
+  background-size:
+
+    22px 22px,
+
+    36px 36px,
+
+    48px 48px;
+
+  background-position:
+
+    0 0,
+
+    12px 8px,
+
+    18px 24px;
+
+}
+@keyframes grain {
+
+  0% {
+
+    transform: translate(0,0);
+
+  }
+
+  25% {
+
+    transform: translate(-1%,1%);
+
+  }
+
+  50% {
+
+    transform: translate(1%,-1%);
+
+  }
+
+  75% {
+
+    transform: translate(-1%,-1%);
+
+  }
+
+  100% {
+
+    transform: translate(0,0);
+
+  }
+
+}
+
+.premium-noise{
+
+    animation: grain 8s steps(8) infinite;
+
+}
+/* ===========================================================
+   Reduced Motion — global safety net
+   Covers CSS-driven animations that live outside the JS
+   usePrefersReducedMotion hook (marquee, button shine, badge
+   pulse, gradient text, aurora, film-grain noise, etc).
+   =========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-marquee,
+  .animate-buttonGradient,
+  .animate-pulse,
+  .aurora,
+  .premium-noise {
+    animation: none !important;
+  }
+
+}
