@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ArrowUp } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 
 import Container from "./Container";
 import FooterLinkGroup from "../common/FooterLinkGroup";
 import { Button } from "../../components/ui/Button";
-import { Input } from "../../components/ui/Input";
 
 import { footerLinks, socials } from "../../constants/footer.constants";
 import { ROUTES } from "../../constants/routes";
@@ -341,8 +340,10 @@ export default function Footer() {
               of ambitious students.
             </p>
 
-            <Link
-              to={ROUTES.JOIN}
+            <a
+              href="https://www.meetup.com/aws-sbg-at-mehran-uni-engineering-and-tech-jamshoro-pakistan/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-6 inline-block"
             >
               <Button
@@ -351,7 +352,7 @@ export default function Footer() {
               >
                 Join Community
               </Button>
-            </Link>
+            </a>
           </div>
 
           {/* Newsletter */}
@@ -386,50 +387,6 @@ export default function Footer() {
               sessions.
             </p>
 
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="
-                mt-5
-                flex
-                flex-col
-                gap-3
-                sm:flex-row
-              "
-            >
-              <label
-                htmlFor="footer-newsletter-email"
-                className="sr-only"
-              >
-                Email address
-              </label>
-
-              <Input
-                id="footer-newsletter-email"
-                type="email"
-                placeholder="Email Address"
-                aria-label="Email address"
-                className="
-                  border-[#E9D5FF]
-                  bg-white
-                  focus:border-[#8C52FF]
-                  focus:ring-[#8C52FF]/20
-                "
-              />
-
-              <Button
-                type="submit"
-                className="
-                  flex
-                  shrink-0
-                  items-center
-                  justify-center
-                  gap-2
-                "
-              >
-                Subscribe
-                <ArrowUpRight size={18} />
-              </Button>
-            </form>
           </div>
         </motion.div>
 
