@@ -11,6 +11,7 @@ import {
   Clock3,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 import Container from "../../components/layout/Container";
 import SectionWrapper from "../../components/common/SectionWrapper";
@@ -117,17 +118,45 @@ const iconMap = {
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (
+  const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ) => {
     event.preventDefault();
+    setSubmitError(null);
+    setIsSending(true);
 
-    setSubmitted(true);
+    const form = event.currentTarget;
 
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 4000);
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error("EmailJS env values are missing.");
+      }
+
+      await emailjs.sendForm(serviceId, templateId, form, {
+        publicKey,
+      });
+
+      form.reset();
+      setSubmitted(true);
+
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 4000);
+    } catch (error) {
+      setSubmitError(
+        "Message could not be sent right now. Please try again in a moment."
+      );
+      console.error("EmailJS send failed:", error);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -743,9 +772,10 @@ export default function ContactPage() {
                         type="submit"
                         size="lg"
                         showArrow
-                        className="group w-full !rounded-xl !bg-gradient-to-r !from-brand-500 !to-violet-600 !shadow-lg !shadow-brand-500/20 transition-all duration-300 hover:!from-brand-600 hover:!to-violet-700 hover:!shadow-xl hover:!shadow-brand-500/25"
+                        disabled={isSending}
+                        className="group w-full !rounded-xl !bg-gradient-to-r !from-brand-500 !to-violet-600 !shadow-lg !shadow-brand-500/20 transition-all duration-300 hover:!from-brand-600 hover:!to-violet-700 hover:!shadow-xl hover:!shadow-brand-500/25 disabled:cursor-not-allowed disabled:opacity-70"
                       >
-                        Send Message
+                        {isSending ? "Sending..." : "Send Message"}
 
                         <Send
                           size={17}
@@ -753,6 +783,12 @@ export default function ContactPage() {
                         />
 
                       </Button>
+
+                      {submitError ? (
+                        <p className="text-center text-sm text-red-500">
+                          {submitError}
+                        </p>
+                      ) : null}
 
 
                       {/* Privacy */}

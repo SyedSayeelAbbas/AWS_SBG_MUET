@@ -517,7 +517,7 @@ export default function JoinPage() {
               {/* Actions */}
               <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Link
-                  to="/join"
+                  to="https://www.meetup.com/aws-sbg-at-mehran-uni-engineering-and-tech-jamshoro-pakistan/"
                   className="
                     group
                     inline-flex
