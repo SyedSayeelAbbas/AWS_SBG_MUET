@@ -93,11 +93,11 @@ function SectionEyebrow({
   title: string;
 }) {
   return (
-    <div className="mb-8 text-center">
-      <span className="text-xs font-bold uppercase tracking-[0.2em] text-brand-600">
+    <div className="mb-6 text-center sm:mb-8">
+      <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-brand-600 sm:text-xs sm:tracking-[0.2em]">
         {eyebrow}
       </span>
-      <h3 className="mt-3 text-3xl font-extrabold tracking-tight text-heading">
+      <h3 className="mt-2 text-xl font-extrabold tracking-tight text-heading sm:mt-3 sm:text-3xl">
         {title}
       </h3>
     </div>
@@ -224,7 +224,7 @@ export default function TeamGrid() {
             )}
 
             {coLeads.length > 0 && (
-              <div className="mb-16">
+              <div className="mb-12 sm:mb-16">
                 <SectionEyebrow
                   eyebrow="Co-Leadership"
                   title="Standing Beside the Leader"
@@ -260,8 +260,8 @@ export default function TeamGrid() {
                     aria-expanded={isOpen}
                     className={`
                       group relative mb-6 flex w-full items-center justify-between
-                      overflow-hidden rounded-[24px] border px-5 py-4 text-left
-                      transition-all duration-300 sm:px-6 sm:py-5
+                      overflow-hidden rounded-[18px] border px-4 py-3 text-left
+                      transition-all duration-300 sm:rounded-[24px] sm:px-6 sm:py-5
                       ${
                         isOpen
                           ? `border-gray-100 bg-gradient-to-r ${accent.headerGradient} shadow-sm`
@@ -281,7 +281,7 @@ export default function TeamGrid() {
                     />
 
                     {/* Left side */}
-                    <div className="relative flex min-w-0 items-center gap-4">
+                    <div className="relative flex min-w-0 items-center gap-3 sm:gap-4">
                       {/* Department icon — larger, department-tinted */}
                       <motion.div
                         animate={{
@@ -289,18 +289,19 @@ export default function TeamGrid() {
                         }}
                         transition={{ duration: 0.25 }}
                         className={`
-                          flex h-14 w-14 shrink-0 items-center justify-center
-                          rounded-2xl transition-all duration-300
+                          flex h-10 w-10 shrink-0 items-center justify-center
+                          rounded-xl transition-all duration-300
+                          sm:h-14 sm:w-14 sm:rounded-2xl
                           ${isOpen ? `${accent.iconBg} ${accent.iconText}` : "bg-gray-50 text-gray-400"}
                         `}
                       >
-                        <Users className="h-6 w-6" />
+                        <Users className="h-4.5 w-4.5 sm:h-6 sm:w-6" />
                       </motion.div>
 
                       {/* Department information */}
                       <div className="min-w-0">
-                        <div className="mb-1 flex items-center gap-2">
-                          <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400">
+                        <div className="mb-0.5 flex items-center gap-2 sm:mb-1">
+                          <span className="text-[9px] font-bold uppercase tracking-[0.1em] text-gray-400 sm:text-[10px] sm:tracking-[0.15em]">
                             Department
                           </span>
 
@@ -313,14 +314,14 @@ export default function TeamGrid() {
                           )}
                         </div>
 
-                        <h3 className="truncate text-lg font-bold tracking-tight text-heading sm:text-xl">
+                        <h3 className="truncate text-base font-bold tracking-tight text-heading sm:text-xl">
                           {dept}
                         </h3>
                       </div>
                     </div>
 
                     {/* Right side */}
-                    <div className="relative flex shrink-0 items-center gap-3 sm:gap-4">
+                    <div className="relative flex shrink-0 items-center gap-2.5 sm:gap-4">
                       {/* Member count */}
                       <span className="hidden text-xs font-medium text-gray-400 sm:inline">
                         {members.length}{" "}
@@ -337,8 +338,9 @@ export default function TeamGrid() {
                         animate={{ rotate: isOpen ? 180 : 0 }}
                         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                         className={`
-                          flex h-9 w-9 items-center justify-center
-                          rounded-xl transition-colors duration-300
+                          flex h-7 w-7 items-center justify-center
+                          rounded-lg transition-colors duration-300
+                          sm:h-9 sm:w-9 sm:rounded-xl
                           ${
                             isOpen
                               ? `${accent.chevronBg} text-white shadow-sm`
@@ -346,7 +348,7 @@ export default function TeamGrid() {
                           }
                         `}
                       >
-                        <ChevronDown className="h-4 w-4" />
+                        <ChevronDown className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       </motion.div>
                     </div>
                   </button>
@@ -361,7 +363,7 @@ export default function TeamGrid() {
                         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                         className="overflow-hidden"
                       >
-                        <div className="flex flex-wrap justify-center gap-6 pb-2 lg:gap-8">
+                        <div className="flex flex-wrap justify-center gap-4 pb-2 sm:gap-6 lg:gap-8">
                           {members.map((member) => (
                             <div
                               key={member.id}
@@ -388,7 +390,7 @@ export default function TeamGrid() {
                   title="Building Behind the Scenes"
                 />
 
-                <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
+                <div className="flex flex-wrap justify-center gap-4 sm:gap-6 lg:gap-8">
                   {flatCore.map((member) => (
                     <div
                       key={member.id}

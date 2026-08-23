@@ -26,6 +26,9 @@ import {
   type GalleryItem,
 } from "../../constants/gallery";
 
+// Shared easing curve — matches AboutPage.jsx / EventsPage.jsx
+const EASE = [0.22, 1, 0.36, 1];
+
 
 export default function GalleryPage() {
   /* =========================================================
@@ -692,98 +695,209 @@ export default function GalleryPage() {
 
 
       {/* =====================================================
-          CTA
+          CTA — rebuilt to match EventsPage / AboutPage CTA
       ===================================================== */}
 
-      <SectionWrapper
-        background="gradient"
-        className="pt-0"
-      >
+      <SectionWrapper background="gradient" className="pt-0">
 
         <Container>
 
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.7,
-            }}
-            className="relative overflow-hidden rounded-[34px] border border-white/20 bg-gradient-to-br from-[#5b21b6] via-[#7c3aed] to-[#a21caf] px-6 py-14 text-center shadow-[0_30px_100px_rgba(124,58,237,0.25)] sm:px-10 md:px-14 md:py-18"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: EASE }}
+            className="
+              relative
+              overflow-hidden
+              rounded-[36px]
+              border
+              border-white/10
+              bg-brand-700
+              px-7
+              py-14
+              text-center
+              shadow-[0_30px_80px_rgba(76,29,149,0.35)]
+              md:px-14
+              md:py-16
+            "
           >
 
-            {/* Decorative glows */}
+            {/* Glow layers — matches EventsPage CTA */}
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute
+                left-1/2
+                top-1/2
+                h-72
+                w-72
+                -translate-x-1/2
+                -translate-y-1/2
+                rounded-full
+                bg-white/10
+                blur-[100px]
+              "
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -left-16 -top-16 h-40 w-40 rounded-full bg-fuchsia-400/20 blur-[90px]"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -bottom-16 -right-16 h-40 w-40 rounded-full bg-brand-400/20 blur-[90px]"
+            />
 
-            <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+            {/* Subtle grid texture for depth */}
+            <div
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute
+                inset-0
+                opacity-[0.07]
+                [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)]
+                [background-size:32px_32px]
+              "
+            />
 
-            <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-fuchsia-300/20 blur-3xl" />
-
-
-            {/* CTA */}
+            {/* Floating particles — same pattern as EventsPage / AboutPage */}
+            {[...Array(6)].map((_, index) => (
+              <motion.span
+                key={index}
+                aria-hidden="true"
+                animate={{
+                  y: [0, -18, 0],
+                  opacity: [0.2, 0.8, 0.2],
+                }}
+                transition={{
+                  duration: 4 + index,
+                  repeat: Infinity,
+                  delay: index * 0.35,
+                }}
+                className="
+                  pointer-events-none
+                  absolute
+                  h-1.5
+                  w-1.5
+                  rounded-full
+                  bg-white
+                "
+                style={{
+                  left: `${10 + index * 16}%`,
+                  top: `${18 + (index % 3) * 25}%`,
+                }}
+              />
+            ))}
 
             <div className="relative">
 
-              <div className="mx-auto flex h-13 w-13 items-center justify-center rounded-2xl border border-white/20 bg-white/10 text-white backdrop-blur-xl">
+              {/* Icon badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.7 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+                className="
+                  mx-auto
+                  mb-6
+                  flex
+                  h-14
+                  w-14
+                  items-center
+                  justify-center
+                  rounded-2xl
+                  border
+                  border-white/20
+                  bg-white/10
+                  text-white
+                  shadow-lg
+                  backdrop-blur-md
+                "
+              >
+                <Camera size={24} />
+              </motion.div>
 
-                <Camera size={23} />
+              <motion.span
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.15, ease: EASE }}
+                className="text-sm font-semibold uppercase tracking-[0.2em] text-white"
+              >
+                Join the Story
+              </motion.span>
 
-              </div>
-
-
-              <h2 className="mx-auto mt-6 max-w-3xl text-3xl font-black tracking-tight text-white sm:text-4xl md:text-5xl">
-
-                Your next moment could be
-
-                <span className="block text-violet-200">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
+                className="mx-auto mt-4 max-w-3xl text-3xl font-black text-white sm:text-4xl md:text-5xl"
+              >
+                Your next moment could be{" "}
+                <span className="block text-white">
                   part of our story.
                 </span>
+              </motion.h2>
 
-              </h2>
-
-
-              <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-white/75 md:text-base md:leading-7">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.28, ease: EASE }}
+                className="mx-auto mt-5 max-w-xl text-base leading-7 text-white"
+              >
                 Join the AWS Student Builder Club MUET community,
                 participate in our activities and create memories
                 worth sharing.
-              </p>
+              </motion.p>
 
-
-              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-
-                <Link to="/join">
-
+              {/* Actions */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.36, ease: EASE }}
+                className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row"
+              >
+                <Link to="/join" className="w-full sm:w-auto">
                   <Button
                     size="lg"
                     showArrow
-                    className="w-full bg-white !text-brand-700 shadow-xl shadow-black/10 hover:bg-white/90 sm:w-auto"
+                    className="
+                      w-full
+                      !border-0
+                      !bg-white
+                      
+                      shadow-[0_10px_30px_rgba(0,0,0,0.12)]
+                      hover:!bg-white
+                      sm:w-auto
+                    "
                   >
                     Join Community
                   </Button>
-
                 </Link>
 
-
-                <Link to="/events">
-
+                <Link to="/events" className="w-full sm:w-auto">
                   <Button
                     size="lg"
-                    variant="secondary"
-                    className="w-full border-white/25 bg-white/10 !text-white backdrop-blur-xl hover:bg-white/20 sm:w-auto"
+                    showArrow
+                    className="
+                      w-full
+                      !border
+                      !border-white/30
+                      !bg-white/10
+                      !shadow-none
+                      hover:!bg-white/20
+                      sm:w-auto
+                    "
                   >
                     Explore Events
                   </Button>
-
                 </Link>
-
-              </div>
+              </motion.div>
 
             </div>
 

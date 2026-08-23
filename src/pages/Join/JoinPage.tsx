@@ -15,6 +15,9 @@ import SectionWrapper from "../../components/common/SectionWrapper";
 import SectionHeading from "../../components/common/SectionHeading";
 import { Button } from "../../components/ui/Button";
 
+// Shared easing curve — matches AboutPage / EventsPage / GalleryPage
+const EASE = [0.22, 1, 0.36, 1];
+
 const benefits = [
   {
     icon: Cloud,
@@ -57,6 +60,12 @@ const joinHeroStats = [
   { icon: Zap, value: "Free", label: "To Join", offset: "sm:-mt-1" },
 ];
 
+const trustItems = [
+  "35+ events hosted",
+  "500+ students reached",
+  "Since 2023",
+];
+
 export default function JoinPage() {
   return (
     <main>
@@ -64,7 +73,7 @@ export default function JoinPage() {
           HERO — ambient purple glow + floating cloud visual
       ===================================================== */}
 
-      <section className="relative overflow-hidden pt-28 sm:pt-32 lg:pt-36 pb-20 lg:pb-24">
+      <section className="relative overflow-hidden pt-28 sm:pt-32 lg:pt-36 pb-14 sm:pb-20 lg:pb-24">
         {/* Base background — stays mostly white */}
         <div className="absolute inset-0 bg-white" />
 
@@ -138,14 +147,14 @@ export default function JoinPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/70 px-4 py-1.5 backdrop-blur-xl"
+              className="mx-auto mb-5 inline-flex max-w-[92vw] items-center gap-2 rounded-full border border-violet-200 bg-white/70 px-3 py-1.5 backdrop-blur-xl sm:px-4"
             >
-              <span className="relative flex h-2 w-2">
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
               </span>
-              <Users size={14} className="text-brand-700" />
-              <span className="text-xs font-semibold text-heading">
+              <Users size={14} className="shrink-0 text-brand-700" />
+              <span className="text-[11px] font-semibold text-heading sm:text-xs">
                 AWS Student Builder Club MUET
               </span>
             </motion.div>
@@ -155,7 +164,7 @@ export default function JoinPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.08 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.08] tracking-[-0.035em] text-gray-900"
+              className="text-[2.1rem] leading-[1.12] sm:text-5xl sm:leading-[1.08] lg:text-6xl font-black tracking-[-0.035em] text-gray-900 px-2"
             >
               Build Something{" "}
               <span className="gradient-text gradient-glow">Greater.</span>
@@ -166,7 +175,7 @@ export default function JoinPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="mx-auto mt-5 max-w-xl text-sm sm:text-base leading-6 sm:leading-7 text-gray-600"
+              className="mx-auto mt-5 max-w-xl px-3 text-sm sm:px-0 sm:text-base leading-6 sm:leading-7 text-gray-600"
             >
               Join a community of students passionate about cloud computing,
               technology, software development and building real-world
@@ -178,7 +187,7 @@ export default function JoinPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35 }}
-              className="mx-auto mt-14 grid max-w-2xl grid-cols-3 gap-4 sm:gap-6"
+              className="mx-auto mt-10 grid max-w-2xl grid-cols-3 gap-2.5 sm:mt-14 sm:gap-6"
             >
               {joinHeroStats.map((stat, i) => {
                 const Icon = stat.icon;
@@ -191,7 +200,7 @@ export default function JoinPage() {
                     transition={{
                       duration: 0.5,
                       delay: 0.4 + i * 0.1,
-                      ease: [0.22, 1, 0.36, 1],
+                      ease: EASE,
                     }}
                     whileHover={{ y: -6 }}
                     className={`
@@ -202,15 +211,16 @@ export default function JoinPage() {
                     {/* hover glow */}
                     <div className="pointer-events-none absolute -inset-3 -z-10 rounded-full bg-violet-300/0 blur-2xl transition-colors duration-300 group-hover:bg-violet-300/25" />
 
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-violet-100 to-fuchsia-50 text-brand-700 shadow-sm">
-                      <Icon size={18} />
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-violet-100 to-fuchsia-50 text-brand-700 shadow-sm sm:h-11 sm:w-11">
+                      <Icon size={16} className="sm:hidden" />
+                      <Icon size={18} className="hidden sm:block" />
                     </span>
 
-                    <h3 className="mt-3 text-2xl font-black gradient-text">
+                    <h3 className="mt-2.5 text-lg font-black gradient-text sm:mt-3 sm:text-2xl">
                       {stat.value}
                     </h3>
 
-                    <p className="mt-1 text-xs font-medium uppercase tracking-wide text-slate-500">
+                    <p className="mt-1 text-center text-[9px] font-medium uppercase leading-tight tracking-wide text-slate-500 sm:text-xs">
                       {stat.label}
                     </p>
 
@@ -225,14 +235,14 @@ export default function JoinPage() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
-              className="mt-12 flex flex-wrap items-center justify-center gap-4"
+              className="mt-10 flex flex-col items-center justify-center gap-3 sm:mt-12 sm:flex-row sm:gap-4"
             >
-              <Button size="lg" showArrow>
+              <Button size="lg" showArrow className="w-full sm:w-auto">
                 Join the Community
               </Button>
 
-              <Link to="/events">
-                <Button size="lg" variant="secondary">
+              <Link to="/events" className="w-full sm:w-auto">
+                <Button size="lg" variant="secondary" className="w-full sm:w-auto">
                   Explore Events
                 </Button>
               </Link>
@@ -243,7 +253,7 @@ export default function JoinPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.85 }}
-              className="mt-6 text-sm text-gray-500"
+              className="mt-6 px-4 text-xs text-gray-500 sm:px-0 sm:text-sm"
             >
               Whether you're just starting your cloud journey or already
               building projects, there is a place for you here.
@@ -287,16 +297,18 @@ export default function JoinPage() {
                   whileHover={{ y: -8, scale: 1.015 }}
                   className="
                     group
-                    rounded-[26px]
+                    rounded-[22px]
                     border
                     border-gray-200/70
                     bg-white
-                    p-6
+                    p-5
                     shadow-[0_12px_40px_rgba(0,0,0,0.04)]
                     transition-all
                     duration-300
                     hover:border-violet-200
                     hover:shadow-[0_25px_60px_rgba(124,58,237,0.14)]
+                    sm:rounded-[26px]
+                    sm:p-6
                   "
                 >
                   <div className="relative">
@@ -306,8 +318,8 @@ export default function JoinPage() {
                       className="
                         relative
                         flex
-                        h-14
-                        w-14
+                        h-12
+                        w-12
                         items-center
                         justify-center
                         rounded-2xl
@@ -319,17 +331,20 @@ export default function JoinPage() {
                         transition-transform
                         duration-300
                         group-hover:rotate-6
+                        sm:h-14
+                        sm:w-14
                       "
                     >
-                      <Icon size={23} />
+                      <Icon size={20} className="sm:hidden" />
+                      <Icon size={23} className="hidden sm:block" />
                     </div>
                   </div>
 
-                  <h3 className="mt-6 text-lg font-bold text-heading">
+                  <h3 className="mt-5 text-base font-bold text-heading sm:mt-6 sm:text-lg">
                     {benefit.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-6 text-gray-500">
+                  <p className="mt-2.5 text-sm leading-6 text-gray-500 sm:mt-3">
                     {benefit.description}
                   </p>
                 </motion.div>
@@ -345,7 +360,7 @@ export default function JoinPage() {
 
       <SectionWrapper background="gradient">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div className="grid gap-8 sm:gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <SectionHeading
                 eyebrow="Be Part of It"
@@ -360,7 +375,7 @@ export default function JoinPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="relative overflow-hidden rounded-[30px] border border-white/70 bg-white/70 p-7 shadow-[0_20px_70px_rgba(124,58,237,0.10)] backdrop-blur-xl md:p-9"
+              className="relative overflow-hidden rounded-[24px] border border-white/70 bg-white/70 p-5 shadow-[0_20px_70px_rgba(124,58,237,0.10)] backdrop-blur-xl sm:rounded-[30px] sm:p-7 md:p-9"
             >
               {/* faint grid pattern */}
               <div
@@ -385,7 +400,7 @@ export default function JoinPage() {
                 <CheckCircle2 size={20} />
               </div>
 
-              <div className="relative mt-6 space-y-5">
+              <div className="relative mt-5 space-y-4 sm:mt-6 sm:space-y-5">
                 {expectations.map((item, index) => (
                   <motion.div
                     key={item}
@@ -396,7 +411,7 @@ export default function JoinPage() {
                       duration: 0.4,
                       delay: index * 0.06,
                     }}
-                    className="flex items-start gap-4"
+                    className="flex items-start gap-3 sm:gap-4"
                   >
                     <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-50 text-[10px] font-bold text-brand-600">
                       {String(index + 1).padStart(2, "0")}
@@ -414,7 +429,7 @@ export default function JoinPage() {
       </SectionWrapper>
 
       {/* =====================================================
-          CTA — richer gradient + softer lighting
+          CTA — rebuilt to match EventsPage / AboutPage / GalleryPage CTA
       ===================================================== */}
 
       <SectionWrapper background="white">
@@ -422,70 +437,107 @@ export default function JoinPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: EASE }}
             className="
               relative
               overflow-hidden
-              rounded-[36px]
+              rounded-[28px]
               border
               border-white/10
-              bg-gradient-to-br
-              from-brand-700
-              via-violet-700
-              to-purple-800
-              px-7
-              py-14
+              bg-brand-700
+              px-5
+              py-10
               text-center
               shadow-[0_30px_80px_rgba(76,29,149,0.35)]
+              sm:rounded-[36px]
+              sm:px-7
+              sm:py-14
               md:px-14
               md:py-16
             "
           >
-            {/* Radial glow behind the heading */}
+            {/* Glow layers — matches Events/About/Gallery CTA */}
             <div
+              aria-hidden="true"
               className="
                 pointer-events-none
                 absolute
                 left-1/2
-                top-[38%]
-                h-80
-                w-80
+                top-1/2
+                h-72
+                w-72
                 -translate-x-1/2
                 -translate-y-1/2
                 rounded-full
-                bg-white/15
-                blur-[110px]
+                bg-white/10
+                blur-[100px]
               "
             />
-            <div className="pointer-events-none absolute -left-16 -top-16 h-40 w-40 rounded-full bg-fuchsia-400/20 blur-[90px]" />
-            <div className="pointer-events-none absolute -bottom-16 -right-16 h-40 w-40 rounded-full bg-brand-400/20 blur-[90px]" />
-
-            {/* Very subtle grid texture */}
             <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -left-16 -top-16 h-40 w-40 rounded-full bg-fuchsia-400/20 blur-[90px]"
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -bottom-16 -right-16 h-40 w-40 rounded-full bg-brand-400/20 blur-[90px]"
+            />
+
+            {/* Subtle grid texture for depth */}
+            <div
+              aria-hidden="true"
               className="
                 pointer-events-none
                 absolute
                 inset-0
-                opacity-[0.045]
+                opacity-[0.07]
                 [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)]
                 [background-size:32px_32px]
               "
             />
+
+            {/* Floating particles — same pattern as Events/About/Gallery CTA */}
+            {[...Array(6)].map((_, index) => (
+              <motion.span
+                key={index}
+                aria-hidden="true"
+                animate={{
+                  y: [0, -18, 0],
+                  opacity: [0.2, 0.8, 0.2],
+                }}
+                transition={{
+                  duration: 4 + index,
+                  repeat: Infinity,
+                  delay: index * 0.35,
+                }}
+                className="
+                  pointer-events-none
+                  absolute
+                  h-1.5
+                  w-1.5
+                  rounded-full
+                  bg-white
+                "
+                style={{
+                  left: `${10 + index * 16}%`,
+                  top: `${18 + (index % 3) * 25}%`,
+                }}
+              />
+            ))}
 
             <div className="relative">
               {/* Icon badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.7 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
                 className="
                   mx-auto
-                  mb-6
+                  mb-5
                   flex
-                  h-14
-                  w-14
+                  h-12
+                  w-12
                   items-center
                   justify-center
                   rounded-2xl
@@ -495,47 +547,81 @@ export default function JoinPage() {
                   text-white
                   shadow-lg
                   backdrop-blur-md
+                  sm:mb-6
+                  sm:h-14
+                  sm:w-14
                 "
               >
-                <Sparkles size={24} />
+                <Sparkles size={20} className="sm:hidden" />
+                <Sparkles size={24} className="hidden sm:block" />
               </motion.div>
 
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-white">
+              <motion.span
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.15, ease: EASE }}
+                className="text-xs font-semibold uppercase tracking-[0.2em] text-white sm:text-sm"
+              >
                 Join the Club
-              </span>
+              </motion.span>
 
-              <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-black text-white md:text-5xl">
-                Ready to start{" "}
-                <span className="text-white">building?</span>
-              </h2>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
+                className="mx-auto mt-4 max-w-2xl text-2xl font-black text-white sm:text-3xl md:text-5xl"
+              >
+                Ready to start <span className="text-white">building?</span>
+              </motion.h2>
 
-              <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-white/90">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.28, ease: EASE }}
+                className="mx-auto mt-4 max-w-xl px-2 text-sm leading-6 text-white sm:mt-5 sm:px-0 sm:text-base sm:leading-7"
+              >
                 Become part of a growing community of student builders at
                 MUET and start your cloud and technology journey with us.
-              </p>
+              </motion.p>
 
               {/* Actions */}
-              <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6, delay: 0.36, ease: EASE }}
+                className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-9 sm:flex-row sm:gap-4"
+              >
                 <Link
                   to="https://www.meetup.com/aws-sbg-at-mehran-uni-engineering-and-tech-jamshoro-pakistan/"
                   className="
                     group
                     inline-flex
+                    w-full
                     items-center
+                    justify-center
                     gap-2
                     rounded-2xl
                     bg-white
-                    px-7
-                    py-3.5
+                    px-6
+                    py-3
+                    text-sm
                     font-semibold
                     text-brand-700
-                    shadow-[0_10px_30px_rgba(0,0,0,0.15)]
+                    shadow-xl
+                    shadow-black/20
                     transition-all
                     duration-300
                     hover:-translate-y-1
-                    hover:scale-[1.02]
                     hover:bg-brand-50
                     hover:shadow-2xl
+                    sm:w-auto
+                    sm:px-7
+                    sm:py-3.5
+                    sm:text-base
                   "
                 >
                   Join Community
@@ -549,41 +635,54 @@ export default function JoinPage() {
                   to="/contact"
                   className="
                     inline-flex
+                    w-full
                     items-center
+                    justify-center
                     gap-2
                     rounded-2xl
                     border
-                    border-white/30
+                    border-white/25
                     bg-white/5
-                    px-7
-                    py-3.5
+                    px-6
+                    py-3
+                    text-sm
                     font-semibold
                     text-white
                     backdrop-blur-md
                     transition-all
                     duration-300
                     hover:-translate-y-1
-                    hover:bg-white/10
+                    hover:border-white/40
+                    hover:bg-white/15
+                    sm:w-auto
+                    sm:px-7
+                    sm:py-3.5
+                    sm:text-base
                   "
                 >
                   Contact Us
                 </Link>
-              </div>
+              </motion.div>
 
-              {/* Trust row */}
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-t border-white/10 pt-7 text-sm text-white">
-                <span className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                  35+ events hosted
-                </span>
-                <span className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                  500+ students reached
-                </span>
-                <span className="flex items-center gap-2">
-                  <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                  Since 2023
-                </span>
+              {/* Trust row — staggered like Events/About CTA */}
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2.5 border-t border-white/10 pt-6 text-xs text-white sm:mt-10 sm:gap-x-8 sm:gap-y-3 sm:pt-7 sm:text-sm">
+                {trustItems.map((item, index) => (
+                  <motion.span
+                    key={item}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{
+                      duration: 0.5,
+                      delay: 0.45 + index * 0.08,
+                      ease: EASE,
+                    }}
+                    className="flex items-center gap-2"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-white" />
+                    {item}
+                  </motion.span>
+                ))}
               </div>
             </div>
           </motion.div>

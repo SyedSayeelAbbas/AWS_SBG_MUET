@@ -33,7 +33,8 @@ export default function SectionWrapper({
       className={`
         relative
         overflow-hidden
-        py-20
+        py-14
+        sm:py-20
         md:py-24
         lg:py-28
         ${backgrounds[background]}
@@ -45,13 +46,18 @@ export default function SectionWrapper({
         className="
           pointer-events-none
           absolute
-          -left-40
-          top-20
-          h-72
-          w-72
+          -left-24
+          top-14
+          h-48
+          w-48
+          sm:-left-40
+          sm:top-20
+          sm:h-72
+          sm:w-72
           rounded-full
           bg-brand-500/5
-          blur-[100px]
+          blur-[60px]
+          sm:blur-[100px]
         "
       />
 
@@ -59,13 +65,17 @@ export default function SectionWrapper({
         className="
           pointer-events-none
           absolute
-          -right-40
+          -right-24
           bottom-0
-          h-80
-          w-80
+          h-52
+          w-52
+          sm:-right-40
+          sm:h-80
+          sm:w-80
           rounded-full
           bg-brand-500/5
-          blur-[110px]
+          blur-[70px]
+          sm:blur-[110px]
         "
       />
 

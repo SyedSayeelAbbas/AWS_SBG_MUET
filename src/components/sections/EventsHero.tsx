@@ -13,7 +13,7 @@ const statMeta = [
 
 export default function EventsHero() {
   return (
-    <section className="relative overflow-hidden pt-28 sm:pt-32 lg:pt-36 pb-20 lg:pb-24">
+    <section className="relative overflow-hidden pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 lg:pb-24">
       {/* Base Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-violet-50 via-white to-white" />
 
@@ -24,12 +24,18 @@ export default function EventsHero() {
           absolute
           left-1/2
           top-24
-          h-[500px]
-          w-[700px]
+          h-[320px]
+          w-[420px]
           -translate-x-1/2
           rounded-full
           bg-violet-300/20
-          blur-[120px]
+          blur-[90px]
+          sm:h-[400px]
+          sm:w-[560px]
+          sm:blur-[110px]
+          lg:h-[500px]
+          lg:w-[700px]
+          lg:blur-[120px]
         "
       />
       <div
@@ -38,15 +44,18 @@ export default function EventsHero() {
           absolute
           right-[15%]
           top-16
-          h-32
-          w-32
+          h-20
+          w-20
           rounded-full
           bg-fuchsia-300/20
-          blur-3xl
+          blur-2xl
+          sm:h-32
+          sm:w-32
+          sm:blur-3xl
         "
       />
 
-      {/* Faint floating particles */}
+      {/* Faint floating particles — hidden on the smallest screens to reduce visual noise */}
       {[
         { top: "20%", left: "8%", size: 6, delay: 0 },
         { top: "30%", left: "90%", size: 4, delay: 1.2 },
@@ -64,7 +73,7 @@ export default function EventsHero() {
             delay: p.delay,
           }}
           style={{ top: p.top, left: p.left, width: p.size, height: p.size }}
-          className="pointer-events-none absolute rounded-full bg-brand-400"
+          className="pointer-events-none absolute hidden rounded-full bg-brand-400 sm:block"
         />
       ))}
 
@@ -118,14 +127,15 @@ export default function EventsHero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/70 px-4 py-1.5 backdrop-blur-xl"
+            className="mx-auto mb-4 inline-flex items-center gap-1.5 rounded-full border border-violet-200 bg-white/70 px-3 py-1.5 backdrop-blur-xl sm:mb-5 sm:gap-2 sm:px-4"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-500 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-600" />
             </span>
-            <CalendarDays size={14} className="text-brand-700" />
-            <span className="text-xs font-semibold text-heading">
+            <CalendarDays size={13} className="text-brand-700 sm:hidden" />
+            <CalendarDays size={14} className="hidden text-brand-700 sm:block" />
+            <span className="text-[11px] font-semibold text-heading sm:text-xs">
               Events & Workshops
             </span>
           </motion.div>
@@ -135,7 +145,7 @@ export default function EventsHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.08 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.02] tracking-[-0.04em] text-gray-900"
+            className="text-[2.1rem] sm:text-5xl lg:text-6xl font-black leading-[1.05] sm:leading-[1.02] tracking-[-0.03em] sm:tracking-[-0.04em] text-gray-900"
           >
             Every Event We've{" "}
             <span className="gradient-text gradient-glow">Built Together</span>
@@ -146,7 +156,7 @@ export default function EventsHero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="mx-auto mt-5 max-w-xl text-sm sm:text-base leading-6 sm:leading-7 text-gray-600"
+            className="mx-auto mt-4 max-w-xl text-sm sm:mt-5 sm:text-base leading-6 sm:leading-7 text-gray-600"
           >
             From hands-on workshops to flagship hackathons, explore
             everything AWS Student Builder Club MUET has hosted.
@@ -157,7 +167,7 @@ export default function EventsHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="mx-auto mt-14 grid max-w-2xl grid-cols-3 gap-4 sm:gap-5"
+            className="mx-auto mt-10 grid max-w-2xl grid-cols-3 gap-2.5 sm:mt-14 sm:gap-4 lg:gap-5"
           >
             {eventsHeroStats.map((stat, i) => {
               const meta = statMeta[i] ?? statMeta[0];
@@ -175,33 +185,37 @@ export default function EventsHero() {
                   }}
                   whileHover={{ y: -6 }}
                   className="
-                    rounded-2xl
+                    rounded-xl
                     border
                     border-white/70
                     bg-white/60
-                    p-4
+                    p-2.5
                     shadow-[0_12px_40px_rgba(124,58,237,0.08)]
                     backdrop-blur-xl
                     transition-shadow
                     duration-300
                     hover:shadow-[0_18px_50px_rgba(124,58,237,0.14)]
-                    sm:p-5
+                    sm:rounded-2xl
+                    sm:p-4
+                    lg:p-5
                   "
                 >
                   <span
                     className={`
-                      mx-auto mb-2.5 flex h-9 w-9 items-center justify-center
-                      rounded-xl bg-gradient-to-br ${meta.tint} ${meta.iconColor}
+                      mx-auto mb-2 flex h-7 w-7 items-center justify-center
+                      rounded-lg bg-gradient-to-br ${meta.tint} ${meta.iconColor}
+                      sm:mb-2.5 sm:h-9 sm:w-9 sm:rounded-xl
                     `}
                   >
-                    <Icon size={16} />
+                    <Icon size={14} className="sm:hidden" />
+                    <Icon size={16} className="hidden sm:block" />
                   </span>
 
-                  <h3 className="text-xl font-bold gradient-text sm:text-2xl">
+                  <h3 className="text-base font-bold gradient-text sm:text-xl lg:text-2xl">
                     {stat.value}
                   </h3>
 
-                  <p className="mt-1 text-xs text-slate-600 sm:text-sm">
+                  <p className="mt-1 text-[10px] leading-tight text-slate-600 sm:text-xs lg:text-sm">
                     {stat.label}
                   </p>
                 </motion.div>
@@ -214,7 +228,7 @@ export default function EventsHero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.7 }}
-            className="mt-11"
+            className="mt-9 sm:mt-11"
           >
             <a
               href="#events-grid"
@@ -225,8 +239,8 @@ export default function EventsHero() {
                 gap-2
                 rounded-2xl
                 bg-brand-700
-                px-7
-                py-3
+                px-6
+                py-2.5
                 text-sm
                 font-semibold
                 text-white
@@ -237,6 +251,8 @@ export default function EventsHero() {
                 hover:-translate-y-0.5
                 hover:bg-brand-800
                 hover:shadow-xl
+                sm:px-7
+                sm:py-3
               "
             >
               Browse Events
@@ -252,7 +268,7 @@ export default function EventsHero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.9 }}
-            className="mt-6 flex items-center justify-center gap-2 text-xs text-gray-400"
+            className="mt-5 flex items-center justify-center gap-2 text-xs text-gray-400 sm:mt-6"
           >
             <span>Scroll to explore</span>
             <ArrowDown size={12} />

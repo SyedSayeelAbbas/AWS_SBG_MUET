@@ -50,7 +50,7 @@ export default function BlogPage() {
           HERO — editorial, reduced vertical space
       ===================================================== */}
 
-      <section className="relative overflow-hidden pt-24 sm:pt-28 lg:pt-32 pb-14 lg:pb-16">
+      <section className="relative overflow-hidden pt-28 sm:pt-28 lg:pt-32 pb-10 sm:pb-14 lg:pb-16">
         {/* Base Background */}
         <div className="absolute inset-0 bg-gradient-to-b from-violet-50 via-white to-white" />
 
@@ -72,7 +72,7 @@ export default function BlogPage() {
               delay: p.delay,
             }}
             style={{ top: p.top, left: p.left, width: p.size, height: p.size }}
-            className="pointer-events-none absolute rounded-full bg-brand-400"
+            className="pointer-events-none absolute hidden sm:block rounded-full bg-brand-400"
           />
         ))}
 
@@ -99,20 +99,20 @@ export default function BlogPage() {
         <div className="premium-noise" />
 
         <Container className="max-w-7xl">
-          <div className="relative z-10 mx-auto max-w-3xl text-center">
+          <div className="relative z-10 mx-auto max-w-3xl text-center px-2">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/70 px-4 py-1.5 backdrop-blur-xl"
+              className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/70 px-3 py-1.5 sm:px-4 backdrop-blur-xl"
             >
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
               </span>
-              <BookOpen size={14} className="text-brand-700" />
-              <span className="text-xs font-semibold text-heading">
+              <BookOpen size={14} className="text-brand-700 shrink-0" />
+              <span className="text-[11px] sm:text-xs font-semibold text-heading">
                 AWS Student Builder Club
               </span>
             </motion.div>
@@ -122,11 +122,11 @@ export default function BlogPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.08 }}
-              className="relative text-4xl sm:text-5xl lg:text-6xl font-black leading-[1.05] text-gray-900"
+              className="relative text-3xl sm:text-5xl lg:text-6xl font-black leading-[1.1] sm:leading-[1.05] text-gray-900"
             >
               Ideas Worth{" "}
               <span className="relative inline-block">
-                <span className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-24 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-300/25 blur-2xl" />
+                <span className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-16 w-28 sm:h-24 sm:w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-300/25 blur-2xl" />
                 <span className="gradient-text gradient-glow">Sharing.</span>
               </span>
             </motion.h1>
@@ -136,7 +136,7 @@ export default function BlogPage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="mx-auto mt-5 max-w-xl text-base sm:text-lg leading-7 sm:leading-8 text-gray-600"
+              className="mx-auto mt-4 sm:mt-5 max-w-xl text-sm sm:text-lg leading-6 sm:leading-8 text-gray-600"
             >
               Explore practical insights, student experiences, AWS learning
               resources, and stories from our growing builder community.
@@ -153,16 +153,19 @@ export default function BlogPage() {
               relative
               z-10
               mx-auto
-              mt-10
+              mt-8
+              sm:mt-10
               max-w-4xl
               overflow-hidden
-              rounded-[32px]
+              rounded-[22px]
+              sm:rounded-[32px]
               border
               border-violet-100
               bg-white/70
-              p-8
+              p-5
               text-center
               shadow-[0_20px_60px_rgba(124,58,237,0.10)]
+              sm:p-8
               md:p-14
             "
           >
@@ -171,15 +174,20 @@ export default function BlogPage() {
               className="
                 pointer-events-none
                 absolute
-                -right-24
-                -top-24
-                h-72
-                w-72
+                -right-16
+                -top-16
+                h-48
+                w-48
+                sm:-right-24
+                sm:-top-24
+                sm:h-72
+                sm:w-72
                 rounded-full
                 bg-gradient-to-br
                 from-brand-200/40
                 to-fuchsia-200/30
-                blur-[80px]
+                blur-[60px]
+                sm:blur-[80px]
               "
             />
 
@@ -190,26 +198,30 @@ export default function BlogPage() {
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.15 }}
-                className="relative mx-auto flex h-20 w-20 items-center justify-center"
+                className="relative mx-auto flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center"
               >
-                <span className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-100 to-fuchsia-50 shadow-md" />
-                <BookOpen size={32} className="relative text-brand-700" />
+                <span className="absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-violet-100 to-fuchsia-50 shadow-md" />
+                <BookOpen size={28} className="relative text-brand-700 sm:hidden" />
+                <BookOpen size={32} className="relative text-brand-700 hidden sm:block" />
                 <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-white shadow-sm">
                   <Sparkles size={11} className="text-brand-500" />
                 </span>
               </motion.div>
 
               {/* Badge */}
-              <div className="mt-7 inline-flex">
+              <div className="mt-5 sm:mt-7 inline-flex">
                 <span
                   className="
                     rounded-full
                     border
                     border-violet-100
                     bg-violet-50
-                    px-4
-                    py-2
-                    text-xs
+                    px-3
+                    py-1.5
+                    sm:px-4
+                    sm:py-2
+                    text-[10px]
+                    sm:text-xs
                     font-bold
                     uppercase
                     tracking-wider
@@ -223,9 +235,11 @@ export default function BlogPage() {
               <h2
                 className="
                   mx-auto
-                  mt-5
+                  mt-4
+                  sm:mt-5
                   max-w-3xl
-                  text-2xl
+                  text-xl
+                  sm:text-2xl
                   font-black
                   tracking-tight
                   text-heading
@@ -238,10 +252,13 @@ export default function BlogPage() {
               <p
                 className="
                   mx-auto
-                  mt-5
+                  mt-3
+                  sm:mt-5
                   max-w-2xl
-                  text-base
-                  leading-7
+                  text-sm
+                  sm:text-base
+                  leading-6
+                  sm:leading-7
                   text-gray-600
                   md:text-lg
                 "
@@ -251,15 +268,15 @@ export default function BlogPage() {
                 stories.
               </p>
 
-              <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <Link to="/events">
-                  <Button size="lg" showArrow>
+              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
+                <Link to="/events" className="w-full sm:w-auto">
+                  <Button size="lg" showArrow className="w-full sm:w-auto">
                     Explore Events
                   </Button>
                 </Link>
 
-                <Link to="/team">
-                  <Button size="lg" variant="secondary">
+                <Link to="/team" className="w-full sm:w-auto">
+                  <Button size="lg" variant="secondary" className="w-full sm:w-auto">
                     Meet the Team
                   </Button>
                 </Link>
@@ -273,27 +290,27 @@ export default function BlogPage() {
           WHAT TO EXPECT — editorial category cards
       ===================================================== */}
 
-      <section className="relative overflow-hidden py-20 lg:py-24">
+      <section className="relative overflow-hidden py-14 sm:py-20 lg:py-24">
         {/* Soft violet → white → violet, one central glow */}
         <div className="absolute inset-0 bg-gradient-to-b from-violet-50/70 via-white to-violet-50/50" />
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-200/25 blur-[130px]" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-64 sm:h-96 sm:w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-200/25 blur-[90px] sm:blur-[130px]" />
 
         <Container className="relative z-10">
-          <div className="mx-auto max-w-2xl text-center">
-            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-600">
+          <div className="mx-auto max-w-2xl text-center px-2">
+            <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-brand-600">
               What's Coming
             </span>
-            <h2 className="mx-auto mt-4 text-3xl font-black text-heading md:text-5xl">
+            <h2 className="mx-auto mt-3 sm:mt-4 text-2xl sm:text-3xl font-black text-heading md:text-5xl">
               Knowledge From{" "}
               <span className="gradient-text">Builders.</span>
             </h2>
-            <p className="mx-auto mt-5 text-base leading-7 text-gray-600">
+            <p className="mx-auto mt-4 sm:mt-5 text-sm sm:text-base leading-6 sm:leading-7 text-gray-600">
               Our upcoming blog will focus on useful content that helps
               students learn, build and grow.
             </p>
           </div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 sm:mt-14 grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-3">
             {blogCategories.map((category, index) => {
               const style =
                 categoryStyles[
@@ -313,11 +330,13 @@ export default function BlogPage() {
                     group
                     relative
                     overflow-hidden
-                    rounded-[28px]
+                    rounded-[22px]
+                    sm:rounded-[28px]
                     border
                     border-gray-100
                     bg-white
-                    p-7
+                    p-6
+                    sm:p-7
                     shadow-[0_12px_40px_rgba(124,58,237,0.06)]
                     transition-shadow
                     duration-300
@@ -330,9 +349,11 @@ export default function BlogPage() {
                       pointer-events-none
                       absolute
                       -right-1
-                      -top-3
+                      -top-2
+                      sm:-top-3
                       select-none
-                      text-6xl
+                      text-5xl
+                      sm:text-6xl
                       font-black
                       leading-none
                       ${style.ghost}
@@ -345,8 +366,10 @@ export default function BlogPage() {
                     <div
                       className={`
                         flex
-                        h-14
-                        w-14
+                        h-12
+                        w-12
+                        sm:h-14
+                        sm:w-14
                         items-center
                         justify-center
                         rounded-2xl
@@ -359,10 +382,11 @@ export default function BlogPage() {
                         group-hover:scale-105
                       `}
                     >
-                      <Icon size={25} />
+                      <Icon size={22} className="sm:hidden" />
+                      <Icon size={25} className="hidden sm:block" />
                     </div>
 
-                    <h3 className="mt-6 text-xl font-bold text-heading">
+                    <h3 className="mt-5 sm:mt-6 text-lg sm:text-xl font-bold text-heading">
                       {category.title}
                     </h3>
 
@@ -371,11 +395,11 @@ export default function BlogPage() {
                       className={`mt-3 h-px w-10 bg-gradient-to-r ${style.line} to-transparent`}
                     />
 
-                    <p className="mt-4 text-sm leading-6 text-gray-500">
+                    <p className="mt-3 sm:mt-4 text-sm leading-6 text-gray-500">
                       {category.description}
                     </p>
 
-                    <div className="mt-6 flex items-center gap-2 text-sm font-semibold text-brand-600">
+                    <div className="mt-5 sm:mt-6 flex items-center gap-2 text-sm font-semibold text-brand-600">
                       Coming soon
                       <ArrowRight
                         size={16}
@@ -404,14 +428,17 @@ export default function BlogPage() {
             className="
               relative
               overflow-hidden
-              rounded-[36px]
+              rounded-[24px]
+              sm:rounded-[36px]
               border
               border-white/10
               bg-brand-700
-              px-7
-              py-14
+              px-5
+              py-10
               text-center
               shadow-[0_30px_80px_rgba(76,29,149,0.35)]
+              sm:px-7
+              sm:py-14
               md:px-14
               md:py-16
             "
@@ -423,17 +450,20 @@ export default function BlogPage() {
                 absolute
                 left-1/2
                 top-1/2
-                h-72
-                w-72
+                h-48
+                w-48
+                sm:h-72
+                sm:w-72
                 -translate-x-1/2
                 -translate-y-1/2
                 rounded-full
                 bg-white/10
-                blur-[100px]
+                blur-[70px]
+                sm:blur-[100px]
               "
             />
-            <div className="pointer-events-none absolute -left-16 -top-16 h-40 w-40 rounded-full bg-fuchsia-400/20 blur-[90px]" />
-            <div className="pointer-events-none absolute -bottom-16 -right-16 h-40 w-40 rounded-full bg-brand-400/20 blur-[90px]" />
+            <div className="pointer-events-none absolute -left-10 -top-10 h-28 w-28 sm:-left-16 sm:-top-16 sm:h-40 sm:w-40 rounded-full bg-fuchsia-400/20 blur-[60px] sm:blur-[90px]" />
+            <div className="pointer-events-none absolute -bottom-10 -right-10 h-28 w-28 sm:-bottom-16 sm:-right-16 sm:h-40 sm:w-40 rounded-full bg-brand-400/20 blur-[60px] sm:blur-[90px]" />
 
             {/* Grid texture — nearly invisible */}
             <div
@@ -456,10 +486,13 @@ export default function BlogPage() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="
                   mx-auto
-                  mb-6
+                  mb-5
+                  sm:mb-6
                   flex
-                  h-14
-                  w-14
+                  h-12
+                  w-12
+                  sm:h-14
+                  sm:w-14
                   items-center
                   justify-center
                   rounded-2xl
@@ -471,36 +504,42 @@ export default function BlogPage() {
                   backdrop-blur-md
                 "
               >
-                <Sparkles size={24} />
+                <Sparkles size={22} className="sm:hidden" />
+                <Sparkles size={24} className="hidden sm:block" />
               </motion.div>
 
-              <span className="text-sm font-semibold uppercase tracking-[0.2em] text-white">
+              <span className="text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white">
                 Keep Building
               </span>
 
-              <h2 className="mx-auto mt-4 max-w-2xl text-3xl font-black text-white md:text-5xl">
+              <h2 className="mx-auto mt-3 sm:mt-4 max-w-2xl text-2xl sm:text-3xl font-black text-white md:text-5xl">
                 Until then, keep{" "}
                 <span className="text-white/90">building.</span>
               </h2>
 
-              <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-white/80">
+              <p className="mx-auto mt-4 sm:mt-5 max-w-xl text-sm sm:text-base leading-6 sm:leading-7 text-white/80">
                 Join our community, participate in events and be part of
                 the experiences that will shape our future stories.
               </p>
 
               {/* Actions */}
-              <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <div className="mt-7 sm:mt-9 flex flex-col items-center justify-center gap-3 sm:gap-4 sm:flex-row">
                 <Link
                   to="/events"
                   className="
                     group
                     inline-flex
+                    w-full
+                    sm:w-auto
                     items-center
+                    justify-center
                     gap-2
                     rounded-2xl
                     bg-white
-                    px-7
-                    py-3.5
+                    px-6
+                    py-3
+                    sm:px-7
+                    sm:py-3.5
                     font-semibold
                     text-brand-700
                     shadow-xl
@@ -523,14 +562,19 @@ export default function BlogPage() {
                   to="/gallery"
                   className="
                     inline-flex
+                    w-full
+                    sm:w-auto
                     items-center
+                    justify-center
                     gap-2
                     rounded-2xl
                     border
                     border-white/25
                     bg-white/5
-                    px-7
-                    py-3.5
+                    px-6
+                    py-3
+                    sm:px-7
+                    sm:py-3.5
                     font-semibold
                     text-white
                     backdrop-blur-md
@@ -546,7 +590,7 @@ export default function BlogPage() {
               </div>
 
               {/* Trust row */}
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-t border-white/10 pt-7 text-sm text-white">
+              <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-8 gap-y-2 sm:gap-y-3 border-t border-white/10 pt-6 sm:pt-7 text-xs sm:text-sm text-white">
                 <span className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-white" />
                   Student-led

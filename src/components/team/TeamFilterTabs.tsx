@@ -33,18 +33,18 @@ export default function TeamFilterTabs({ categories, active, onChange, counts }:
   };
 
   return (
-    <div className="mb-16">
+    <div className="mb-10 sm:mb-16">
       <div className="mx-auto max-w-5xl">
-        <div className="relative pb-6 pt-4">
+        <div className="relative pb-4 pt-3 sm:pb-6 sm:pt-4">
           {/* Base track — endpoints aligned to the center of the first/last node */}
           <div
-            className="absolute top-11 h-1 rounded-full bg-brand-100"
+            className="absolute top-7 h-1 rounded-full bg-brand-100 sm:top-9 md:top-11"
             style={{ left: trackInset, right: trackInset }}
           />
 
           {/* Filled progress track — anchored right (founding), fills left toward current */}
           <motion.div
-            className="absolute top-11 h-1 origin-right rounded-full bg-gradient-to-r from-brand-500 to-brand-600"
+            className="absolute top-7 h-1 origin-right rounded-full bg-gradient-to-r from-brand-500 to-brand-600 sm:top-9 md:top-11"
             style={{ left: trackInset, right: trackInset }}
             initial={false}
             animate={{ scaleX: progressScale }}
@@ -70,10 +70,10 @@ export default function TeamFilterTabs({ categories, active, onChange, counts }:
                   onClick={() => onChange(cat)}
                   onKeyDown={(e) => handleKeyDown(e, index)}
                   aria-pressed={isActive}
-                  className="group flex flex-col items-center gap-4"
+                  className="group flex flex-col items-center gap-2 px-1 sm:gap-3 md:gap-4"
                 >
                   {/* Node dot */}
-                  <span className="relative flex h-14 w-14 items-center justify-center">
+                  <span className="relative flex h-9 w-9 shrink-0 items-center justify-center sm:h-11 sm:w-11 md:h-14 md:w-14">
                     {isActive && (
                       <motion.span
                         layoutId="timeline-ring"
@@ -87,15 +87,15 @@ export default function TeamFilterTabs({ categories, active, onChange, counts }:
                     )}
 
                     {isCurrent && !isActive && (
-                      <span className="absolute -right-0.5 -top-0.5 flex h-3.5 w-3.5">
+                      <span className="absolute -right-0.5 -top-0.5 flex h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5">
                         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-                        <span className="relative inline-flex h-3.5 w-3.5 rounded-full border-2 border-white bg-emerald-500" />
+                        <span className="relative inline-flex h-2.5 w-2.5 rounded-full border-2 border-white bg-emerald-500 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5" />
                       </span>
                     )}
 
                     <Icon
-                      size={22}
-                      className={`relative transition-colors duration-200 ${
+                      size={16}
+                      className={`relative h-4 w-4 transition-colors duration-200 sm:h-[18px] sm:w-[18px] md:h-[22px] md:w-[22px] ${
                         isActive ? "text-white" : "text-brand-400 group-hover:text-brand-700"
                       }`}
                     />
@@ -104,14 +104,14 @@ export default function TeamFilterTabs({ categories, active, onChange, counts }:
                   {/* Label */}
                   <div className="text-center">
                     <p
-                      className={`text-base font-bold transition-colors duration-200 ${
+                      className={`text-[11px] font-bold leading-tight transition-colors duration-200 sm:text-sm md:text-base ${
                         isActive ? "text-brand-700" : "text-heading/70 group-hover:text-brand-700"
                       }`}
                     >
                       {cat}
                     </p>
                     {typeof count === "number" && (
-                      <p className="mt-1 text-sm text-heading/40">
+                      <p className="mt-0.5 hidden text-xs text-heading/40 sm:mt-1 sm:block md:text-sm">
                         {count} {count === 1 ? "member" : "members"}
                       </p>
                     )}

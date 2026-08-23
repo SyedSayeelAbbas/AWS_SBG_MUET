@@ -67,18 +67,18 @@ export default function EventsGrid() {
         {/* ================================================= */}
         {/* Tenure timeline */}
         {/* ================================================= */}
-        <div className="mb-16">
+        <div className="mb-10 sm:mb-16">
           <div className="mx-auto max-w-5xl">
-            <div className="relative pb-6 pt-4">
+            <div className="relative pb-4 pt-3 sm:pb-6 sm:pt-4">
               {/* Base track — endpoints aligned to the center of the first/last node */}
               <div
-                className="absolute top-11 h-1 rounded-full bg-brand-100"
+                className="absolute top-7 h-1 rounded-full bg-brand-100 sm:top-9 md:top-11"
                 style={{ left: trackInset, right: trackInset }}
               />
 
               {/* Filled progress track — anchored right (founding), fills left toward current */}
               <motion.div
-                className="absolute top-11 h-1 origin-right rounded-full bg-gradient-to-r from-brand-500 to-brand-600"
+                className="absolute top-7 h-1 origin-right rounded-full bg-gradient-to-r from-brand-500 to-brand-600 sm:top-9 md:top-11"
                 style={{ left: trackInset, right: trackInset }}
                 initial={false}
                 animate={{ scaleX: progressScale }}
@@ -97,10 +97,10 @@ export default function EventsGrid() {
                       key={item.id}
                       onClick={() => setTenure(item.id)}
                       aria-pressed={isActive}
-                      className="group flex flex-col items-center gap-4"
+                      className="group flex flex-col items-center gap-2 px-1 sm:gap-3 md:gap-4"
                     >
                       {/* Node dot */}
-                      <span className="relative flex h-14 w-14 items-center justify-center">
+                      <span className="relative flex h-9 w-9 shrink-0 items-center justify-center sm:h-11 sm:w-11 md:h-14 md:w-14">
                         {isActive && (
                           <motion.span
                             layoutId="timeline-ring"
@@ -114,15 +114,15 @@ export default function EventsGrid() {
                         )}
 
                         {item.isCurrent && !isActive && (
-                          <span className="absolute -right-0.5 -top-0.5 flex h-3.5 w-3.5">
+                          <span className="absolute -right-0.5 -top-0.5 flex h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5">
                             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-                            <span className="relative inline-flex h-3.5 w-3.5 rounded-full border-2 border-white bg-emerald-500" />
+                            <span className="relative inline-flex h-2.5 w-2.5 rounded-full border-2 border-white bg-emerald-500 sm:h-3 sm:w-3 md:h-3.5 md:w-3.5" />
                           </span>
                         )}
 
                         <Icon
-                          size={22}
-                          className={`relative transition-colors duration-200 ${
+                          size={16}
+                          className={`relative h-4 w-4 transition-colors duration-200 sm:h-[18px] sm:w-[18px] md:h-[22px] md:w-[22px] ${
                             isActive ? "text-white" : "text-brand-400 group-hover:text-brand-700"
                           }`}
                         />
@@ -131,13 +131,13 @@ export default function EventsGrid() {
                       {/* Label */}
                       <div className="text-center">
                         <p
-                          className={`text-base font-bold transition-colors duration-200 ${
+                          className={`text-[11px] font-bold leading-tight transition-colors duration-200 sm:text-sm md:text-base ${
                             isActive ? "text-brand-700" : "text-heading/70 group-hover:text-brand-700"
                           }`}
                         >
                           {item.label}
                         </p>
-                        <p className="mt-1 text-sm text-heading/40">
+                        <p className="mt-0.5 hidden text-xs text-heading/40 sm:mt-1 sm:block md:text-sm">
                           {count} {count === 1 ? "event" : "events"}
                         </p>
                       </div>
@@ -150,7 +150,7 @@ export default function EventsGrid() {
         </div>
 
         {/* Active tenure summary card */}
-        <div className="mb-16 flex justify-center">
+        <div className="mb-10 flex justify-center sm:mb-16">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTenure.id}
@@ -160,15 +160,22 @@ export default function EventsGrid() {
               transition={{ duration: 0.25 }}
               className="
                 flex
+                w-full
+                max-w-xl
                 items-center
-                gap-5
+                gap-3
                 rounded-2xl
                 border
                 border-brand-100
                 bg-brand-50/50
-                px-8
-                py-5
+                px-5
+                py-4
                 text-center
+                sm:w-auto
+                sm:max-w-none
+                sm:gap-5
+                sm:px-8
+                sm:py-5
                 sm:text-left
               "
             >
@@ -176,8 +183,8 @@ export default function EventsGrid() {
                 <activeTenure.icon size={22} />
               </div>
 
-              <div>
-                <p className="text-base font-semibold text-heading">
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-heading sm:text-base">
                   {activeTenure.label} — {activeTenure.sub}
                   {activeTenure.isCurrent && (
                     <span className="ml-2 inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2.5 py-1 text-xs font-semibold text-emerald-700">
@@ -185,7 +192,7 @@ export default function EventsGrid() {
                     </span>
                   )}
                 </p>
-                <p className="mt-0.5 text-sm text-heading/50">
+                <p className="mt-0.5 text-xs text-heading/50 sm:text-sm">
                   {tenureCounts[activeTenure.id] ?? 0}{" "}
                   {(tenureCounts[activeTenure.id] ?? 0) === 1 ? "event" : "events"}{" "}
                   hosted during this term
@@ -198,7 +205,7 @@ export default function EventsGrid() {
         {/* ================================================= */}
         {/* Category filter */}
         {/* ================================================= */}
-        <div className="mb-8 flex flex-wrap items-center justify-center gap-3">
+        <div className="mb-6 flex flex-wrap items-center justify-center gap-2 sm:mb-8 sm:gap-3">
           {eventCategories.map((item) => {
             const isActive = category === item;
 
@@ -211,12 +218,15 @@ export default function EventsGrid() {
                   relative
                   rounded-full
                   border
-                  px-5
-                  py-2.5
-                  text-sm
+                  px-3.5
+                  py-2
+                  text-xs
                   font-semibold
                   transition-colors
                   duration-300
+                  sm:px-5
+                  sm:py-2.5
+                  sm:text-sm
                   ${
                     isActive
                       ? "border-brand-600 text-white"
@@ -238,7 +248,7 @@ export default function EventsGrid() {
         </div>
 
         {/* Results count */}
-        <p className="mb-8 text-center text-sm text-muted">
+        <p className="mb-6 text-center text-xs text-muted sm:mb-8 sm:text-sm">
           Showing{" "}
           <span className="font-semibold text-heading">
             {filteredEvents.length}
@@ -259,7 +269,7 @@ export default function EventsGrid() {
           <AnimatePresence mode="popLayout">
             <motion.div
               layout
-              className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+              className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3"
             >
               {filteredEvents.map((event) => (
                 <motion.div
@@ -288,15 +298,16 @@ export default function EventsGrid() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-col items-center justify-center rounded-[30px] border border-dashed border-brand-200 bg-brand-50/40 py-24 text-center"
+            className="flex flex-col items-center justify-center rounded-[24px] border border-dashed border-brand-200 bg-brand-50/40 px-6 py-16 text-center sm:rounded-[30px] sm:py-24"
           >
-            <CalendarX size={40} className="text-brand-400" />
+            <CalendarX size={36} className="text-brand-400 sm:hidden" />
+            <CalendarX size={40} className="hidden text-brand-400 sm:block" />
 
-            <p className="mt-4 text-lg font-semibold text-heading">
+            <p className="mt-4 text-base font-semibold text-heading sm:text-lg">
               No events match these filters
             </p>
 
-            <p className="mt-2 text-muted">
+            <p className="mt-2 text-sm text-muted sm:text-base">
               Try a different tenure or category.
             </p>
 
