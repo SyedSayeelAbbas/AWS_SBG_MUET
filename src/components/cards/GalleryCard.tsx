@@ -5,6 +5,11 @@ interface GalleryCardProps {
   title: string;
   className?: string;
   index?: number;
+  /** Fallback aspect ratio used only if the parent/className doesn't
+   *  already give this card a definite height (e.g. no h-*, no
+   *  aspect-*, no grid row-span). Explicit height/aspect classes
+   *  passed via `className` always win over this. */
+  aspectRatio?: string;
 }
 
 export default function GalleryCard({
@@ -12,6 +17,7 @@ export default function GalleryCard({
   title,
   className = "",
   index = 0,
+  aspectRatio = "4 / 5",
 }: GalleryCardProps) {
   return (
     <motion.div
@@ -23,12 +29,16 @@ export default function GalleryCard({
       }}
       viewport={{ once: true, amount: 0.3 }}
       whileHover={{ y: -6, transition: { duration: 0.25 } }}
-      className={`group relative overflow-hidden rounded-3xl ${className}`}
+      style={{ aspectRatio }}
+      className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl ${className}`}
     >
       <img
         src={image}
         alt={title}
+        loading="lazy"
         className="
+          absolute
+          inset-0
           h-full
           w-full
           object-cover
@@ -37,6 +47,12 @@ export default function GalleryCard({
         "
       />
 
+      {/*
+        Gradient overlay:
+        visible by default (mobile / touch has no hover state to
+        reveal it), fades out on larger pointer-driven screens and
+        reappears on hover there.
+      */}
       <div
         className="
           absolute
@@ -45,27 +61,37 @@ export default function GalleryCard({
           from-black/70
           via-black/20
           to-transparent
-          opacity-0
+          opacity-100
           transition-opacity
           duration-300
-          group-hover:opacity-100
+          sm:opacity-0
+          sm:group-hover:opacity-100
         "
       />
 
+      {/*
+        Caption:
+        shown by default on mobile, hover-reveal from sm: up.
+      */}
       <div
         className="
           absolute
-          bottom-5
-          left-5
-          translate-y-5
-          opacity-0
+          bottom-3
+          left-3
+          right-3
+          opacity-100
           transition-all
           duration-300
-          group-hover:translate-y-0
-          group-hover:opacity-100
+          sm:bottom-5
+          sm:left-5
+          sm:right-5
+          sm:translate-y-5
+          sm:opacity-0
+          sm:group-hover:translate-y-0
+          sm:group-hover:opacity-100
         "
       >
-        <h3 className="text-lg font-bold text-white">
+        <h3 className="text-base font-bold text-white sm:text-lg">
           {title}
         </h3>
       </div>

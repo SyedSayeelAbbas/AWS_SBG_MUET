@@ -117,10 +117,11 @@ function StatCard({
         border
         border-white/40
         bg-white/65
-        p-6
+        p-4
         backdrop-blur-xl
         transition-all
         hover:border-brand-300/60
+        sm:p-6
       "
     >
       {/* Glow */}
@@ -142,25 +143,31 @@ function StatCard({
       <div className="relative z-10">
         <div
           className="
-            mb-4
+            mb-3
             inline-flex
             rounded-xl
             bg-brand-100
-            p-3
+            p-2.5
+            sm:mb-4
+            sm:p-3
           "
         >
           <Icon
+            size={19}
+            className="text-brand-600 sm:hidden"
+          />
+          <Icon
             size={22}
-            className="text-brand-600"
+            className="hidden text-brand-600 sm:block"
           />
         </div>
 
-        <h3 className="text-4xl font-black gradient-text">
+        <h3 className="text-2xl font-black gradient-text sm:text-4xl">
           {count}
           {stat.suffix}
         </h3>
 
-        <p className="mt-2 text-sm font-medium text-body">
+        <p className="mt-1.5 text-xs font-medium text-body sm:mt-2 sm:text-sm">
           {stat.label}
         </p>
       </div>
@@ -187,10 +194,12 @@ export default function HeroStats() {
         duration: 0.8,
       }}
       className="
-        mt-14
+        mt-10
         grid
-        gap-5
-        sm:grid-cols-2
+        grid-cols-2
+        gap-3
+        sm:mt-14
+        sm:gap-5
         xl:grid-cols-4
       "
     >

@@ -30,16 +30,18 @@ export default function ImpactCard({
         group
         relative
         overflow-hidden
-        rounded-3xl
+        rounded-2xl
         border
         border-line
         bg-white
-        p-8
+        p-5
         shadow-md
         transition-all
         duration-300
         hover:border-brand-200
         hover:shadow-[0_25px_60px_rgba(107,70,193,.16)]
+        sm:rounded-3xl
+        sm:p-8
       "
     >
       {/* Hover glow */}
@@ -48,13 +50,13 @@ export default function ImpactCard({
       <div className="relative">
         <div
           className="
-            mb-6
+            mb-4
             flex
-            h-14
-            w-14
+            h-11
+            w-11
             items-center
             justify-center
-            rounded-2xl
+            rounded-xl
             bg-[linear-gradient(135deg,#7C3AED,#8C52FF)]
             text-white
             shadow-md
@@ -62,20 +64,24 @@ export default function ImpactCard({
             duration-300
             group-hover:scale-110
             group-hover:rotate-6
+            sm:mb-6
+            sm:h-14
+            sm:w-14
+            sm:rounded-2xl
           "
         >
-          <Icon className="h-7 w-7" />
+          <Icon className="h-5 w-5 sm:h-7 sm:w-7" />
         </div>
 
-        <h3 className="gradient-text mb-2 text-5xl font-bold">
+        <h3 className="gradient-text mb-1.5 text-3xl font-bold sm:mb-2 sm:text-5xl">
           {value}
         </h3>
 
-        <h4 className="mb-3 text-xl font-semibold text-heading">
+        <h4 className="mb-2 text-base font-semibold text-heading sm:mb-3 sm:text-xl">
           {title}
         </h4>
 
-        <p className="leading-6 text-body">{description}</p>
+        <p className="text-sm leading-6 text-body sm:text-base">{description}</p>
       </div>
     </motion.div>
   );

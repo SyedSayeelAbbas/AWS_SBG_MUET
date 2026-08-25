@@ -9,7 +9,6 @@ import CommunityImpact from "../../components/sections/CommunityImpact";
 import TeamPreview from "../../components/sections/TeamPreview";
 import Testimonials from "../../components/sections/Testimonials";
 import Partners from "../../components/sections/Partners";
-import JoinCommunity from "../../components/sections/JoinCommunity";
 import WebsiteTeam from "../../components/sections/WebsiteTeam";
 
 export default function HomePage() {
@@ -20,13 +19,12 @@ export default function HomePage() {
       <AboutPreview />
       <WhatWeDo />
       <JourneyTimeline />
-      <FeaturedEvents />
+      {/* <FeaturedEvents /> */}
       <GalleryPreview />
       <CommunityImpact />
       <TeamPreview />
       <Testimonials />
       <Partners />
-      <JoinCommunity />
       <WebsiteTeam />
     </>
   );

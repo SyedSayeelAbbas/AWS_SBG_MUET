@@ -18,7 +18,7 @@ const headingLines = [
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-14 sm:pb-20 lg:pb-24">
+    <section className="relative overflow-hidden pt-28 sm:pt-28 md:pt-32 lg:pt-36 pb-10 sm:pb-20 lg:pb-24">
 
       {/* Base Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-brand-50 via-white to-white" />
@@ -38,7 +38,7 @@ export default function HeroSection() {
           className="
             grid
             items-center
-            gap-10
+            gap-8
             sm:gap-14
             lg:grid-cols-2
             lg:items-start
@@ -76,21 +76,31 @@ export default function HeroSection() {
                 duration: 0.6,
               }}
               className="
-                mb-8
+                mb-6
                 inline-flex
+                max-w-full
                 items-center
+                justify-center
                 rounded-full
                 border
                 border-brand-200
                 bg-white/70
-                px-5
-                py-2
+                px-4
+                py-1.5
+                text-center
+                text-xs
                 backdrop-blur-xl
+                sm:mb-8
+                sm:px-5
+                sm:py-2
+                sm:text-sm
               "
             >
-              <span className="mr-2 h-2 w-2 rounded-full bg-brand-600 animate-pulse" />
+              <span className="mr-2 h-2 w-2 shrink-0 rounded-full bg-brand-600 animate-pulse" />
 
-              Official AWS Student Builder Club — MUET
+              <span className="whitespace-normal sm:whitespace-nowrap">
+                Official AWS Student Builder Club — MUET
+              </span>
             </motion.div>
 
             {/* ================= HEADING ================= */}
@@ -98,10 +108,11 @@ export default function HeroSection() {
               <h1
                 className="
                   max-w-3xl
-                  text-4xl
+                  text-[2.25rem]
                   font-black
-                  leading-[1.05]
+                  leading-[1.08]
                   sm:text-5xl
+                  sm:leading-[1.05]
                   md:text-6xl
                   lg:text-7xl
                 "
@@ -150,11 +161,14 @@ export default function HeroSection() {
                 duration: 0.7,
               }}
               className="
-                mt-8
+                mt-6
                 max-w-xl
-                text-base
-                leading-7
+                px-2
+                text-sm
+                leading-6
                 text-body
+                sm:mt-8
+                sm:px-0
                 sm:text-lg
                 sm:leading-8
               "
@@ -168,11 +182,13 @@ export default function HeroSection() {
             {/* ================= TRUST BADGES ================= */}
             <div
               className="
-                mt-8
+                mt-6
                 flex
                 flex-wrap
                 justify-center
-                gap-3
+                gap-2.5
+                sm:mt-8
+                sm:gap-3
                 lg:justify-start
               "
             >
@@ -188,18 +204,23 @@ export default function HeroSection() {
                 duration: 0.6,
               }}
               className="
-                mt-10
+                mt-8
                 flex
+                w-full
                 flex-col
                 items-center
-                gap-4
+                gap-3
+                sm:mt-10
+                sm:w-auto
                 sm:flex-row
+                sm:gap-4
                 lg:items-start
               "
             >
               <Button
                 size="lg"
                 showArrow
+                className="w-full sm:w-auto"
               >
                 Join Community
               </Button>
@@ -208,6 +229,7 @@ export default function HeroSection() {
                 size="lg"
                 variant="secondary"
                 showArrow
+                className="w-full sm:w-auto"
               >
                 Explore Events
               </Button>
@@ -231,7 +253,7 @@ export default function HeroSection() {
               order-2
               mx-auto
               w-full
-              max-w-[340px]
+              max-w-[280px]
               sm:max-w-[440px]
               md:max-w-[560px]
               lg:order-last
@@ -266,13 +288,15 @@ export default function HeroSection() {
             w-full
             flex-col
             items-center
-            gap-6
+            gap-5
             sm:mt-10
+            sm:gap-6
 
             lg:mt-8
             lg:flex-row
             lg:items-center
-            lg:gap-40
+            lg:gap-20
+            xl:gap-40
           "
         >
 
@@ -327,7 +351,7 @@ export default function HeroSection() {
         {/* ================= BOTTOM SCROLL SPACE ================= */}
         <div
           className="
-            mt-12
+            mt-8
             flex
             justify-center
             sm:mt-16
@@ -343,4 +367,3 @@ export default function HeroSection() {
     </section>
   );
 }
-

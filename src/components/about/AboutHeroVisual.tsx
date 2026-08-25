@@ -21,12 +21,12 @@ export default function AboutHeroVisual() {
       className="
         relative
         mx-auto
-        flex
-        h-[300px]
+        hidden
         w-full
         max-w-[420px]
         items-center
         justify-center
+        sm:flex
         sm:h-[380px]
         sm:max-w-[460px]
         lg:h-[480px]
@@ -42,14 +42,11 @@ export default function AboutHeroVisual() {
         className="
           pointer-events-none
           absolute
-          h-[220px]
-          w-[220px]
+          h-[300px]
+          w-[300px]
           rounded-full
           bg-brand-500/12
-          blur-[80px]
-          sm:h-[300px]
-          sm:w-[300px]
-          sm:blur-[110px]
+          blur-[110px]
         "
       />
 
@@ -60,7 +57,6 @@ export default function AboutHeroVisual() {
       <GlowRing
         size={340}
         duration={30}
-        className="hidden sm:block"
       />
 
       <GlowRing
@@ -128,19 +124,17 @@ export default function AboutHeroVisual() {
           className="
             group
             w-full
-            max-w-[280px]
+            max-w-[300px]
             rounded-[28px]
             border
             border-white/60
             bg-white/75
-            p-6
+            p-7
             shadow-[0_30px_70px_rgba(124,58,237,.18)]
             backdrop-blur-2xl
             transition-shadow
             duration-500
             hover:shadow-[0_40px_90px_rgba(124,58,237,.28)]
-            sm:max-w-[300px]
-            sm:p-7
           "
         >
           {/* Card inner glow */}
@@ -303,13 +297,11 @@ export default function AboutHeroVisual() {
               absolute
               left-4
               top-6
-              hidden
               h-2.5
               w-2.5
               rounded-full
               bg-brand-500
               shadow-[0_0_15px_rgba(140,82,255,.7)]
-              sm:block
             "
           />
 
@@ -330,13 +322,11 @@ export default function AboutHeroVisual() {
               absolute
               bottom-8
               right-6
-              hidden
               h-2
               w-2
               rounded-full
               bg-brand-400
               shadow-[0_0_14px_rgba(140,82,255,.6)]
-              sm:block
             "
           />
         </>

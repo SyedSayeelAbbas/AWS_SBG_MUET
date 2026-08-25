@@ -166,7 +166,7 @@ export default function ContactPage() {
           PREMIUM HERO
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-[#faf9ff] pt-28 md:pt-32 lg:pt-36">
+      <section className="relative overflow-hidden bg-[#faf9ff] pt-28 sm:pt-28 md:pt-32 lg:pt-36">
 
         {/* Background effects */}
 
@@ -174,15 +174,15 @@ export default function ContactPage() {
 
           {/* Main glow */}
 
-          <div className="absolute left-1/2 top-[-220px] h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-brand-200/30 blur-[120px]" />
+          <div className="absolute left-1/2 top-[-160px] h-[320px] w-[320px] -translate-x-1/2 rounded-full bg-brand-200/30 blur-[90px] sm:top-[-220px] sm:h-[500px] sm:w-[500px] sm:blur-[120px]" />
 
           {/* Left glow */}
 
-          <div className="absolute -left-32 top-40 h-72 w-72 rounded-full bg-violet-200/30 blur-[100px]" />
+          <div className="absolute -left-32 top-40 hidden h-72 w-72 rounded-full bg-violet-200/30 blur-[100px] sm:block" />
 
           {/* Right glow */}
 
-          <div className="absolute -right-32 top-20 h-80 w-80 rounded-full bg-fuchsia-200/20 blur-[110px]" />
+          <div className="absolute -right-32 top-20 hidden h-80 w-80 rounded-full bg-fuchsia-200/20 blur-[110px] sm:block" />
 
           {/* Subtle grid */}
 
@@ -200,7 +200,7 @@ export default function ContactPage() {
 
           {/* Hero heading */}
 
-          <div className="relative mx-auto max-w-4xl text-center">
+          <div className="relative mx-auto max-w-4xl px-2 text-center sm:px-0">
 
             {/* Eyebrow */}
 
@@ -216,7 +216,7 @@ export default function ContactPage() {
               transition={{
                 duration: 0.6,
               }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-600 shadow-sm backdrop-blur-xl"
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/80 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-brand-600 shadow-sm backdrop-blur-xl sm:mb-6 sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.18em]"
             >
               <Sparkles size={14} />
 
@@ -238,7 +238,7 @@ export default function ContactPage() {
                 duration: 0.7,
                 delay: 0.08,
               }}
-              className="text-4xl font-black leading-[1.05] tracking-[-0.04em] text-heading sm:text-5xl md:text-6xl lg:text-7xl"
+              className="text-[2rem] font-black leading-[1.12] tracking-[-0.02em] text-heading sm:text-5xl sm:leading-[1.05] sm:tracking-[-0.04em] md:text-6xl lg:text-7xl"
             >
               Let's build something
 
@@ -262,7 +262,7 @@ export default function ContactPage() {
                 duration: 0.7,
                 delay: 0.16,
               }}
-              className="mx-auto mt-7 max-w-2xl text-base leading-7 text-gray-500 md:text-lg md:leading-8"
+              className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-gray-500 sm:mt-7 sm:text-base sm:leading-7 md:text-lg md:leading-8"
             >
               Have a question, want to collaborate, or simply want to learn
               more about AWS Student Builder Club MUET? We'd love to hear from
@@ -275,7 +275,7 @@ export default function ContactPage() {
               CONTACT CARDS
           ================================================= */}
 
-          <div className="relative mt-14 grid gap-5 md:grid-cols-3">
+          <div className="relative mt-10 grid gap-4 sm:mt-14 sm:gap-5 md:grid-cols-3">
 
             {contactInfo.map((item, index) => {
 
@@ -305,7 +305,7 @@ export default function ContactPage() {
                   whileHover={{
                     y: -8,
                   }}
-                  className="group relative overflow-hidden rounded-[28px] border border-white bg-white/75 p-6 shadow-[0_18px_60px_rgba(70,40,130,0.07)] backdrop-blur-xl transition-all duration-500 hover:shadow-[0_25px_80px_rgba(70,40,130,0.13)]"
+                  className="group relative overflow-hidden rounded-[22px] border border-white bg-white/75 p-5 shadow-[0_18px_60px_rgba(70,40,130,0.07)] backdrop-blur-xl transition-all duration-500 hover:shadow-[0_25px_80px_rgba(70,40,130,0.13)] sm:rounded-[28px] sm:p-6"
                 >
 
                   {/* Hover glow */}
@@ -318,8 +318,9 @@ export default function ContactPage() {
 
                     <div className="flex items-center justify-between">
 
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-50 to-violet-100 text-brand-600 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
-                        <Icon size={22} />
+                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-50 to-violet-100 text-brand-600 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 sm:h-12 sm:w-12">
+                        <Icon size={20} className="sm:hidden" />
+                        <Icon size={22} className="hidden sm:block" />
                       </div>
 
                       <ArrowUpRight
@@ -331,19 +332,19 @@ export default function ContactPage() {
 
                     {/* Title */}
 
-                    <h3 className="mt-6 text-lg font-bold text-heading">
+                    <h3 className="mt-5 text-base font-bold text-heading sm:mt-6 sm:text-lg">
                       {item.title}
                     </h3>
 
                     {/* Description */}
 
-                    <p className="mt-2 min-h-[48px] text-sm leading-6 text-gray-500">
+                    <p className="mt-2 min-h-[40px] text-sm leading-6 text-gray-500 sm:min-h-[48px]">
                       {item.description}
                     </p>
 
                     {/* Value */}
 
-                    <p className="mt-5 truncate text-sm font-bold text-brand-600">
+                    <p className="mt-4 truncate text-sm font-bold text-brand-600 sm:mt-5">
                       {item.value}
                     </p>
 
@@ -356,7 +357,7 @@ export default function ContactPage() {
 
         </Container>
 
-        <div className="h-20" />
+        <div className="h-12 sm:h-20" />
 
       </section>
 
@@ -369,7 +370,7 @@ export default function ContactPage() {
 
         <Container>
 
-          <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
+          <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:gap-16">
 
             {/* =================================================
                 LEFT CONTENT
@@ -394,7 +395,7 @@ export default function ContactPage() {
 
               {/* Label */}
 
-              <div className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3.5 py-2 text-xs font-bold uppercase tracking-[0.15em] text-brand-600">
+              <div className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-[0.12em] text-brand-600 sm:px-3.5 sm:py-2 sm:text-xs sm:tracking-[0.15em]">
                 <MessageCircle size={14} />
 
                 Contact Us
@@ -402,7 +403,7 @@ export default function ContactPage() {
 
               {/* Heading */}
 
-              <h2 className="mt-5 max-w-xl text-4xl font-black leading-tight tracking-[-0.035em] text-heading md:text-5xl">
+              <h2 className="mt-4 max-w-xl text-2xl font-black leading-tight tracking-[-0.02em] text-heading sm:mt-5 sm:text-4xl sm:tracking-[-0.035em] md:text-5xl">
                 Have something
 
                 <span className="block bg-gradient-to-r from-brand-500 to-violet-600 bg-clip-text text-transparent">
@@ -412,7 +413,7 @@ export default function ContactPage() {
 
               {/* Description */}
 
-              <p className="mt-6 max-w-xl text-base leading-7 text-gray-500">
+              <p className="mt-4 max-w-xl text-sm leading-6 text-gray-500 sm:mt-6 sm:text-base sm:leading-7">
                 Whether you're interested in joining the community,
                 collaborating with us, attending an event, or simply learning
                 more about AWS, feel free to reach out.
@@ -423,17 +424,18 @@ export default function ContactPage() {
                   CONTACT DETAILS
               ================================================= */}
 
-              <div className="mt-9 space-y-4">
+              <div className="mt-7 space-y-3 sm:mt-9 sm:space-y-4">
 
                 {/* Email */}
-
-                <a
+<a
+                
                   href="mailto:awsstudentbuilders@muet.edu.pk"
-                  className="group flex items-center gap-4 rounded-2xl border border-gray-100 bg-gray-50/70 p-4 transition-all duration-300 hover:border-brand-100 hover:bg-brand-50/40"
+                  className="group flex items-center gap-3 rounded-2xl border border-gray-100 bg-gray-50/70 p-3.5 transition-all duration-300 hover:border-brand-100 hover:bg-brand-50/40 sm:gap-4 sm:p-4"
                 >
 
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-sm">
-                    <Mail size={19} />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-sm sm:h-11 sm:w-11">
+                    <Mail size={18} className="sm:hidden" />
+                    <Mail size={19} className="hidden sm:block" />
                   </div>
 
                   <div className="min-w-0">
@@ -442,7 +444,7 @@ export default function ContactPage() {
                       Email
                     </p>
 
-                    <p className="mt-1 truncate text-sm text-gray-500 transition-colors group-hover:text-brand-600">
+                    <p className="mt-1 truncate text-xs text-gray-500 transition-colors group-hover:text-brand-600 sm:text-sm">
                       awsstudentbuilders@muet.edu.pk
                     </p>
 
@@ -453,19 +455,20 @@ export default function ContactPage() {
 
                 {/* Location */}
 
-                <div className="flex items-center gap-4 rounded-2xl border border-gray-100 bg-gray-50/70 p-4">
+                <div className="flex items-center gap-3 rounded-2xl border border-gray-100 bg-gray-50/70 p-3.5 sm:gap-4 sm:p-4">
 
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-sm">
-                    <MapPin size={19} />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-sm sm:h-11 sm:w-11">
+                    <MapPin size={18} className="sm:hidden" />
+                    <MapPin size={19} className="hidden sm:block" />
                   </div>
 
-                  <div>
+                  <div className="min-w-0">
 
                     <p className="text-sm font-bold text-heading">
                       Location
                     </p>
 
-                    <p className="mt-1 text-sm text-gray-500">
+                    <p className="mt-1 text-xs leading-5 text-gray-500 sm:text-sm">
                       Mehran University of Engineering & Technology, Jamshoro
                     </p>
 
@@ -476,10 +479,11 @@ export default function ContactPage() {
 
                 {/* Response */}
 
-                <div className="flex items-center gap-4 rounded-2xl border border-gray-100 bg-gray-50/70 p-4">
+                <div className="flex items-center gap-3 rounded-2xl border border-gray-100 bg-gray-50/70 p-3.5 sm:gap-4 sm:p-4">
 
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-sm">
-                    <Clock3 size={19} />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-brand-600 shadow-sm sm:h-11 sm:w-11">
+                    <Clock3 size={18} className="sm:hidden" />
+                    <Clock3 size={19} className="hidden sm:block" />
                   </div>
 
                   <div>
@@ -488,7 +492,7 @@ export default function ContactPage() {
                       Let's connect
                     </p>
 
-                    <p className="mt-1 text-sm text-gray-500">
+                    <p className="mt-1 text-xs leading-5 text-gray-500 sm:text-sm">
                       Our team will get back to you as soon as possible.
                     </p>
 
@@ -503,13 +507,13 @@ export default function ContactPage() {
                   SOCIAL LINKS
               ================================================= */}
 
-              <div className="mt-9">
+              <div className="mt-7 sm:mt-9">
 
                 <p className="text-sm font-bold text-heading">
                   Follow the community
                 </p>
 
-                <div className="mt-4 flex gap-3">
+                <div className="mt-3 flex gap-3 sm:mt-4">
 
                   {contactSocialLinks.map((social) => (
 
@@ -517,12 +521,12 @@ export default function ContactPage() {
                       key={social.id}
                       href={social.href}
                       aria-label={social.label}
-                      className="group relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-full border border-gray-200 bg-white text-gray-500 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:bg-brand-50 hover:text-brand-600 hover:shadow-lg hover:shadow-brand-500/10"
+                      className="group relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-gray-200 bg-white text-gray-500 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:bg-brand-50 hover:text-brand-600 hover:shadow-lg hover:shadow-brand-500/10 sm:h-11 sm:w-11"
                     >
 
                       <BrandIcon
                         type={social.id}
-                        size={19}
+                        size={18}
                       />
 
                       {/* Hover glow */}
@@ -566,11 +570,11 @@ export default function ContactPage() {
 
               {/* Decorative glow */}
 
-              <div className="absolute -inset-5 rounded-[40px] bg-gradient-to-r from-brand-100/30 via-violet-100/30 to-fuchsia-100/20 blur-2xl" />
+              <div className="absolute -inset-3 rounded-[32px] bg-gradient-to-r from-brand-100/30 via-violet-100/30 to-fuchsia-100/20 blur-2xl sm:-inset-5 sm:rounded-[40px]" />
 
               {/* Form card */}
 
-              <div className="relative overflow-hidden rounded-[32px] border border-gray-200/80 bg-white p-6 shadow-[0_25px_90px_rgba(60,40,120,0.09)] md:p-9">
+              <div className="relative overflow-hidden rounded-[24px] border border-gray-200/80 bg-white p-5 shadow-[0_25px_90px_rgba(60,40,120,0.09)] sm:rounded-[32px] sm:p-6 md:p-9">
 
                 {/* Top gradient */}
 
@@ -592,7 +596,7 @@ export default function ContactPage() {
                       opacity: 1,
                       scale: 1,
                     }}
-                    className="flex min-h-[500px] flex-col items-center justify-center px-6 text-center"
+                    className="flex min-h-[360px] flex-col items-center justify-center px-4 text-center sm:min-h-[500px] sm:px-6"
                   >
 
                     <motion.div
@@ -609,16 +613,17 @@ export default function ContactPage() {
                         stiffness: 180,
                         damping: 12,
                       }}
-                      className="flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-green-50 to-emerald-100 text-green-600 shadow-sm"
+                      className="flex h-16 w-16 items-center justify-center rounded-3xl bg-gradient-to-br from-green-50 to-emerald-100 text-green-600 shadow-sm sm:h-20 sm:w-20"
                     >
-                      <CheckCircle2 size={38} />
+                      <CheckCircle2 size={32} className="sm:hidden" />
+                      <CheckCircle2 size={38} className="hidden sm:block" />
                     </motion.div>
 
-                    <h3 className="mt-7 text-2xl font-black text-heading">
+                    <h3 className="mt-6 text-xl font-black text-heading sm:mt-7 sm:text-2xl">
                       Message Received
                     </h3>
 
-                    <p className="mt-3 max-w-md text-sm leading-7 text-gray-500">
+                    <p className="mt-3 max-w-md text-sm leading-6 text-gray-500 sm:leading-7">
                       Thank you for reaching out. Your message has been
                       received and our team will get back to you as soon as
                       possible.
@@ -642,7 +647,7 @@ export default function ContactPage() {
 
                         <div>
 
-                          <h3 className="text-2xl font-black tracking-tight text-heading">
+                          <h3 className="text-xl font-black tracking-tight text-heading sm:text-2xl">
                             Send us a message
                           </h3>
 
@@ -652,7 +657,7 @@ export default function ContactPage() {
 
                         </div>
 
-                        <div className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 sm:flex">
+                        <div className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-brand-50 text-brand-600 sm:flex sm:h-11 sm:w-11">
                           <Send size={18} />
                         </div>
 
@@ -665,12 +670,12 @@ export default function ContactPage() {
 
                     <form
                       onSubmit={handleSubmit}
-                      className="mt-8 space-y-5"
+                      className="mt-6 space-y-4 sm:mt-8 sm:space-y-5"
                     >
 
                       {/* Name + Email */}
 
-                      <div className="grid gap-5 sm:grid-cols-2">
+                      <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
 
                         {/* Name */}
 
@@ -689,7 +694,7 @@ export default function ContactPage() {
                             type="text"
                             required
                             placeholder="Your name"
-                            className="h-12 w-full rounded-xl border border-gray-200 bg-gray-50/70 px-4 text-sm text-heading outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-brand-400 focus:bg-white focus:ring-4 focus:ring-brand-100/70"
+                            className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50/70 px-4 text-sm text-heading outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-brand-400 focus:bg-white focus:ring-4 focus:ring-brand-100/70 sm:h-12"
                           />
 
                         </div>
@@ -712,7 +717,7 @@ export default function ContactPage() {
                             type="email"
                             required
                             placeholder="you@example.com"
-                            className="h-12 w-full rounded-xl border border-gray-200 bg-gray-50/70 px-4 text-sm text-heading outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-brand-400 focus:bg-white focus:ring-4 focus:ring-brand-100/70"
+                            className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50/70 px-4 text-sm text-heading outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-brand-400 focus:bg-white focus:ring-4 focus:ring-brand-100/70 sm:h-12"
                           />
 
                         </div>
@@ -737,7 +742,7 @@ export default function ContactPage() {
                           type="text"
                           required
                           placeholder="How can we help?"
-                          className="h-12 w-full rounded-xl border border-gray-200 bg-gray-50/70 px-4 text-sm text-heading outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-brand-400 focus:bg-white focus:ring-4 focus:ring-brand-100/70"
+                          className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50/70 px-4 text-sm text-heading outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-brand-400 focus:bg-white focus:ring-4 focus:ring-brand-100/70 sm:h-12"
                         />
 
                       </div>
@@ -758,9 +763,9 @@ export default function ContactPage() {
                           id="message"
                           name="message"
                           required
-                          rows={6}
+                          rows={5}
                           placeholder="Write your message here..."
-                          className="w-full resize-none rounded-xl border border-gray-200 bg-gray-50/70 px-4 py-3 text-sm leading-6 text-heading outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-brand-400 focus:bg-white focus:ring-4 focus:ring-brand-100/70"
+                          className="w-full resize-none rounded-xl border border-gray-200 bg-gray-50/70 px-4 py-3 text-sm leading-6 text-heading outline-none transition-all duration-300 placeholder:text-gray-400 focus:border-brand-400 focus:bg-white focus:ring-4 focus:ring-brand-100/70 sm:rows-6"
                         />
 
                       </div>
@@ -821,12 +826,12 @@ export default function ContactPage() {
 
       <section
         id="location"
-        className="relative overflow-hidden bg-[#faf9ff] py-20 md:py-28"
+        className="relative overflow-hidden bg-[#faf9ff] py-16 sm:py-20 md:py-28"
       >
 
         {/* Background glow */}
 
-        <div className="pointer-events-none absolute -left-40 bottom-0 h-96 w-96 rounded-full bg-brand-100/30 blur-[120px]" />
+        <div className="pointer-events-none absolute -left-40 bottom-0 h-72 w-72 rounded-full bg-brand-100/30 blur-[90px] sm:h-96 sm:w-96 sm:blur-[120px]" />
 
         <Container>
 
@@ -845,14 +850,14 @@ export default function ContactPage() {
             transition={{
               duration: 0.7,
             }}
-            className="relative overflow-hidden rounded-[34px] border border-white bg-white/70 p-7 shadow-[0_25px_90px_rgba(70,40,130,0.08)] backdrop-blur-xl md:p-10"
+            className="relative overflow-hidden rounded-[26px] border border-white bg-white/70 p-5 shadow-[0_25px_90px_rgba(70,40,130,0.08)] backdrop-blur-xl sm:rounded-[34px] sm:p-7 md:p-10"
           >
 
             {/* Decorative glow */}
 
             <div className="absolute right-0 top-0 h-56 w-56 translate-x-1/3 -translate-y-1/3 rounded-full bg-brand-100/50 blur-3xl" />
 
-            <div className="relative grid gap-10 md:grid-cols-2 md:items-center">
+            <div className="relative grid gap-8 md:grid-cols-2 md:items-center md:gap-10">
 
               {/* =================================================
                   LOCATION CONTENT
@@ -860,26 +865,27 @@ export default function ContactPage() {
 
               <div>
 
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-50 to-violet-100 text-brand-600">
-                  <MapPin size={23} />
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-50 to-violet-100 text-brand-600 sm:h-12 sm:w-12">
+                  <MapPin size={20} className="sm:hidden" />
+                  <MapPin size={23} className="hidden sm:block" />
                 </div>
 
-                <p className="mt-6 text-xs font-bold uppercase tracking-[0.2em] text-brand-600">
+                <p className="mt-5 text-[11px] font-bold uppercase tracking-[0.16em] text-brand-600 sm:mt-6 sm:text-xs sm:tracking-[0.2em]">
                   Our Location
                 </p>
 
-                <h2 className="mt-2 text-3xl font-black tracking-tight text-heading md:text-4xl">
+                <h2 className="mt-2 text-2xl font-black tracking-tight text-heading sm:text-3xl md:text-4xl">
                   Find us at MUET
                 </h2>
 
-                <p className="mt-4 max-w-lg text-sm leading-7 text-gray-500">
+                <p className="mt-3 max-w-lg text-sm leading-6 text-gray-500 sm:mt-4 sm:leading-7">
                   AWS Student Builder Club MUET is a student community based
                   at Mehran University of Engineering & Technology, Jamshoro.
                 </p>
 
-                <div className="mt-7">
+                <div className="mt-6 sm:mt-7">
 
-                  <p className="font-bold text-heading">
+                  <p className="text-sm font-bold text-heading sm:text-base">
                     Mehran University of Engineering & Technology
                   </p>
 
@@ -901,7 +907,7 @@ export default function ContactPage() {
   target="_blank"
   rel="noopener noreferrer"
   aria-label="Open MUET location in Google Maps"
-  className="group relative block h-[300px] overflow-hidden rounded-[28px] border border-gray-200 bg-gray-100 shadow-inner md:h-[340px]"
+  className="group relative block h-[240px] overflow-hidden rounded-[22px] border border-gray-200 bg-gray-100 shadow-inner sm:h-[300px] sm:rounded-[28px] md:h-[340px]"
 >
   <iframe
     title="Mehran University of Engineering & Technology Location"
@@ -911,19 +917,20 @@ export default function ContactPage() {
     referrerPolicy="no-referrer-when-downgrade"
   />
 
-  <div className="pointer-events-none absolute inset-x-4 bottom-4">
-    <div className="flex items-center justify-between rounded-2xl border border-white/70 bg-white/90 px-4 py-3 shadow-xl backdrop-blur-xl">
-      <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
-          <MapPin size={19} />
+  <div className="pointer-events-none absolute inset-x-3 bottom-3 sm:inset-x-4 sm:bottom-4">
+    <div className="flex items-center justify-between rounded-2xl border border-white/70 bg-white/90 px-3 py-2.5 shadow-xl backdrop-blur-xl sm:px-4 sm:py-3">
+      <div className="flex min-w-0 items-center gap-2.5 sm:gap-3">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600 sm:h-10 sm:w-10">
+          <MapPin size={17} className="sm:hidden" />
+          <MapPin size={19} className="hidden sm:block" />
         </div>
 
-        <div>
-          <p className="text-sm font-bold text-heading">
+        <div className="min-w-0">
+          <p className="truncate text-sm font-bold text-heading">
             MUET, Jamshoro
           </p>
 
-          <p className="text-xs text-gray-500">
+          <p className="truncate text-xs text-gray-500">
             Sindh, Pakistan
           </p>
         </div>
@@ -931,7 +938,7 @@ export default function ContactPage() {
 
       <ArrowUpRight
         size={18}
-        className="text-brand-500 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+        className="shrink-0 text-brand-500 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
       />
     </div>
   </div>

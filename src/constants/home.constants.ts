@@ -122,7 +122,7 @@ export const services: ServiceItem[] = [
   },
   {
     id: 2,
-    title: "Hackathons",
+    title: "Hacktober Fest",
     description: "Innovation competitions.",
     icon: Rocket,
   },

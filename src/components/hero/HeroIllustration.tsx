@@ -57,8 +57,8 @@ export default function HeroIllustration() {
 
   return (
     <div
-      // 🟢 Instruction 10: Responsive height
-      className="relative flex h-[300px] sm:h-[400px] md:h-[540px] lg:h-[680px] items-center justify-center"
+      // Hidden below sm — shown from tablet up
+      className="relative hidden sm:flex sm:h-[400px] md:h-[540px] lg:h-[680px] items-center justify-center"
       style={{
         perspective: "1600px",
       }}
@@ -70,8 +70,6 @@ export default function HeroIllustration() {
         style={{ x: glowX, y: glowY }}
         className="
           absolute
-          h-[220px]
-          w-[220px]
           sm:h-[320px]
           sm:w-[320px]
           md:h-[400px]
@@ -80,16 +78,13 @@ export default function HeroIllustration() {
           lg:w-[480px]
           rounded-full
           bg-brand-500/15
-          blur-[80px]
-          sm:blur-[110px]
+          blur-[110px]
           will-change-transform
         "
       />
 
       {/* ===================================== */}
-      {/* ROTATING GRADIENT RING — hidden on the smallest phones since
-          it's purely decorative and adds compositing cost relative
-          to the shrunk illustration size */}
+      {/* ROTATING GRADIENT RING */}
       {/* ===================================== */}
       {!reduceMotion && (
         <motion.div
@@ -101,8 +96,6 @@ export default function HeroIllustration() {
           }}
           className="
             absolute
-            hidden
-            sm:block
             sm:h-[360px]
             sm:w-[360px]
             md:h-[440px]
@@ -117,7 +110,7 @@ export default function HeroIllustration() {
       )}
 
       {/* ===================================== */}
-      {/* DECORATIVE BLOBS — desktop/tablet only */}
+      {/* DECORATIVE BLOBS */}
       {/* ===================================== */}
       {!reduceMotion && (
         <>
@@ -131,8 +124,6 @@ export default function HeroIllustration() {
             }}
             className="
               absolute
-              hidden
-              sm:block
               top-12
               right-10
               h-28
@@ -154,8 +145,6 @@ export default function HeroIllustration() {
             }}
             className="
               absolute
-              hidden
-              sm:block
               bottom-10
               left-10
               h-24
@@ -170,7 +159,7 @@ export default function HeroIllustration() {
       )}
 
       {/* ===================================== */}
-      {/* PARTICLES — desktop/tablet only, skipped on phones */}
+      {/* PARTICLES */}
       {/* ===================================== */}
       {!reduceMotion &&
         particles.map((particle, index) => (
@@ -184,7 +173,7 @@ export default function HeroIllustration() {
               duration: 4 + index * 0.4,
               repeat: Infinity,
             }}
-            className="absolute hidden sm:block will-change-transform"
+            className="absolute will-change-transform"
             style={particle}
           >
             <div className="h-2 w-2 rounded-full bg-brand-400/70" />
@@ -203,9 +192,7 @@ export default function HeroIllustration() {
         }}
         className="relative z-0"
       >
-        {/* GlowRings: hidden on phones (pure decoration, would
-            overflow a shrunk illustration), scale up from tablet */}
-        <GlowRing size={480} duration={32} className="hidden sm:block" />
+        <GlowRing size={480} duration={32} />
         <GlowRing size={540} duration={50} reverse className="hidden md:block" />
 
         <motion.div
@@ -229,13 +216,11 @@ export default function HeroIllustration() {
             relative
             overflow-hidden
             glass
-            rounded-[26px]
-            sm:rounded-[38px]
+            rounded-[38px]
             border
             border-white/40
             bg-white/75
-            p-5
-            sm:p-8
+            p-8
             shadow-[0_40px_100px_rgba(124,58,237,.30)]
             will-change-transform
           "
@@ -265,12 +250,10 @@ export default function HeroIllustration() {
             />
           </div>
 
-          {/* 🟢 Instruction 11: Responsive image size */}
           <img
             src={heroImage}
             alt="AWS Student Builder Club"
             className="
-              w-[190px]
               sm:w-[300px]
               md:w-[390px]
               lg:w-[430px]
@@ -285,9 +268,7 @@ export default function HeroIllustration() {
       <ConnectionLines />
 
       {/* ===================================== */}
-      {/* FLOATING CARDS — bound to shared motion values via style,
-          no per-card spring/state recompute */}
-      {/* 🟢 Instruction 12: Hide all floating cards on mobile */}
+      {/* FLOATING CARDS — lg and up only */}
       {/* ===================================== */}
       <motion.div
         style={{ x: cloudX, y: cloudY }}
@@ -340,7 +321,6 @@ export default function HeroIllustration() {
         />
       </motion.div>
 
-      {/* 🟢 Instruction 13: Hide Orbit Icons on mobile */}
       {!reduceMotion && (
         <>
           <OrbitIcon

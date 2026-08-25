@@ -15,25 +15,25 @@ export default function FeaturedEvents() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6 }}
-          className="mx-auto mb-16 max-w-3xl text-center"
+          className="mx-auto mb-10 max-w-3xl px-2 text-center sm:mb-16 sm:px-0"
         >
 
-          <span className="rounded-full bg-brand-100 px-5 py-2 text-brand-700">
+          <span className="inline-flex rounded-full bg-brand-100 px-4 py-1.5 text-xs font-semibold text-brand-700 sm:px-5 sm:py-2 sm:text-sm">
             Upcoming Events
           </span>
 
-          <h2 className="mt-6 text-5xl font-bold">
+          <h2 className="mt-5 text-3xl font-bold sm:mt-6 sm:text-5xl">
             Learn. Build. Network.
           </h2>
 
-          <p className="mt-6 text-lg text-muted">
+          <p className="mt-4 text-sm leading-6 text-muted sm:mt-6 sm:text-lg sm:leading-7">
             Discover workshops, hackathons and community events
             organized by AWS Student Builder Club MUET.
           </p>
 
         </motion.div>
 
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
 
           {featuredEvents.map((event, index) => (
 

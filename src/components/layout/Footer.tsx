@@ -36,12 +36,18 @@ export default function Footer() {
           absolute
           -top-32
           left-1/4
-          h-[420px]
-          w-[420px]
+          h-[220px]
+          w-[220px]
           rounded-full
           bg-[#8C52FF]/[0.06]
-          blur-[140px]
+          blur-[90px]
           will-change-transform
+          sm:h-[320px]
+          sm:w-[320px]
+          sm:blur-[110px]
+          lg:h-[420px]
+          lg:w-[420px]
+          lg:blur-[140px]
         "
       />
 
@@ -58,12 +64,18 @@ export default function Footer() {
           absolute
           -bottom-32
           right-1/4
-          h-[380px]
-          w-[380px]
+          h-[200px]
+          w-[200px]
           rounded-full
           bg-[#6B46C1]/[0.06]
-          blur-[130px]
+          blur-[80px]
           will-change-transform
+          sm:h-[300px]
+          sm:w-[300px]
+          sm:blur-[100px]
+          lg:h-[380px]
+          lg:w-[380px]
+          lg:blur-[130px]
         "
       />
 
@@ -76,12 +88,13 @@ export default function Footer() {
           inset-0
           opacity-[0.4]
           [background-image:radial-gradient(#E9D5FF_1px,transparent_1px)]
-          [background-size:28px_28px]
+          [background-size:20px_20px]
           [mask-image:radial-gradient(ellipse_75%_55%_at_50%_0%,black_35%,transparent_100%)]
+          sm:[background-size:28px_28px]
         "
       />
 
-      <Container className="relative z-10 pt-16 sm:pt-20 lg:pt-24">
+      <Container className="relative z-10 pt-12 sm:pt-16 lg:pt-24">
 
         {/* =====================================================
             FOOTER BRAND HERO
@@ -105,17 +118,21 @@ export default function Footer() {
             className="
               group
               mx-auto
-              inline-flex
+              flex
+              flex-col
               items-center
-              gap-4
+              gap-3
+              sm:inline-flex
+              sm:flex-row
+              sm:gap-4
             "
           >
             <div
               className="
                 relative
                 flex
-                h-16
-                w-16
+                h-14
+                w-14
                 shrink-0
                 items-center
                 justify-center
@@ -131,6 +148,8 @@ export default function Footer() {
                 group-hover:scale-105
                 group-hover:border-[#C4B5FD]
                 group-hover:shadow-[0_15px_45px_rgba(140,82,255,0.25)]
+                sm:h-16
+                sm:w-16
               "
             >
               <span
@@ -150,27 +169,30 @@ export default function Footer() {
                 className="
                   relative
                   z-10
-                  h-12
-                  w-12
+                  h-10
+                  w-10
                   object-contain
                   transition-transform
                   duration-300
                   group-hover:scale-105
+                  sm:h-12
+                  sm:w-12
                 "
               />
             </div>
 
-            <div className="text-left">
+            <div className="text-center sm:text-left">
               <h2
                 className="
-                  text-xl
+                  text-lg
                   font-bold
                   tracking-tight
                   text-[#1F2937]
                   transition-colors
                   duration-300
                   group-hover:text-[#6B46C1]
-                  sm:text-2xl
+                  sm:text-xl
+                  lg:text-2xl
                 "
               >
                 AWS Student Builder Group
@@ -193,11 +215,14 @@ export default function Footer() {
           <p
             className="
               mx-auto
-              mt-7
+              mt-6
               max-w-2xl
+              px-2
               text-sm
               leading-7
               text-body
+              sm:mt-7
+              sm:px-0
               sm:text-base
             "
           >
@@ -208,7 +233,7 @@ export default function Footer() {
           </p>
 
           {/* Socials */}
-          <div className="mt-7 flex justify-center gap-3">
+          <div className="mt-6 flex flex-wrap justify-center gap-3 sm:mt-7">
             {socials.map((social, index) => {
               const Icon = social.icon;
 
@@ -228,8 +253,8 @@ export default function Footer() {
                   }}
                   className="
                     flex
-                    h-11
-                    w-11
+                    h-10
+                    w-10
                     items-center
                     justify-center
                     rounded-full
@@ -244,6 +269,8 @@ export default function Footer() {
                     hover:bg-[#8C52FF]
                     hover:text-white
                     hover:shadow-[0_10px_30px_rgba(140,82,255,.30)]
+                    sm:h-11
+                    sm:w-11
                   "
                 >
                   <Icon size={17} />
@@ -275,16 +302,17 @@ export default function Footer() {
             delay: 0.1,
           }}
           className="
-            mt-14
+            mt-12
             grid
             gap-8
-            rounded-[28px]
+            rounded-[24px]
             border
             border-[#E9D5FF]
             bg-[#F5F3FF]
-            p-6
+            p-5
             shadow-[0_20px_60px_rgba(140,82,255,.10)]
             sm:mt-16
+            sm:rounded-[28px]
             sm:p-8
             lg:grid-cols-2
             lg:items-center
@@ -316,10 +344,11 @@ export default function Footer() {
             <h3
               className="
                 mt-4
-                text-2xl
+                text-xl
                 font-bold
                 text-heading
-                sm:text-3xl
+                sm:text-2xl
+                lg:text-3xl
               "
             >
               Build. Learn. Connect.
@@ -344,11 +373,12 @@ export default function Footer() {
               href="https://www.meetup.com/aws-sbg-at-mehran-uni-engineering-and-tech-jamshoro-pakistan/"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-block"
+              className="mt-6 inline-block w-full sm:w-auto"
             >
               <Button
                 size="md"
                 showArrow
+                className="w-full sm:w-auto"
               >
                 Join Community
               </Button>
@@ -365,9 +395,10 @@ export default function Footer() {
           >
             <h4
               className="
-                text-xl
+                text-lg
                 font-bold
                 text-heading
+                sm:text-xl
               "
             >
               Stay Updated
@@ -412,13 +443,15 @@ export default function Footer() {
             delay: 0.15,
           }}
           className="
-            mt-14
+            mt-12
             grid
-            grid-cols-1
-            gap-10
+            grid-cols-2
+            gap-x-6
+            gap-y-10
             border-t
             border-[#E9D5FF]
-            pt-12
+            pt-10
+            text-left
             sm:mt-16
             sm:grid-cols-3
             sm:gap-8
@@ -432,6 +465,7 @@ export default function Footer() {
                 [&_h3]:relative
                 [&_h3]:inline-block
                 [&_h3]:pb-2
+                [&_h3]:text-sm
                 [&_h3]:text-heading
                 [&_h3]:tracking-wide
                 [&_h3]:after:absolute
@@ -441,13 +475,16 @@ export default function Footer() {
                 [&_h3]:after:w-6
                 [&_h3]:after:rounded-full
                 [&_h3]:after:bg-[linear-gradient(90deg,#6B46C1,#8C52FF)]
+                sm:[&_h3]:text-base
                 [&_ul]:mt-5
                 [&_a]:inline-flex
                 [&_a]:items-center
                 [&_a]:gap-1.5
+                [&_a]:text-sm
                 [&_a]:text-body
                 [&_a]:transition-all
                 [&_a]:duration-300
+                sm:[&_a]:text-base
                 [&_a:hover]:translate-x-1
                 [&_a:hover]:text-[#6B46C1]
               "
@@ -463,7 +500,7 @@ export default function Footer() {
 
         <div
           className="
-            mt-12
+            mt-10
             flex
             flex-col
             items-center
@@ -471,9 +508,10 @@ export default function Footer() {
             gap-5
             border-t
             border-[#E9D5FF]
-            py-7
+            py-6
             sm:mt-14
             sm:flex-row
+            sm:py-7
           "
         >
           <p

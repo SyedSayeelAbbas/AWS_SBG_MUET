@@ -14,19 +14,63 @@ export default function Testimonials() {
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="mx-auto mb-16 max-w-3xl text-center"
+          className="
+            mx-auto
+            mb-10
+            max-w-3xl
+            px-4
+            text-center
+            sm:mb-12
+            lg:mb-16
+          "
         >
-          <span className="inline-flex rounded-full bg-brand-100 px-5 py-2 text-sm font-medium text-brand-700">
+          <span
+            className="
+              inline-flex
+              rounded-full
+              bg-brand-100
+              px-4
+              py-1.5
+              text-xs
+              font-medium
+              text-brand-700
+              sm:px-5
+              sm:py-2
+              sm:text-sm
+            "
+          >
             Testimonials
           </span>
 
-          <h2 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">
+          <h2
+            className="
+              mt-4
+              text-3xl
+              font-bold
+              tracking-tight
+              sm:mt-5
+              sm:text-4xl
+              lg:mt-6
+              lg:text-5xl
+            "
+          >
             What Students Say
           </h2>
 
-          <p className="mt-6 text-lg leading-relaxed text-body">
+          <p
+            className="
+              mt-4
+              text-sm
+              leading-relaxed
+              text-body
+              sm:mt-5
+              sm:text-base
+              lg:mt-6
+              lg:text-lg
+            "
+          >
             Real experiences from members who&rsquo;ve grown their
             skills through our workshops and community.
           </p>
@@ -44,12 +88,13 @@ export default function Testimonials() {
             top-0
             z-20
             h-full
-            w-16
+            w-8
             bg-gradient-to-r
             from-white
             via-white/80
             to-transparent
-            sm:w-24
+            sm:w-14
+            md:w-20
             lg:w-28
           "
         />
@@ -63,12 +108,13 @@ export default function Testimonials() {
             top-0
             z-20
             h-full
-            w-16
+            w-8
             bg-gradient-to-l
             from-white
             via-white/80
             to-transparent
-            sm:w-24
+            sm:w-14
+            md:w-20
             lg:w-28
           "
         />
@@ -89,17 +135,32 @@ export default function Testimonials() {
           }}
         >
           {/* First Set */}
-          <div className="flex shrink-0 gap-6 pr-6">
+          <div
+            className="
+              flex
+              shrink-0
+              gap-3
+              pr-3
+              sm:gap-4
+              sm:pr-4
+              md:gap-5
+              md:pr-5
+              lg:gap-6
+              lg:pr-6
+            "
+          >
             {testimonialItems.map((item, index) => (
               <div
                 key={`first-${item.id}`}
                 className="
                   flex
-                  h-[280px]
-                  w-[300px]
+                  h-[250px]
+                  w-[270px]
                   shrink-0
-                  sm:h-[290px]
-                  sm:w-[350px]
+                  sm:h-[270px]
+                  sm:w-[320px]
+                  md:h-[285px]
+                  md:w-[350px]
                   lg:h-[300px]
                   lg:w-[380px]
                 "
@@ -113,17 +174,32 @@ export default function Testimonials() {
           </div>
 
           {/* Second Set */}
-          <div className="flex shrink-0 gap-6 pr-6">
+          <div
+            className="
+              flex
+              shrink-0
+              gap-3
+              pr-3
+              sm:gap-4
+              sm:pr-4
+              md:gap-5
+              md:pr-5
+              lg:gap-6
+              lg:pr-6
+            "
+          >
             {testimonialItems.map((item, index) => (
               <div
                 key={`second-${item.id}`}
                 className="
                   flex
-                  h-[280px]
-                  w-[300px]
+                  h-[250px]
+                  w-[270px]
                   shrink-0
-                  sm:h-[290px]
-                  sm:w-[350px]
+                  sm:h-[270px]
+                  sm:w-[320px]
+                  md:h-[285px]
+                  md:w-[350px]
                   lg:h-[300px]
                   lg:w-[380px]
                 "

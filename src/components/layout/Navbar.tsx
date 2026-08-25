@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X, Moon } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,22 +13,41 @@ import { ROUTES } from "../../constants/routes";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const onScroll = () =>
-      setScrolled(window.scrollY > 30);
+    const onScroll = () => {
+      const currentY = window.scrollY;
 
-    window.addEventListener("scroll", onScroll);
+      setScrolled(currentY > 30);
+
+      // Don't hide the navbar while the mobile menu is open,
+      // and only start reacting past a small threshold so tiny
+      // scroll jitters near the top don't trigger a fade.
+      if (!menuOpen) {
+        if (currentY > lastScrollY.current && currentY > 80) {
+          setHidden(true);
+        } else {
+          setHidden(false);
+        }
+      }
+
+      lastScrollY.current = currentY;
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
 
     return () =>
       window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [menuOpen]);
 
   // Close the mobile menu on breakpoint change / and lock body
   // scroll while it's open so the page doesn't scroll behind it.
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
+      setHidden(false);
     } else {
       document.body.style.overflow = "";
     }
@@ -45,11 +64,12 @@ export default function Navbar() {
         opacity: 0,
       }}
       animate={{
-        y: 0,
-        opacity: 1,
+        y: hidden ? -100 : 0,
+        opacity: hidden ? 0 : 1,
       }}
       transition={{
-        duration: .6,
+        duration: hidden ? 0.35 : 0.5,
+        ease: [0.22, 1, 0.36, 1],
       }}
       className="
       fixed

@@ -180,7 +180,7 @@ export default function GalleryPage() {
           HERO
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-[#faf9ff] pt-28 md:pt-32 lg:pt-36">
+      <section className="relative overflow-hidden bg-[#faf9ff] pt-28 sm:pt-28 md:pt-32 lg:pt-36">
 
         {/* Background */}
 
@@ -222,7 +222,7 @@ export default function GalleryPage() {
               transition={{
                 duration: 0.6,
               }}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/80 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-brand-600 shadow-sm backdrop-blur-xl"
+              className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-white/80 px-3.5 py-1.5 text-[11px] font-bold uppercase tracking-[0.14em] text-brand-600 shadow-sm backdrop-blur-xl sm:mb-6 sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.18em]"
             >
               <Camera size={14} />
 
@@ -243,7 +243,7 @@ export default function GalleryPage() {
                 duration: 0.7,
                 delay: 0.08,
               }}
-              className="text-5xl font-black leading-[1.02] tracking-[-0.05em] text-heading sm:text-6xl md:text-7xl"
+              className="text-4xl font-black leading-[1.05] tracking-[-0.03em] text-heading sm:text-6xl sm:leading-[1.02] sm:tracking-[-0.05em] md:text-7xl"
             >
               Moments worth
 
@@ -266,7 +266,7 @@ export default function GalleryPage() {
                 duration: 0.7,
                 delay: 0.16,
               }}
-              className="mx-auto mt-7 max-w-2xl text-base leading-7 text-gray-500 md:text-lg md:leading-8"
+              className="mx-auto mt-5 max-w-2xl px-2 text-sm leading-6 text-gray-500 sm:mt-7 sm:px-0 sm:text-base sm:leading-7 md:text-lg md:leading-8"
             >
               Explore the people, workshops, events and
               experiences that continue to shape the AWS
@@ -278,7 +278,7 @@ export default function GalleryPage() {
 
           {/* Stats */}
 
-          <div className="relative mt-12 grid gap-3 sm:grid-cols-3 md:mt-14 md:gap-4">
+          <div className="relative mt-10 grid grid-cols-1 gap-3 sm:mt-12 sm:grid-cols-3 md:mt-14 md:gap-4">
 
             {[
               {
@@ -317,19 +317,19 @@ export default function GalleryPage() {
                   whileHover={{
                     y: -4,
                   }}
-                  className="group flex items-center gap-4 rounded-2xl border border-white/70 bg-white/70 p-4 shadow-[0_15px_45px_rgba(70,40,130,0.06)] backdrop-blur-xl transition-shadow duration-300 hover:shadow-[0_20px_55px_rgba(70,40,130,0.11)] md:p-5"
+                  className="group flex items-center gap-3 rounded-2xl border border-white/70 bg-white/70 p-3.5 shadow-[0_15px_45px_rgba(70,40,130,0.06)] backdrop-blur-xl transition-shadow duration-300 hover:shadow-[0_20px_55px_rgba(70,40,130,0.11)] sm:gap-4 sm:p-4 md:p-5"
                 >
 
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-transform duration-300 group-hover:scale-110">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-transform duration-300 group-hover:scale-110 sm:h-11 sm:w-11">
                     <Icon size={20} />
                   </div>
 
                   <div>
-                    <p className="text-lg font-black text-heading md:text-xl">
+                    <p className="text-base font-black text-heading sm:text-lg md:text-xl">
                       {stat.value}
                     </p>
 
-                    <p className="mt-0.5 text-xs text-gray-500 md:text-sm">
+                    <p className="mt-0.5 text-xs text-gray-500 sm:text-sm">
                       {stat.label}
                     </p>
                   </div>
@@ -421,34 +421,12 @@ export default function GalleryPage() {
 
           <motion.div
             layout
-            className="mt-8 grid auto-rows-[10px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12"
+            className="mt-8 grid grid-cols-2 gap-3 sm:gap-4"
           >
 
             <AnimatePresence mode="popLayout">
 
               {filteredItems.map((item, index) => {
-
-                /*
-                 * Smaller editorial layout.
-                 *
-                 * The old version used very large row spans.
-                 * These values keep the cards compact while
-                 * still giving the gallery visual variety.
-                 */
-
-                const layoutClass =
-                  index % 6 === 0
-                    ? "lg:col-span-5 lg:row-span-26"
-                    : index % 6 === 1
-                      ? "lg:col-span-4 lg:row-span-22"
-                      : index % 6 === 2
-                        ? "lg:col-span-3 lg:row-span-22"
-                        : index % 6 === 3
-                          ? "lg:col-span-4 lg:row-span-24"
-                          : index % 6 === 4
-                            ? "lg:col-span-5 lg:row-span-24"
-                            : "lg:col-span-3 lg:row-span-20";
-
 
                 return (
                   <motion.article
@@ -484,10 +462,10 @@ export default function GalleryPage() {
                     className={`
                       group
                       relative
-                      min-h-[240px]
+                      aspect-[4/5]
                       cursor-pointer
                       overflow-hidden
-                      rounded-[22px]
+                      rounded-[18px]
                       border
                       border-gray-200/70
                       bg-gray-100
@@ -495,8 +473,7 @@ export default function GalleryPage() {
                       transition-all
                       duration-500
                       hover:shadow-[0_20px_55px_rgba(124,58,237,0.14)]
-                      sm:min-h-[260px]
-                      ${layoutClass}
+                      sm:rounded-[22px]
                     `}
                   >
 
@@ -568,19 +545,19 @@ export default function GalleryPage() {
                         TOP CONTENT
                     ================================================= */}
 
-                    <div className="absolute left-3.5 right-3.5 top-3.5 flex items-center justify-between">
+                    <div className="absolute left-3 right-3 top-3 flex items-center justify-between sm:left-3.5 sm:right-3.5 sm:top-3.5">
 
                       {/* Category */}
 
-                      <span className="rounded-full border border-white/30 bg-white/15 px-3 py-1.5 text-[11px] font-bold text-white backdrop-blur-xl">
+                      <span className="rounded-full border border-white/30 bg-white/15 px-2.5 py-1 text-[10px] font-bold text-white backdrop-blur-xl sm:px-3 sm:py-1.5 sm:text-[11px]">
                         {item.category}
                       </span>
 
 
                       {/* Expand */}
 
-                      <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-black/15 text-white opacity-0 backdrop-blur-xl transition-all duration-300 group-hover:opacity-100">
-                        <Maximize2 size={15} />
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 bg-black/15 text-white opacity-0 backdrop-blur-xl transition-all duration-300 group-hover:opacity-100 sm:h-9 sm:w-9">
+                        <Maximize2 size={14} />
                       </div>
 
                     </div>
@@ -591,7 +568,7 @@ export default function GalleryPage() {
                     ================================================= */}
 
                     {item.featured && (
-                      <div className="absolute left-3.5 top-14">
+                      <div className="absolute left-3 top-12 sm:left-3.5 sm:top-14">
 
                         <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-brand-600 shadow-lg">
 
@@ -609,20 +586,20 @@ export default function GalleryPage() {
                         CARD CONTENT
                     ================================================= */}
 
-                    <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
+                    <div className="absolute bottom-0 left-0 right-0 p-3.5 sm:p-4">
 
                       <motion.div
                         initial={false}
                         className="translate-y-1 transition-transform duration-500 group-hover:translate-y-0"
                       >
 
-                        <h3 className="text-lg font-black tracking-tight text-white md:text-xl">
+                        <h3 className="text-base font-black tracking-tight text-white sm:text-lg">
                           {item.title}
                         </h3>
 
 
                         {item.description && (
-                          <p className="mt-1.5 line-clamp-2 max-w-xl text-xs leading-5 text-white/70 md:text-sm">
+                          <p className="mt-1.5 line-clamp-2 max-w-xl text-xs leading-5 text-white/70">
                             {item.description}
                           </p>
                         )}
@@ -710,14 +687,17 @@ export default function GalleryPage() {
             className="
               relative
               overflow-hidden
-              rounded-[36px]
+              rounded-[26px]
               border
               border-white/10
               bg-brand-700
-              px-7
-              py-14
+              px-5
+              py-10
               text-center
               shadow-[0_30px_80px_rgba(76,29,149,0.35)]
+              sm:rounded-[36px]
+              sm:px-7
+              sm:py-14
               md:px-14
               md:py-16
             "
@@ -834,7 +814,7 @@ export default function GalleryPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
-                className="mx-auto mt-4 max-w-3xl text-3xl font-black text-white sm:text-4xl md:text-5xl"
+                className="mx-auto mt-4 max-w-3xl text-2xl font-black leading-tight text-white sm:text-4xl md:text-5xl"
               >
                 Your next moment could be{" "}
                 <span className="block text-white">
@@ -926,7 +906,7 @@ export default function GalleryPage() {
             exit={{
               opacity: 0,
             }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-3 backdrop-blur-xl sm:p-6 md:p-10"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-2 backdrop-blur-xl sm:p-6 md:p-10"
             onClick={() =>
               setSelectedImage(null)
             }
@@ -940,9 +920,10 @@ export default function GalleryPage() {
               onClick={() =>
                 setSelectedImage(null)
               }
-              className="absolute right-4 top-4 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:bg-white/20 sm:right-7 sm:top-7"
+              className="absolute right-3 top-3 z-30 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:bg-white/20 sm:right-7 sm:top-7 sm:h-11 sm:w-11"
             >
-              <X size={21} />
+              <X size={19} className="sm:hidden" />
+              <X size={21} className="hidden sm:block" />
             </button>
 
 
@@ -957,9 +938,10 @@ export default function GalleryPage() {
                   event.stopPropagation();
                   showPreviousImage();
                 }}
-                className="absolute left-3 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:bg-white/20 sm:left-6 md:left-8"
+                className="absolute left-2 top-1/2 z-30 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:bg-white/20 sm:left-6 sm:h-11 sm:w-11 md:left-8"
               >
-                <ChevronLeft size={22} />
+                <ChevronLeft size={19} className="sm:hidden" />
+                <ChevronLeft size={22} className="hidden sm:block" />
               </button>
 
             )}
@@ -976,9 +958,10 @@ export default function GalleryPage() {
                   event.stopPropagation();
                   showNextImage();
                 }}
-                className="absolute right-3 top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:bg-white/20 sm:right-6 md:right-8"
+                className="absolute right-2 top-1/2 z-30 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-xl transition-all duration-300 hover:scale-105 hover:bg-white/20 sm:right-6 sm:h-11 sm:w-11 md:right-8"
               >
-                <ChevronRight size={22} />
+                <ChevronRight size={19} className="sm:hidden" />
+                <ChevronRight size={22} className="hidden sm:block" />
               </button>
 
             )}
@@ -1009,15 +992,15 @@ export default function GalleryPage() {
               onClick={(event) =>
                 event.stopPropagation()
               }
-              className="relative flex max-h-[92vh] max-w-6xl flex-col overflow-hidden rounded-[24px] border border-white/10 bg-black/50 shadow-2xl backdrop-blur-xl"
+              className="relative flex max-h-[94vh] w-full max-w-6xl flex-col overflow-hidden rounded-[16px] border border-white/10 bg-black/50 shadow-2xl backdrop-blur-xl sm:rounded-[24px]"
             >
 
-              <div className="flex max-h-[75vh] items-center justify-center bg-black/30">
+              <div className="flex max-h-[55vh] items-center justify-center bg-black/30 sm:max-h-[75vh]">
 
                 <img
                   src={selectedImage.image}
                   alt={selectedImage.title}
-                  className="max-h-[75vh] w-auto max-w-full object-contain"
+                  className="max-h-[55vh] w-auto max-w-full object-contain sm:max-h-[75vh]"
                 />
 
               </div>
@@ -1025,15 +1008,15 @@ export default function GalleryPage() {
 
               {/* Image information */}
 
-              <div className="border-t border-white/10 bg-black/65 px-5 py-4 backdrop-blur-xl md:px-7 md:py-5">
+              <div className="border-t border-white/10 bg-black/65 px-4 py-3.5 backdrop-blur-xl sm:px-5 sm:py-4 md:px-7 md:py-5">
 
-                <div className="flex flex-wrap items-center justify-between gap-4">
+                <div className="flex flex-wrap items-center justify-between gap-3 sm:gap-4">
 
-                  <div>
+                  <div className="min-w-0">
 
-                    <div className="flex flex-wrap items-center gap-3">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
 
-                      <span className="rounded-full bg-brand-600 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-white">
+                      <span className="rounded-full bg-brand-600 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-white sm:px-3 sm:text-[11px]">
                         {selectedImage.category}
                       </span>
 
@@ -1050,13 +1033,13 @@ export default function GalleryPage() {
                     </div>
 
 
-                    <h3 className="mt-2 text-xl font-black text-white">
+                    <h3 className="mt-2 text-base font-black text-white sm:text-xl">
                       {selectedImage.title}
                     </h3>
 
 
                     {selectedImage.description && (
-                      <p className="mt-1.5 max-w-2xl text-sm leading-6 text-white/60">
+                      <p className="mt-1.5 line-clamp-2 max-w-2xl text-xs leading-5 text-white/60 sm:line-clamp-none sm:text-sm sm:leading-6">
                         {selectedImage.description}
                       </p>
                     )}
@@ -1066,7 +1049,7 @@ export default function GalleryPage() {
 
                   {/* Counter */}
 
-                  <div className="shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-bold text-white/60">
+                  <div className="shrink-0 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-bold text-white/60 sm:px-3 sm:py-1.5 sm:text-xs">
                     {selectedIndex + 1} / {filteredItems.length}
                   </div>
 

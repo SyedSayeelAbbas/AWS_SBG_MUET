@@ -263,9 +263,9 @@ export default function JoinPage() {
       </section>
 
       {/* Soft transition glow into the next section */}
-      <div className="relative h-0">
+      {/* <div className="relative h-0">
         <div className="pointer-events-none absolute -top-24 left-1/2 h-64 w-[600px] -translate-x-1/2 rounded-full bg-violet-100/40 blur-3xl" />
-      </div>
+      </div> */}
 
       {/* =====================================================
           WHY JOIN
