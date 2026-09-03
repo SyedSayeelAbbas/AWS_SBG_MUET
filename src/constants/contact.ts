@@ -4,10 +4,10 @@ export const contactInfo: ContactInfo[] = [
   {
     id: "email",
     title: "Email Us",
-    value: "awsstudentbuilders@muet.edu.pk",
+    value: "awssbgmuet@gmail.com",
     description:
       "Reach out to us for collaborations, questions, and community-related queries.",
-    href: "mailto:awsstudentbuilders@muet.edu.pk",
+    href: "mailto:awssbgmuet@gmail.com",
     icon: "mail",
   },
   {
@@ -32,16 +32,16 @@ export const contactSocialLinks = [
   {
     id: "linkedin",
     label: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/company/aws-cloud-club-mehran-uet/",
   },
   {
     id: "instagram",
     label: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/awssbgmuet/",
   },
   {
     id: "facebook",
     label: "Facebook",
-    href: "#",
+    href: "https://www.facebook.com/awssbgmuet",
   },
 ];

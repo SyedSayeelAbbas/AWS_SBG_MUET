@@ -428,8 +428,7 @@ export default function ContactPage() {
 
                 {/* Email */}
 <a
-                
-                  href="mailto:awsstudentbuilders@muet.edu.pk"
+                  href="mailto:awssbgmuet@gmail.com"
                   className="group flex items-center gap-3 rounded-2xl border border-gray-100 bg-gray-50/70 p-3.5 transition-all duration-300 hover:border-brand-100 hover:bg-brand-50/40 sm:gap-4 sm:p-4"
                 >
 
@@ -445,7 +444,7 @@ export default function ContactPage() {
                     </p>
 
                     <p className="mt-1 truncate text-xs text-gray-500 transition-colors group-hover:text-brand-600 sm:text-sm">
-                      awsstudentbuilders@muet.edu.pk
+                      awssbgmuet@gmail.com
                     </p>
 
                   </div>
@@ -520,6 +519,8 @@ export default function ContactPage() {
                     <a
                       key={social.id}
                       href={social.href}
+                      target="_blank"
+                      rel="noreferrer"
                       aria-label={social.label}
                       className="group relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-gray-200 bg-white text-gray-500 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-200 hover:bg-brand-50 hover:text-brand-600 hover:shadow-lg hover:shadow-brand-500/10 sm:h-11 sm:w-11"
                     >

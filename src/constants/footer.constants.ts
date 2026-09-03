@@ -1,9 +1,4 @@
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaGithub,
-} from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 export const footerLinks = [
   {
@@ -52,18 +47,14 @@ export const footerLinks = [
 export const socials = [
   {
     icon: FaFacebook,
-    href: "#",
+    href: "https://www.facebook.com/awssbgmuet",
   },
   {
     icon: FaInstagram,
-    href: "#",
+    href: "https://www.instagram.com/awssbgmuet/",
   },
   {
     icon: FaLinkedin,
-    href: "#",
-  },
-  {
-    icon: FaGithub,
-    href: "#",
+    href: "https://www.linkedin.com/company/aws-cloud-club-mehran-uet/",
   },
 ];
