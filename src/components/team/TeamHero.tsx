@@ -7,7 +7,7 @@ import { fullTeam } from "../../constants/team";
 const tenureCount = new Set(fullTeam.map((m) => m.tenure)).size;
 
 const stats = [
-  { icon: Users2, value: `${fullTeam.length}+`, label: "Team Members" },
+  { icon: Users2, value: `26`, label: "Current Team Members" },
   { icon: Layers, value: `${tenureCount}`, label: "Tenures" },
   { icon: Sparkle, value: "2023", label: "Founded" },
 ];

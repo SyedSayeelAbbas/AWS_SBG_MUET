@@ -16,7 +16,23 @@
     outline-offset: 2px;
   }
 }
+.react-pdf__Document {
+  width: 100%;
+}
 
+.react-pdf__Page {
+  max-width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 8px 24px rgba(1, 45, 116, 0.14);
+}
+
+.react-pdf__Page canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
 .hero {
   position: relative;
 
