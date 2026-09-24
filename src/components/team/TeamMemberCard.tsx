@@ -136,11 +136,9 @@ export default function TeamMemberCard({ member, onOpenDetails }: Props) {
               {name}
             </h3>
 
-            <p className="mt-1.5 line-clamp-2 text-xs font-normal leading-relaxed text-slate-300 sm:text-sm">
-              {tagline || bio}
-            </p>
+            
 
-            <div className="mt-3 flex items-center justify-between border-t border-slate-800/80 pt-3 text-[11px] font-semibold text-brand-700 transition-colors group-hover:text-white sm:mt-4 sm:text-xs">
+            <div className="mt-3 flex items-center justify-between border-t border-slate-800/80 text-[11px] font-semibold text-brand-700 transition-colors group-hover:text-white sm:mt-4 sm:text-xs">
               <span className="flex items-center gap-1.5">
                 <Sparkles className="h-3.5 w-3.5 animate-pulse text-brand-700" />
                 <span className="hidden sm:inline">Hover or click to view profile</span>

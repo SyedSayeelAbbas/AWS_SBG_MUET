@@ -82,6 +82,7 @@ export const fullTeam: TeamMember[] = [
     name: "Muhammad Ahmed",
     role: "Operations & Technical",
     section: "Core Team",
+  
     tenure: "Current Tenure",
     department: "Operations & Technical",
     image: "public/team/current_tenure/ahmed.webp",
