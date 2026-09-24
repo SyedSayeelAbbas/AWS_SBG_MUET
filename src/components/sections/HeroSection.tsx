@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 import HeroIllustration from "../hero/HeroIllustration";
 import HeroStats from "./HeroStats";
@@ -17,6 +18,8 @@ const headingLines = [
 ];
 
 export default function HeroSection() {
+  const navigate = useNavigate();
+
   return (
     <section className="relative overflow-hidden pt-28 sm:pt-28 md:pt-32 lg:pt-36 pb-10 sm:pb-20 lg:pb-24">
 
@@ -220,6 +223,7 @@ export default function HeroSection() {
               <Button
                 size="lg"
                 showArrow
+                onClick={() => navigate("/join")}
                 className="w-full sm:w-auto"
               >
                 Join Community

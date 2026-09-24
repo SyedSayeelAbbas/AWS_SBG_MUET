@@ -184,16 +184,6 @@ export default function ContactPage() {
 
           <div className="absolute -right-32 top-20 hidden h-80 w-80 rounded-full bg-fuchsia-200/20 blur-[110px] sm:block" />
 
-          {/* Subtle grid */}
-
-          <div
-            className="absolute inset-0 opacity-[0.035]"
-            style={{
-              backgroundImage:
-                "linear-gradient(#6d28d9 1px, transparent 1px), linear-gradient(90deg, #6d28d9 1px, transparent 1px)",
-              backgroundSize: "55px 55px",
-            }}
-          />
         </div>
 
         <Container>

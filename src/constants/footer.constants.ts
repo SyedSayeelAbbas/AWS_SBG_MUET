@@ -29,6 +29,10 @@ export const footerLinks = [
         href: "https://skillbuilder.aws/",
       },
       {
+        label: "AWS Student Builder Center",
+        href: "https://bit.ly/4yT07SF",
+      },
+      {
         label: "AWS Certifications",
         href: "https://aws.amazon.com/certification/",
       },

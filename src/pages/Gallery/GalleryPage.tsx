@@ -192,15 +192,6 @@ export default function GalleryPage() {
 
           <div className="absolute -right-40 top-20 h-96 w-96 rounded-full bg-fuchsia-200/20 blur-[120px]" />
 
-          <div
-            className="absolute inset-0 opacity-[0.035]"
-            style={{
-              backgroundImage:
-                "linear-gradient(#6d28d9 1px, transparent 1px), linear-gradient(90deg, #6d28d9 1px, transparent 1px)",
-              backgroundSize: "55px 55px",
-            }}
-          />
-
         </div>
 
 
@@ -727,19 +718,6 @@ export default function GalleryPage() {
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -bottom-16 -right-16 h-40 w-40 rounded-full bg-brand-400/20 blur-[90px]"
-            />
-
-            {/* Subtle grid texture for depth */}
-            <div
-              aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute
-                inset-0
-                opacity-[0.07]
-                [background-image:linear-gradient(white_1px,transparent_1px),linear-gradient(90deg,white_1px,transparent_1px)]
-                [background-size:32px_32px]
-              "
             />
 
             {/* Floating particles — same pattern as EventsPage / AboutPage */}

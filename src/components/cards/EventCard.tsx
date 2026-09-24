@@ -134,6 +134,8 @@ export default function EventCard({
           <img
             src={gallery[0]}
             alt={title}
+            loading="lazy"
+            decoding="async"
             onLoad={() => setCoverLoaded(true)}
             onError={(e) => {
               e.currentTarget.src = FALLBACK_COVER;
@@ -372,6 +374,7 @@ export default function EventCard({
                     key={activeIndex}
                     src={gallery[activeIndex]}
                     alt={`${title} photo ${activeIndex + 1}`}
+                    loading="eager"
                     onError={(e) => {
                       e.currentTarget.src = FALLBACK_LIGHTBOX;
                     }}
@@ -489,6 +492,8 @@ export default function EventCard({
                       <img
                         src={thumb}
                         alt=""
+                        loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-cover"
                       />
                     </button>

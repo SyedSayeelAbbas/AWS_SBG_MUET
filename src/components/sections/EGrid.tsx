@@ -24,14 +24,15 @@ const trackInset = `${50 / nodeCount}%`;
 export default function EventsGrid() {
   const [tenure, setTenure] = useState<TenureId>(currentTenure);
   const [category, setCategory] = useState<EventCategory>("All");
+  const events = allEvents;
 
   const tenureCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     tenures.forEach((t) => {
-      counts[t.id] = allEvents.filter((e) => e.tenure === t.id).length;
+      counts[t.id] = events.filter((e) => e.tenure === t.id).length;
     });
     return counts;
-  }, []);
+  }, [events]);
 
   const activeTenure = useMemo(
     () => tenures.find((t) => t.id === tenure) ?? tenures[0],
@@ -49,12 +50,12 @@ export default function EventsGrid() {
     nodeCount > 1 ? 1 - activeIndex / (nodeCount - 1) : 1;
 
   const filteredEvents = useMemo(() => {
-    return allEvents.filter((event) => {
+    return events.filter((event) => {
       const matchesTenure = event.tenure === tenure;
       const matchesCategory = category === "All" || event.category === category;
       return matchesTenure && matchesCategory;
     });
-  }, [tenure, category]);
+  }, [tenure, category, events]);
 
   const resetFilters = () => {
     setCategory("All");

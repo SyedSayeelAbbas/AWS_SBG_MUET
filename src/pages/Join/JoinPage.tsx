@@ -4,19 +4,22 @@ import {
   CheckCircle2,
   Cloud,
   Code2,
+  ExternalLink,
+  MessageCircle,
+  ScanLine,
   Sparkles,
   Users,
   Zap,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { FaMeetup, FaWhatsapp } from "react-icons/fa";
 
 import Container from "../../components/layout/Container";
 import SectionWrapper from "../../components/common/SectionWrapper";
 import SectionHeading from "../../components/common/SectionHeading";
-import { Button } from "../../components/ui/Button";
 
 // Shared easing curve — matches AboutPage / EventsPage / GalleryPage
-const EASE = [0.22, 1, 0.36, 1];
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const benefits = [
   {
@@ -237,15 +240,27 @@ export default function JoinPage() {
               transition={{ duration: 0.5, delay: 0.7 }}
               className="mt-10 flex flex-col items-center justify-center gap-3 sm:mt-12 sm:flex-row sm:gap-4"
             >
-              <Button size="lg" showArrow className="w-full sm:w-auto">
-                Join the Community
-              </Button>
+              <a
+                href="https://www.meetup.com/aws-sbg-at-mehran-uni-engineering-and-tech-jamshoro-pakistan/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#F64060] px-6 text-sm font-bold text-white shadow-[0_12px_28px_rgba(246,64,96,0.24)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#df3151] hover:shadow-[0_18px_36px_rgba(246,64,96,0.32)] sm:h-14 sm:w-auto sm:px-8 sm:text-base"
+              >
+                <FaMeetup size={19} />
+                Join Meetup
+                <ExternalLink size={15} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+              </a>
 
-              <Link to="/events" className="w-full sm:w-auto">
-                <Button size="lg" variant="secondary" className="w-full sm:w-auto">
-                  Explore Events
-                </Button>
-              </Link>
+              <a
+                href="https://chat.whatsapp.com/ErEpgyFcF4XGvE3oSfrlGA?s=qt&p=i&mlu=4&ilr=4"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#25D366] px-6 text-sm font-bold text-white shadow-[0_12px_28px_rgba(37,211,102,0.24)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#20bd5b] hover:shadow-[0_18px_36px_rgba(37,211,102,0.32)] sm:h-14 sm:w-auto sm:px-8 sm:text-base"
+              >
+                <FaWhatsapp size={20} />
+                Join WhatsApp
+                <ExternalLink size={15} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+              </a>
             </motion.div>
 
             {/* Fine print */}
@@ -261,6 +276,75 @@ export default function JoinPage() {
           </div>
         </Container>
       </section>
+
+      {/* =====================================================
+          COMMUNITY CONNECTIONS
+      ===================================================== */}
+      <SectionWrapper background="white">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.7, ease: EASE }}
+            className="relative overflow-hidden rounded-[30px] border border-violet-200/80 bg-[linear-gradient(135deg,#faf7ff,#ffffff_48%,#f5f3ff)] p-5 shadow-[0_24px_80px_rgba(124,58,237,0.12)] sm:p-8 lg:p-10"
+          >
+            <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full bg-violet-300/20 blur-[90px]" />
+            <div aria-hidden="true" className="pointer-events-none absolute -bottom-28 -left-20 h-64 w-64 rounded-full bg-fuchsia-300/15 blur-[90px]" />
+
+            <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1fr)_220px] lg:items-center lg:gap-12">
+              <div>
+                <span className="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-white/80 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-brand-700 shadow-sm">
+                  <MessageCircle size={14} />
+                  Stay connected
+                </span>
+                <h2 className="mt-5 max-w-xl text-2xl font-black tracking-tight text-heading sm:text-3xl lg:text-4xl">
+                  Your next build starts with the right community.
+                </h2>
+                <p className="mt-4 max-w-xl text-sm leading-7 text-gray-600 sm:text-base">
+                  Join the MUET Fam WhatsApp group for event updates, learning
+                  opportunities and conversations with fellow student builders.
+                </p>
+                <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <a
+                    href="https://chat.whatsapp.com/ErEpgyFcF4XGvE3oSfrlGA?s=qt&p=i&mlu=4&ilr=4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-bold text-white shadow-[0_12px_28px_rgba(37,211,102,0.25)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#20bd5b]"
+                  >
+                    <FaWhatsapp size={19} />
+                    Join WhatsApp Group
+                    <ExternalLink size={15} />
+                  </a>
+                  <a
+                    href="https://bit.ly/4yT07SF"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-violet-200 bg-white/85 px-5 py-3 text-sm font-bold text-brand-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-300 hover:bg-white hover:shadow-lg"
+                  >
+                    AWS Builder Center
+                    <ExternalLink size={15} />
+                  </a>
+                </div>
+              </div>
+
+              <div className="mx-auto w-full max-w-[220px] rounded-[24px] border border-violet-200 bg-white p-3 shadow-[0_18px_45px_rgba(76,29,149,0.14)]">
+                <div className="rounded-[17px] bg-white p-2">
+                  <img
+                    src="/qrcode.png"
+                    alt="QR code to join the AWS Student Builder Club MUET WhatsApp group"
+                    className="aspect-square w-full object-contain"
+                  />
+                </div>
+                <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-xs font-bold text-brand-700">
+                  <ScanLine size={14} />
+                  Scan to join
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </Container>
+      </SectionWrapper>
 
       {/* Soft transition glow into the next section */}
       {/* <div className="relative h-0">

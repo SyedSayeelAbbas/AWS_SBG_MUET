@@ -1,3 +1,5 @@
+import { galleryAssetFiles, galleryImageUrl } from "./gallery-assets";
+
 export interface GalleryItem {
   id: string;
   title: string;
@@ -17,7 +19,11 @@ export const galleryItems: GalleryItem[] = [
     id: "aws-cloud-workshop",
     title: "AWS Cloud Workshop",
     category: "Workshops",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&q=80&auto=format&fit=crop",
+    image: galleryImageUrl(
+      2026,
+      galleryAssetFiles[2026].awsCloudWorkshop,
+      "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&q=80&auto=format&fit=crop"
+    ),
     description:
       "Students exploring AWS cloud services through practical learning and hands-on activities.",
     featured: true,
@@ -27,7 +33,11 @@ export const galleryItems: GalleryItem[] = [
     id: "cloud-computing-session",
     title: "Cloud Computing Session",
     category: "Events",
-    image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=900&q=80&auto=format&fit=crop",
+    image: galleryImageUrl(
+      2026,
+      galleryAssetFiles[2026].cloudComputingSession,
+      "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=900&q=80&auto=format&fit=crop"
+    ),
     description:
       "An interactive session focused on cloud computing concepts and modern technologies.",
     featured: false,
@@ -37,7 +47,11 @@ export const galleryItems: GalleryItem[] = [
     id: "student-builders",
     title: "Student Builders",
     category: "Community",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80&auto=format&fit=crop",
+    image: galleryImageUrl(
+      2026,
+      galleryAssetFiles[2026].studentBuilders,
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80&auto=format&fit=crop"
+    ),
     description:
       "Students collaborating, sharing ideas and building solutions together.",
     featured: false,
@@ -47,7 +61,11 @@ export const galleryItems: GalleryItem[] = [
     id: "aws-community-meetup",
     title: "AWS Community Meetup",
     category: "Community",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=900&q=80&auto=format&fit=crop",
+    image: galleryImageUrl(
+      2026,
+      galleryAssetFiles[2026].awsCommunityMeetup,
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=900&q=80&auto=format&fit=crop"
+    ),
     description:
       "A community gathering bringing together students interested in cloud and technology.",
     featured: false,
@@ -57,7 +75,11 @@ export const galleryItems: GalleryItem[] = [
     id: "technical-workshop",
     title: "Technical Workshop",
     category: "Workshops",
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=900&q=80&auto=format&fit=crop",
+    image: galleryImageUrl(
+      2026,
+      galleryAssetFiles[2026].technicalWorkshop,
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=900&q=80&auto=format&fit=crop"
+    ),
     description:
       "Students learning through practical technical activities and collaborative exercises.",
     featured: false,
@@ -67,7 +89,11 @@ export const galleryItems: GalleryItem[] = [
     id: "builder-community",
     title: "Builder Community",
     category: "Community",
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&q=80&auto=format&fit=crop",
+    image: galleryImageUrl(
+      2026,
+      galleryAssetFiles[2026].builderCommunity,
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&q=80&auto=format&fit=crop"
+    ),
     description:
       "A space for students to connect, collaborate and exchange technical ideas.",
     featured: false,
