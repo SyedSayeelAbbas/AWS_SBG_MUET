@@ -296,22 +296,22 @@ export const impactStats: ImpactStat[] = [
 export const teamMembers: TeamMember[] = [
   {
     id: 1,
-    name: "Muhammad Ali",
-    role: "President",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&auto=format&fit=crop",
+    name: "Rania Sadia Shah",
+    role: "Leader",
+    image: "public/team/current_tenure/rania.webp",
   },
   {
     id: 2,
-    name: "Ayesha Khan",
-    role: "Vice President",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&auto=format&fit=crop",
-  },
+    name: "Jahanzeb Ansari",
+    role: "Co-Lead",
+ image: "public/team/current_tenure/jahanzaib.webp",
+     },
   {
     id: 3,
-    name: "Ahmed Raza",
-    role: "General Secretary",
-    image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=600&q=80&auto=format&fit=crop",
-  },
+    name: "Humera Soomro",
+    role: "Co-Lead",
+    image: "public/team/current_tenure/humera.webp",
+    },
 ];
 
 /* ==========================================================

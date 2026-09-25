@@ -9,27 +9,27 @@ const websiteTeam = [
   {
     id: 1,
     name: "Syed Sayeel Abbas",
-    rollNo: "24SW116",
+    rollNo: "24sw116",
     work: "Frontend and Integration",
-    image: "/team/sayeel.webp",
+    image: "public/team/current_tenure/SYEDSAYEELABBAS.webp",
     fact:
       "Enjoys turning ideas into polished interfaces and connecting different parts of a project into one smooth experience.",
   },
   {
     id: 2,
-    name: "Ahmed Memon",
-    rollNo: "24SW019",
-    work: "Frontend and Integration",
-    image: "/team/ahmed.webp",
+    name: "Muhammad Ahmed Memon",
+    rollNo: "24sw019",
+    work: "Frontent and Data Management",
+    image: "public/team/current_tenure/ahmed.webp",
     fact:
       "Focused on building clean user experiences and making sure the frontend works smoothly with the rest of the system.",
   },
   {
     id: 3,
     name: "Saad Abbasi",
-    rollNo: "24SW031",
+    rollNo: "24sw031",
     work: "Backend and Data Collection",
-    image: "/team/saad.webp",
+    image: "public/team/current_tenure/MuhammadSaadAbbasi.webp",
     fact:
       "Works behind the scenes on backend systems, data collection and keeping the project's information organized.",
   },
