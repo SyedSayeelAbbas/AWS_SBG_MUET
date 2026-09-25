@@ -100,7 +100,7 @@ export const aboutPreview: AboutPreviewData = {
   title: "Creating Future Cloud Leaders",
   description:
     "AWS Student Builder Club MUET empowers students through technical workshops, collaborative projects, leadership opportunities and real-world cloud learning.",
-  image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1000&q=80&auto=format&fit=crop",
+  image: "/events/4th Tenure/Event 1.jpeg",
   highlights: [
     { icon: Cloud, text: "Hands-on AWS workshops" },
     { icon: Users, text: "500+ member community" },
@@ -229,28 +229,28 @@ export const galleryImages: GalleryImage[] = [
   {
     id: 1,
     title: "Workshop",
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1000&q=80&auto=format&fit=crop",
+    image: "/events/SCD/8.JPG",
     className: "col-span-2 row-span-2",
   },
   {
     id: 2,
     title: "Hackathon",
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80&auto=format&fit=crop",
+    image: "/events/Hacktober/1.JPG",
   },
   {
     id: 3,
     title: "Seminar",
-    image: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&q=80&auto=format&fit=crop",
+    image: "/events/SCD/5.JPG",
   },
   {
     id: 4,
     title: "Community",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&auto=format&fit=crop",
+    image: "/events/Hacktober/2.JPG",
   },
   {
     id: 5,
     title: "Orientation",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80&auto=format&fit=crop",
+    image: "/events/4th Tenure/Event 2.jpeg",
   },
 ];
 

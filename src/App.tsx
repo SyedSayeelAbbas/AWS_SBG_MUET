@@ -1,6 +1,9 @@
-import { Routes, Route } from "react-router-dom";
+import { useCallback, useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Layout from "./components/layout/Layout";
+import SplashScreen from "./components/common/SplashScreen";
 
 import HomePage from "./pages/Home/HomePage";
 import AboutPage from "./pages/About/AboutPage";
@@ -15,74 +18,97 @@ import JoinPage from "./pages/Join/JoinPage";
 import { ROUTES } from "./constants/routes";
 
 export default function App() {
+  const { pathname } = useLocation();
+  const [showSplash, setShowSplash] = useState(true);
+
+  // Keep the existing route-change scroll fix.
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+
+  const closeSplash = useCallback(() => {
+    setShowSplash(false);
+  }, []);
+
   return (
-    <Layout>
-      <Routes>
-        {/* Home */}
-        <Route
-          path={ROUTES.HOME}
-          element={<HomePage />}
-        />
+    <>
+      <AnimatePresence mode="wait">
+        {showSplash && (
+          <SplashScreen
+            key="site-splash"
+            onComplete={closeSplash}
+          />
+        )}
+      </AnimatePresence>
 
-        {/* About */}
-        <Route
-          path={ROUTES.ABOUT}
-          element={<AboutPage />}
-        />
+      <Layout>
+        <Routes>
+          {/* Home */}
+          <Route
+            path={ROUTES.HOME}
+            element={<HomePage />}
+          />
 
-        {/* Events */}
-        <Route
-          path={ROUTES.EVENTS}
-          element={<EventsPage />}
-        />
+          {/* About */}
+          <Route
+            path={ROUTES.ABOUT}
+            element={<AboutPage />}
+          />
 
-        <Route
-          path={ROUTES.EVENT_DETAIL}
-          element={<EventDetailPage />}
-        />
+          {/* Events */}
+          <Route
+            path={ROUTES.EVENTS}
+            element={<EventsPage />}
+          />
 
-        {/* Gallery */}
-        <Route
-          path={ROUTES.GALLERY}
-          element={<GalleryPage />}
-        />
+          <Route
+            path={ROUTES.EVENT_DETAIL}
+            element={<EventDetailPage />}
+          />
 
-        {/* Team */}
-        <Route
-          path={ROUTES.TEAM}
-          element={<TeamPage />}
-        />
+          {/* Gallery route is kept even if Gallery is hidden from the navbar */}
+          <Route
+            path={ROUTES.GALLERY}
+            element={<GalleryPage />}
+          />
 
-        {/* Blog */}
-        <Route
-          path={ROUTES.BLOGS}
-          element={<BlogPage />}
-        />
+          {/* Team */}
+          <Route
+            path={ROUTES.TEAM}
+            element={<TeamPage />}
+          />
 
-        {/* Contact */}
-        <Route
-          path={ROUTES.CONTACT}
-          element={<ContactPage />}
-        />
+          {/* Blog */}
+          <Route
+            path={ROUTES.BLOGS}
+            element={<BlogPage />}
+          />
 
-        {/* Join Community */}
-        <Route
-          path={ROUTES.JOIN}
-          element={<JoinPage />}
-        />
+          {/* Contact */}
+          <Route
+            path={ROUTES.CONTACT}
+            element={<ContactPage />}
+          />
 
-        {/* Optional fallback */}
-        <Route
-          path={ROUTES.NOT_FOUND}
-          element={
-            <div className="flex min-h-[60vh] items-center justify-center">
-              <h1 className="text-3xl font-bold">
-                Page Not Found
-              </h1>
-            </div>
-          }
-        />
-      </Routes>
-    </Layout>
+          {/* Join Community */}
+          <Route
+            path={ROUTES.JOIN}
+            element={<JoinPage />}
+          />
+
+          {/* Fallback */}
+          <Route
+            path={ROUTES.NOT_FOUND}
+            element={
+              <div className="flex min-h-[60vh] items-center justify-center">
+                <h1 className="text-3xl font-bold">
+                  Page Not Found
+                </h1>
+              </div>
+            }
+          />
+        </Routes>
+      </Layout>
+    </>
   );
 }

@@ -1,12 +1,16 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 import Container from "../layout/Container";
 import { Button } from "../../components/ui/Button";
 
 import { aboutPreview } from "../../constants/home.constants";
+import { ROUTES } from "../../constants/routes";
 
 export default function AboutPreview() {
+  const navigate = useNavigate();
+
   return (
     <section className="section relative overflow-hidden bg-white">
       {/* =====================================================
@@ -282,7 +286,10 @@ export default function AboutPreview() {
                 CTA
             ================================================= */}
 
-            <Button className="mt-8 w-full sm:mt-10 sm:w-auto">
+            <Button
+              onClick={() => navigate(ROUTES.ABOUT)}
+              className="mt-8 w-full sm:mt-10 sm:w-auto"
+            >
               Learn More
 
               <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />

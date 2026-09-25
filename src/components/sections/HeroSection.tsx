@@ -233,6 +233,7 @@ export default function HeroSection() {
                 size="lg"
                 variant="secondary"
                 showArrow
+                onClick={() => navigate("/events")}
                 className="w-full sm:w-auto"
               >
                 Explore Events

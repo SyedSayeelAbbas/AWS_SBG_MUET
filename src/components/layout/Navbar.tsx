@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, Moon } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -127,22 +127,6 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden lg:flex items-center gap-3">
-            <button
-              aria-label="Toggle dark mode"
-              className="
-              flex
-              h-11
-              w-11
-              items-center
-              justify-center
-              rounded-full
-              hover:bg-brand-50
-              transition
-            "
-            >
-              <Moon size={18} />
-            </button>
-
             <Link to={ROUTES.JOIN}>
               <Button size="md" showArrow>
                 Join Community
