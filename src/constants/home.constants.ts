@@ -50,7 +50,7 @@ export const communityStats = [
   {
     id: 1,
     title: "Learning Hours",
-    value: 1000,
+    value: 40,
     suffix: "+",
     description: "Hours of technical learning and practice.",
     icon: GraduationCap,
@@ -58,7 +58,7 @@ export const communityStats = [
   {
     id: 2,
     title: "Workshops",
-    value: 25,
+    value: 17,
     suffix: "+",
     description: "Hands-on technical sessions.",
     icon: CalendarDays,
@@ -66,7 +66,7 @@ export const communityStats = [
   {
     id: 3,
     title: "Student Leaders",
-    value: 15,
+    value: 4,
     suffix: "+",
     description: "Students leading community initiatives.",
     icon: Users,
@@ -74,7 +74,7 @@ export const communityStats = [
   {
     id: 4,
     title: "Cloud Labs",
-    value: 10,
+    value: 7,
     suffix: "+",
     description: "Practical environments for cloud learning.",
     icon: Cloud,
@@ -82,7 +82,7 @@ export const communityStats = [
     {
   id: 5,
   title: "Learning Sessions",
-  value: 25,
+  value: 17,
   suffix: "+",
   description: "Workshops & learning sessions.",
   icon: BookOpen,
@@ -269,7 +269,7 @@ export const impactStats: ImpactStat[] = [
   {
     id: 2,
     title: "Hackathons",
-    value: "20+",
+    value: "4+",
     description: "Organized events.",
     icon: Trophy,
   },

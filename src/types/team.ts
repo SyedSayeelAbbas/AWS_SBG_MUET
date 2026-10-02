@@ -25,7 +25,7 @@ export interface TeamMember {
   section: TeamSection;
   tenure: Tenure;
   image: string;
-  bio: string;
+  bio?: string;
 
   /** Groups Core Team members into department sections (used for Current Tenure) */
   department?: TeamDepartment;

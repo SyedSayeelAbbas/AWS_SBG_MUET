@@ -8,7 +8,7 @@ const stats = [
   },
   {
     icon: CalendarDays,
-    value: "35+",
+    value: "25+",
     label: "Events",
   },
   {

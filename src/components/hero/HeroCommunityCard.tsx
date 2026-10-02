@@ -5,6 +5,20 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
+const avatarImages = [
+  { name: "Muhammad Ahmed", image: "/team/current_tenure/ahmed.webp" },
+  {
+    name: "Muhammad Saad",
+    image: "/team/current_tenure/MuhammadSaadAbbasi.webp",
+  },
+  { name: "Jahanzeb Ansari", image: "/team/current_tenure/Jahanzaib.webp" },
+  { name: "Hammad Masood", image: "/team/current_tenure/HammadMasood.webp" },
+  {
+    name: "Muhammad Dawood",
+    image: "/team/current_tenure/MuhammadDawood.webp",
+  },
+] as const;
+
 export default function HeroCommunityCard() {
   return (
     <motion.div
@@ -129,19 +143,14 @@ export default function HeroCommunityCard() {
 
           <div className="flex -space-x-3">
 
-            {[
-              "#8C52FF",
-              "#7C3AED",
-              "#6B46C1",
-              "#8C52FF",
-              "#7C3AED",
-            ].map((color, index) => (
+            {avatarImages.map((member) => (
               <motion.div
-                key={index}
+                  key={member.name}
                 whileHover={{
                   y: -4,
                 }}
                 className="
+                  relative
                   flex
                   h-10
                   w-10
@@ -154,11 +163,12 @@ export default function HeroCommunityCard() {
                   font-bold
                   text-white
                 "
-                style={{
-                  background: color,
-                }}
               >
-                {index + 1}
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="absolute inset-0 h-full w-full rounded-full object-cover"
+                />
               </motion.div>
             ))}
 

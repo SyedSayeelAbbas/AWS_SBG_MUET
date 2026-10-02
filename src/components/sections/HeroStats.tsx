@@ -17,7 +17,7 @@ const stats = [
     icon: Users,
   },
   {
-    value: 35,
+    value: 25,
     suffix: "+",
     label: "Events",
     icon: CalendarDays,
