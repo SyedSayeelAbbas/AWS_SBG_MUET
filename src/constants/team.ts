@@ -219,6 +219,18 @@ export const fullTeam: TeamMember[] = [
     github: "",
     linkedin: "https://www.linkedin.com/in/anusha-talpur-0a5907261",
   },
+  {
+    id: 115.1,
+    name: "Aashir Memon",
+    role: "Content Management",
+    section: "Core Team",
+    tenure: "Current Tenure",
+    department: "Content Management",
+    image: "public/team/current_tenure/Ahsir.webp",
+    bio: "Hey everyone!!! I'm Muhammad Aashir, part of the Content Management Team at AWS SBG. Outside of work, am mostly into binge-watching series, going on long drives, and a little bit of ragebaiting too 😭🤌🏻",
+    github: "https://github.com/aashir41302",
+    linkedin: "https://pk.linkedin.com/in/muhammad-aashir-a81a5126a",
+  },
 
 
   // Outreach & Marketing
