@@ -318,45 +318,56 @@ export const teamMembers: TeamMember[] = [
    TESTIMONIALS
 ========================================================== */
 
+/* ==========================================================
+   TESTIMONIALS
+========================================================== */
+
 export const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Student One",
-    role: "AWS Learner",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80&auto=format&fit=crop",
+    name: "Wajahat Kareem",
+    role: "Google Developer Expert — Android",
+    image: "",
     quote:
-      "The AWS Student Builder Club completely transformed my cloud learning journey.",
+      "I truly enjoyed participating in the Hacktoberfest Hackathon organized by AWS Cloud Club MUET, as I've always been a big fan of open source. I strongly encourage students to actively take part in such activities, as they open doors to collaboration, learning, and growth.",
   },
+
   {
     id: 2,
-    name: "Student Two",
-    role: "Software Engineering",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&q=80&auto=format&fit=crop",
+    name: "Qasim Hassan",
+    role: "DevOps Engineer at Pakistan Single Window (PSW)",
+    image: "",
     quote:
-      "The workshops and mentorship helped me gain confidence in AWS services.",
+      "The enthusiasm of the students was amazing! I gave a talk on how to get started with cloud computing, and it turned out to be a fantastic session. The AWS Cloud Club MUET put a lot of effort into organizing the event, and it truly showed.",
   },
+
   {
     id: 3,
-    name: "Student Three",
-    role: "Cloud Computing Student",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&q=80&auto=format&fit=crop",
+    name: "Zaid Soomro",
+    role: "Software Engineer at Webperts",
+    image: "",
     quote:
-      "Being part of the community gave me practical experience that I could apply to my own projects.",
+      "Good to see such an active community focused on cloud computing. The workshops were very informative and well-organized.",
   },
+
   {
     id: 4,
-    name: "Student Four",
-    role: "Software Engineering Student",
-    image:
-      "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=200&q=80&auto=format&fit=crop",
+    name: "Rashid Wassan",
+    role: "DevOps Engineer at Pakistan Single Window (PSW)",
+    image: "",
     quote:
-      "The events, collaboration and learning opportunities made cloud computing much easier to understand.",
+      "I'm happy to see hackathons being organized at Mehran University. I truly enjoyed delivering a talk, and being part of the review panel.",
+  },
+
+  {
+    id: 5,
+    name: "Arayan",
+    role: "AWS Certified Solutions Architect",
+    image: "",
+    quote:
+      "The AWS Cloud Club provided me with the resources and mentorship I needed to pass my AWS certification exams.",
   },
 ];
-
 /* ==========================================================
    PARTNERS
 ========================================================== */

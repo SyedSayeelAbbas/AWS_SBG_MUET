@@ -167,6 +167,18 @@ export const fullTeam: TeamMember[] = [
     github: "",
     linkedin: "https://www.linkedin.com/in/ezzah-ansari",
   },
+    {
+    id: 112.1,
+    name: "Syeda Sara Shah",
+    role: "Designing Team",
+    section: "Core Team",
+    tenure: "Current Tenure",
+    department: "Designing Team",
+    image: "public/team/current_tenure/Sara.jpeg",
+    bio: "Hello, I'm Syeda Sara Shah, currently enrolled in Computer Systems Engineering at MUET. I've joined the AWS SBG team as a Graphic Designer, and I'm always looking to make things look more vibrant, colorful, and better. Outside of pixels, you can find me making fun mobile applications and websites or painting.",
+    github: "https://github.com/SarahShah1305",
+    linkedin: "https://www.linkedin.com/in/syeda-sara-shah-13s05s06s",
+  },
 
   // Content Management
   {
@@ -207,18 +219,7 @@ export const fullTeam: TeamMember[] = [
     github: "",
     linkedin: "https://www.linkedin.com/in/anusha-talpur-0a5907261",
   },
-  {
-    id: 116,
-    name: "Muhammad Mahrus",
-    role: "Content Management",
-    section: "Core Team",
-    tenure: "Current Tenure",
-    department: "Content Management",
-    image: "public/team/current_tenure/MahrusMemon.webp",
-    bio: "I’m a member of the AWS Visuals Team, creating designs for our website and digital platforms. I enjoy combining creativity and technology to produce clean, impactful visuals.",
-    github: "https://github.com/Muhammad-Mahrus",
-    linkedin: "https://www.linkedin.com/in/mahrus-memon",
-  },
+
 
   // Outreach & Marketing
   {
@@ -335,7 +336,18 @@ export const fullTeam: TeamMember[] = [
     github: "",
     linkedin: "https://www.linkedin.com/in/awais-ahmed-723a032b4",
   },
-
+{
+    id: 116,
+    name: "Muhammad Mahrus",
+    role: "Visual Production",
+    section: "Core Team",
+    tenure: "Current Tenure",
+    department: "Visual Production",
+    image: "public/team/current_tenure/MahrusMemon.webp",
+    bio: "I’m a member of the AWS Visuals Team, creating designs for our website and digital platforms. I enjoy combining creativity and technology to produce clean, impactful visuals.",
+    github: "https://github.com/Muhammad-Mahrus",
+    linkedin: "https://www.linkedin.com/in/mahrus-memon",
+  },
   /* ===================== 3RD TENURE (2024 — 2025) ===================== */
   {
     id: 7,
