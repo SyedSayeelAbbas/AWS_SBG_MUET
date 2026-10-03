@@ -18,7 +18,7 @@ export const fullTeam: TeamMember[] = [
     role: "Leader",
     section: "Captain",
     tenure: "Current Tenure",
-    image: "public/team/current_tenure/rania.webp",
+    image: "public/team/current_tenure/Rania.webp",
     bio: "Hi everyone! I’m Rania, the AWS SBG Leader at MUET. I believe leadership is about creating space for others to learn, grow, and discover what they’re capable of. No matter where you’re starting from, you’re welcome here. Bring your curiosity, your ideas, and your willingness to learn. Let’s grow together, support one another, and make this community a place where everyone can thrive.",
     period: "2026 — 2027",
     email: "mailto:awsstudentbuilders@muet.edu.pk",

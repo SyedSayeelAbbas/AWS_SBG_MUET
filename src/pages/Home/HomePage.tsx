@@ -1,15 +1,12 @@
 import HeroSection from "../../components/sections/HeroSection";
 import CommunityStats from "../../components/sections/CommunityStats";
 import AboutPreview from "../../components/sections/AboutPreview";
-import WhatWeDo from "../../components/sections/WhatWeDo";
-import JourneyTimeline from "../../components/sections/JourneyTimeline";
 import FeaturedEvents from "../../components/sections/FeaturedEvents";
 import GalleryPreview from "../../components/sections/GalleryPreview";
-import CommunityImpact from "../../components/sections/CommunityImpact";
 import TeamPreview from "../../components/sections/TeamPreview";
 import Testimonials from "../../components/sections/Testimonials";
 import Partners from "../../components/sections/Partners";
-import WebsiteTeam from "../../components/sections/WebsiteTeam";
+// import WebsiteTeam from "../../components/sections/WebsiteTeam";
 
 export default function HomePage() {
   return (
@@ -17,15 +14,12 @@ export default function HomePage() {
       <HeroSection />
       <CommunityStats />
       <AboutPreview />
-      <WhatWeDo />
-      <JourneyTimeline />
-      {/* <FeaturedEvents /> */}
+      <FeaturedEvents />
       <GalleryPreview />
-      <CommunityImpact />
       <TeamPreview />
       <Testimonials />
       <Partners />
-      <WebsiteTeam />
+      {/* <WebsiteTeam /> i added this on the about section page */}
     </>
   );
 }

@@ -1,9 +1,24 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { RotateCcw } from "lucide-react";
 
 import Container from "../layout/Container";
+
+/*
+  ============================================================
+  WEBSITE BUILDERS
+  ============================================================
+
+  These cards are now displayed in a normal responsive grid.
+
+  There is NO:
+  - automatic carousel
+  - duplicated card set
+  - left/right movement
+  - infinite scrolling
+
+  The click-to-flip interaction is kept.
+*/
 
 const websiteTeam = [
   {
@@ -11,29 +26,37 @@ const websiteTeam = [
     name: "Syed Sayeel Abbas",
     rollNo: "24sw116",
     work: "Frontend and Integration",
-    image: "public/team/current_tenure/SYEDSAYEELABBAS.webp",
+    image: "/team/current_tenure/SYEDSAYEELABBAS.webp",
     fact:
       "Enjoys turning ideas into polished interfaces and connecting different parts of a project into one smooth experience.",
   },
+
   {
     id: 2,
     name: "Muhammad Ahmed Memon",
     rollNo: "24sw019",
-    work: "Frontent and Data Management",
-    image: "public/team/current_tenure/ahmed.webp",
+    work: "Frontend and Data Management",
+    image: "/team/current_tenure/ahmed.webp",
     fact:
       "Focused on building clean user experiences and making sure the frontend works smoothly with the rest of the system.",
   },
+
   {
     id: 3,
     name: "Saad Abbasi",
     rollNo: "24sw031",
     work: "Backend and Data Collection",
-    image: "public/team/current_tenure/MuhammadSaadAbbasi.webp",
+    image: "/team/current_tenure/MuhammadSaadAbbasi.webp",
     fact:
       "Works behind the scenes on backend systems, data collection and keeping the project's information organized.",
   },
 ];
+
+/*
+  ============================================================
+  TEAM FLIP CARD
+  ============================================================
+*/
 
 function TeamFlipCard({
   member,
@@ -45,34 +68,41 @@ function TeamFlipCard({
   const [isFlipped, setIsFlipped] = useState(false);
 
   const toggleFlip = () => {
-    setIsFlipped((prev) => !prev);
+    setIsFlipped((previous) => !previous);
   };
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      initial={{
+        opacity: 0,
+        y: 25,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+        amount: 0.2,
+      }}
       transition={{
-        duration: 0.6,
-        delay: index * 0.12,
+        duration: 0.55,
+        delay: index * 0.1,
       }}
       className="
         group
+        mx-auto
         h-[400px]
-        w-[280px]
-        shrink-0
+        w-full
+        max-w-[360px]
         cursor-pointer
         [perspective:1200px]
 
         sm:h-[430px]
-        sm:w-[320px]
 
         md:h-[440px]
-        md:w-[340px]
 
         lg:h-[450px]
-        lg:w-[360px]
       "
       onClick={toggleFlip}
       role="button"
@@ -85,6 +115,10 @@ function TeamFlipCard({
       }}
       aria-label={`View more about ${member.name}`}
     >
+      {/* =====================================================
+          FLIP CONTAINER
+      ===================================================== */}
+
       <motion.div
         className="
           relative
@@ -101,8 +135,9 @@ function TeamFlipCard({
         }}
       >
         {/* =====================================================
-            FRONT
+            FRONT OF CARD
         ===================================================== */}
+
         <div
           className="
             absolute
@@ -118,13 +153,19 @@ function TeamFlipCard({
             bg-white
             shadow-[0_15px_50px_rgba(91,55,170,0.10)]
             [backface-visibility:hidden]
-            transition-shadow
+            transition-all
             duration-300
+
+            hover:border-brand-200
+            hover:shadow-[0_20px_60px_rgba(91,55,170,0.16)]
 
             sm:rounded-[2rem]
           "
         >
-          {/* Image */}
+          {/* ===================================================
+              IMAGE
+          =================================================== */}
+
           <div
             className="
               relative
@@ -133,7 +174,9 @@ function TeamFlipCard({
               overflow-hidden
 
               sm:h-[235px]
+
               md:h-[245px]
+
               lg:h-[255px]
             "
           >
@@ -145,12 +188,13 @@ function TeamFlipCard({
                 w-full
                 object-cover
                 transition-transform
-                duration-700
-                group-hover:scale-105
+                duration-500
+                group-hover:scale-[1.03]
               "
             />
 
-            {/* Image gradient */}
+            {/* Dark gradient at image bottom */}
+
             <div
               className="
                 absolute
@@ -159,11 +203,13 @@ function TeamFlipCard({
                 h-24
                 bg-gradient-to-t
                 from-black/40
+                via-black/10
                 to-transparent
               "
             />
 
-            {/* Number */}
+            {/* Member Number */}
+
             <div
               className="
                 absolute
@@ -190,11 +236,14 @@ function TeamFlipCard({
                 sm:text-sm
               "
             >
-              0{index + 1}
+              {String(index + 1).padStart(2, "0")}
             </div>
           </div>
 
-          {/* Details */}
+          {/* ===================================================
+              DETAILS
+          =================================================== */}
+
           <div
             className="
               flex
@@ -208,7 +257,15 @@ function TeamFlipCard({
               sm:py-6
             "
           >
-            <p className="text-xs font-medium text-brand-600 sm:text-sm">
+            <p
+              className="
+                text-xs
+                font-medium
+                text-brand-600
+
+                sm:text-sm
+              "
+            >
               Website Team
             </p>
 
@@ -226,15 +283,41 @@ function TeamFlipCard({
               {member.name}
             </h3>
 
-            <div className="mt-3 space-y-1 sm:mt-4">
-              <p className="text-xs text-body sm:text-sm">
+            <div
+              className="
+                mt-3
+                space-y-1
+
+                sm:mt-4
+              "
+            >
+              {/* Roll Number */}
+
+              <p
+                className="
+                  text-xs
+                  text-body
+
+                  sm:text-sm
+                "
+              >
                 <span className="font-semibold text-heading">
                   Roll No:
                 </span>{" "}
                 {member.rollNo}
               </p>
 
-              <p className="text-xs text-body sm:text-sm">
+              {/* Work */}
+
+              <p
+                className="
+                  text-xs
+                  leading-relaxed
+                  text-body
+
+                  sm:text-sm
+                "
+              >
                 <span className="font-semibold text-heading">
                   Work:
                 </span>{" "}
@@ -242,7 +325,10 @@ function TeamFlipCard({
               </p>
             </div>
 
-            {/* Click hint */}
+            {/* =================================================
+                CLICK HINT
+            ================================================= */}
+
             <div
               className="
                 mt-auto
@@ -258,15 +344,23 @@ function TeamFlipCard({
                 sm:text-xs
               "
             >
-              <RotateCcw className="h-3.5 w-3.5 shrink-0" />
+              <RotateCcw
+                className="
+                  h-3.5
+                  w-3.5
+                  shrink-0
+                "
+              />
+
               Click to discover a fact
             </div>
           </div>
         </div>
 
         {/* =====================================================
-            BACK
+            BACK OF CARD
         ===================================================== */}
+
         <div
           className="
             absolute
@@ -297,7 +391,10 @@ function TeamFlipCard({
             sm:px-8
           "
         >
-          {/* Decorative elements */}
+          {/* ===================================================
+              DECORATIVE CIRCLES
+          =================================================== */}
+
           <div
             className="
               pointer-events-none
@@ -324,7 +421,19 @@ function TeamFlipCard({
             "
           />
 
-          <div className="relative z-10 w-full">
+          {/* ===================================================
+              BACK CONTENT
+          =================================================== */}
+
+          <div
+            className="
+              relative
+              z-10
+              w-full
+            "
+          >
+            {/* Question Icon */}
+
             <div
               className="
                 mx-auto
@@ -343,10 +452,19 @@ function TeamFlipCard({
                 sm:w-16
               "
             >
-              <span className="text-xl font-bold sm:text-2xl">
+              <span
+                className="
+                  text-xl
+                  font-bold
+
+                  sm:text-2xl
+                "
+              >
                 ?
               </span>
             </div>
+
+            {/* Small Label */}
 
             <p
               className="
@@ -365,9 +483,23 @@ function TeamFlipCard({
               A Little Fact
             </p>
 
-            <h3 className="mt-2 text-xl font-bold sm:mt-3 sm:text-2xl">
+            {/* Name */}
+
+            <h3
+              className="
+                mt-2
+                text-xl
+                font-bold
+                text-white
+
+                sm:mt-3
+                sm:text-2xl
+              "
+            >
               {member.name}
             </h3>
+
+            {/* Fact */}
 
             <p
               className="
@@ -386,6 +518,8 @@ function TeamFlipCard({
               {member.fact}
             </p>
 
+            {/* Flip Back Hint */}
+
             <div
               className="
                 mt-6
@@ -401,7 +535,14 @@ function TeamFlipCard({
                 sm:text-xs
               "
             >
-              <RotateCcw className="h-3.5 w-3.5 shrink-0" />
+              <RotateCcw
+                className="
+                  h-3.5
+                  w-3.5
+                  shrink-0
+                "
+              />
+
               Click to flip back
             </div>
           </div>
@@ -411,18 +552,36 @@ function TeamFlipCard({
   );
 }
 
+/*
+  ============================================================
+  WEBSITE TEAM SECTION
+  ============================================================
+*/
+
 export default function WebsiteTeam() {
   return (
-    <section className="section overflow-hidden bg-brand-50/40">
+    <section className="section section-tone-mist overflow-hidden">
       <Container>
         {/* =====================================================
-            HEADING
+            SECTION HEADING
         ===================================================== */}
+
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6 }}
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.4,
+          }}
+          transition={{
+            duration: 0.6,
+          }}
           className="
             mx-auto
             mb-10
@@ -431,13 +590,18 @@ export default function WebsiteTeam() {
             text-center
 
             sm:mb-14
+
             md:mb-16
           "
         >
+          {/* Badge */}
+
           <span
             className="
               inline-flex
               rounded-full
+              border
+              border-brand-200
               bg-brand-100
               px-4
               py-2
@@ -451,6 +615,8 @@ export default function WebsiteTeam() {
           >
             Built With Purpose
           </span>
+
+          {/* Heading */}
 
           <h2
             className="
@@ -470,6 +636,8 @@ export default function WebsiteTeam() {
             Meet the Builders
           </h2>
 
+          {/* Description */}
+
           <p
             className="
               mx-auto
@@ -487,124 +655,74 @@ export default function WebsiteTeam() {
             the AWS Student Builder Club MUET website to life.
           </p>
         </motion.div>
-      </Container>
 
-      {/* =====================================================
-          INFINITE TEAM CAROUSEL
-      ===================================================== */}
-      <div className="relative w-full overflow-hidden">
-        {/* Left Fade */}
+        {/* =====================================================
+            STATIC BUILDERS GRID
+
+            No automatic movement.
+            No duplicate cards.
+            No infinite carousel.
+        ===================================================== */}
+
         <div
           className="
-            pointer-events-none
-            absolute
-            left-0
-            top-0
-            z-20
-            h-full
-            w-8
-            bg-gradient-to-r
-            from-[#f9f7ff]
-            via-[#f9f7ff]/80
-            to-transparent
+            mx-auto
+            grid
+            max-w-6xl
+            grid-cols-1
+            gap-6
 
-            sm:w-14
-            md:w-20
-            lg:w-28
+            sm:grid-cols-2
+            sm:gap-7
+
+            lg:grid-cols-3
+            lg:gap-8
           "
-        />
+        >
+          {websiteTeam.map((member, index) => (
+            <TeamFlipCard
+              key={member.id}
+              member={member}
+              index={index}
+            />
+          ))}
+        </div>
 
-        {/* Right Fade */}
-        <div
-          className="
-            pointer-events-none
-            absolute
-            right-0
-            top-0
-            z-20
-            h-full
-            w-8
-            bg-gradient-to-l
-            from-[#f9f7ff]
-            via-[#f9f7ff]/80
-            to-transparent
+        {/* =====================================================
+            SMALL FOOTNOTE
+        ===================================================== */}
 
-            sm:w-14
-            md:w-20
-            lg:w-28
-          "
-        />
-
-        {/* Moving Track */}
-        <motion.div
-          className="flex w-max"
-          animate={{
-            x: ["0%", "-50%"],
+        <motion.p
+          initial={{
+            opacity: 0,
+          }}
+          whileInView={{
+            opacity: 1,
+          }}
+          viewport={{
+            once: true,
           }}
           transition={{
-            x: {
-              duration: 32,
-              ease: "linear",
-              repeat: Infinity,
-              repeatType: "loop",
-            },
+            duration: 0.5,
+            delay: 0.25,
           }}
+          className="
+            mx-auto
+            mt-8
+            max-w-xl
+            text-center
+            text-xs
+            leading-relaxed
+            text-body/70
+
+            sm:mt-10
+            sm:text-sm
+          "
         >
-          {/* First Set */}
-          <div
-            className="
-              flex
-              shrink-0
-              gap-3
-              pr-3
-
-              sm:gap-4
-              sm:pr-4
-
-              md:gap-5
-              md:pr-5
-
-              lg:gap-6
-              lg:pr-6
-            "
-          >
-            {websiteTeam.map((member, index) => (
-              <TeamFlipCard
-                key={`first-${member.id}`}
-                member={member}
-                index={index}
-              />
-            ))}
-          </div>
-
-          {/* Second Set */}
-          <div
-            className="
-              flex
-              shrink-0
-              gap-3
-              pr-3
-
-              sm:gap-4
-              sm:pr-4
-
-              md:gap-5
-              md:pr-5
-
-              lg:gap-6
-              lg:pr-6
-            "
-          >
-            {websiteTeam.map((member, index) => (
-              <TeamFlipCard
-                key={`second-${member.id}`}
-                member={member}
-                index={index}
-              />
-            ))}
-          </div>
-        </motion.div>
-      </div>
+          Click any builder card to discover a little more about the person
+          behind the project.
+        </motion.p>
+      </Container>
     </section>
   );
 }

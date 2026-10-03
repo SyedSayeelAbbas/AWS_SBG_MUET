@@ -12,7 +12,7 @@ export default function AboutPreview() {
   const navigate = useNavigate();
 
   return (
-    <section className="section relative overflow-hidden bg-white">
+    <section className="section section-tone-mist relative overflow-hidden">
       {/* =====================================================
           BACKGROUND GLOW
       ===================================================== */}
