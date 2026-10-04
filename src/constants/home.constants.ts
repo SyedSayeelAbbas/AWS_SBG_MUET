@@ -100,7 +100,7 @@ export const aboutPreview: AboutPreviewData = {
   title: "Creating Future Cloud Leaders",
   description:
     "AWS Student Builder Club MUET empowers students through technical workshops, collaborative projects, leadership opportunities and real-world cloud learning.",
-  image: "/events/4th Tenure/Event 1.jpeg",
+  image: "/events/4th Tenure/Event 2.jpeg",
   highlights: [
     { icon: Cloud, text: "Hands-on AWS workshops" },
     { icon: Users, text: "500+ member community" },

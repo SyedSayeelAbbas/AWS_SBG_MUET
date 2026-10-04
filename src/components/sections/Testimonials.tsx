@@ -1,43 +1,86 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 import Container from "../layout/Container";
 import TestimonialCard from "../cards/TestimonialCard";
 import { testimonials } from "../../constants/home.constants";
 
 export default function Testimonials() {
-  const testimonialItems = testimonials.slice(0, 4);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setActiveIndex((current) =>
+        current === testimonials.length - 1 ? 0 : current + 1,
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const nextSlide = () => {
+    setActiveIndex((current) =>
+      current === testimonials.length - 1 ? 0 : current + 1,
+    );
+  };
+
+  const previousSlide = () => {
+    setActiveIndex((current) =>
+      current === 0 ? testimonials.length - 1 : current - 1,
+    );
+  };
 
   return (
-    <section className="section overflow-hidden">
+    <section className="section section-tone-sky overflow-hidden">
       <Container>
-        {/* Section Heading */}
+        {/* =====================================================
+            HEADER
+        ===================================================== */}
+
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
+          initial={{
+            opacity: 0,
+            y: 24,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.3,
+          }}
+          transition={{
+            duration: 0.6,
+          }}
           className="
             mx-auto
             mb-10
             max-w-3xl
             px-4
             text-center
+
             sm:mb-12
-            lg:mb-16
+            lg:mb-14
           "
         >
           <span
             className="
               inline-flex
               rounded-full
+              border
+              border-brand-200
               bg-brand-100
               px-4
-              py-1.5
+              py-2
               text-xs
-              font-medium
+              font-semibold
               text-brand-700
+
               sm:px-5
-              sm:py-2
               sm:text-sm
             "
           >
@@ -46,173 +89,171 @@ export default function Testimonials() {
 
           <h2
             className="
-              mt-4
+              mt-5
               text-3xl
               font-bold
               tracking-tight
-              sm:mt-5
+              text-heading
+
+              sm:mt-6
               sm:text-4xl
-              lg:mt-6
+
               lg:text-5xl
             "
           >
-            What Students Say
+            What People Say
           </h2>
 
           <p
             className="
-              mt-4
+              mx-auto
+              mt-5
+              max-w-2xl
               text-sm
-              leading-relaxed
+              leading-7
               text-body
-              sm:mt-5
+
+              sm:mt-6
               sm:text-base
-              lg:mt-6
+
               lg:text-lg
             "
           >
-            Real experiences from members who&rsquo;ve grown their
-            skills through our workshops and community.
+            Hear from guest speakers, industry professionals and community
+            members who have experienced our events and initiatives.
           </p>
         </motion.div>
-      </Container>
 
-      {/* Infinite Testimonials */}
-      <div className="relative w-full overflow-hidden">
-        {/* Left Fade */}
+        {/* =====================================================
+            AUTO SLIDER
+        ===================================================== */}
+
         <div
           className="
-            pointer-events-none
-            absolute
-            left-0
-            top-0
-            z-20
-            h-full
-            w-8
-            bg-gradient-to-r
-            from-white
-            via-white/80
-            to-transparent
-            sm:w-14
-            md:w-20
-            lg:w-28
+            relative
+            mx-auto
+            max-w-3xl
           "
-        />
-
-        {/* Right Fade */}
-        <div
-          className="
-            pointer-events-none
-            absolute
-            right-0
-            top-0
-            z-20
-            h-full
-            w-8
-            bg-gradient-to-l
-            from-white
-            via-white/80
-            to-transparent
-            sm:w-14
-            md:w-20
-            lg:w-28
-          "
-        />
-
-        {/* Moving Track */}
-        <motion.div
-          className="flex w-max"
-          animate={{
-            x: ["0%", "-50%"],
-          }}
-          transition={{
-            x: {
-              duration: 38,
-              ease: "linear",
-              repeat: Infinity,
-              repeatType: "loop",
-            },
-          }}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
         >
-          {/* First Set */}
+          {/* ===================================================
+              TESTIMONIAL
+          =================================================== */}
+
           <div
             className="
-              flex
-              shrink-0
-              gap-3
-              pr-3
-              sm:gap-4
-              sm:pr-4
-              md:gap-5
-              md:pr-5
-              lg:gap-6
-              lg:pr-6
+              relative
+              min-h-[360px]
+              overflow-hidden
+
+              sm:min-h-[380px]
             "
           >
-            {testimonialItems.map((item, index) => (
-              <div
-                key={`first-${item.id}`}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{
+                  opacity: 0,
+                  x: 80,
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                }}
+                exit={{
+                  opacity: 0,
+                  x: -80,
+                }}
+                transition={{
+                  duration: 0.55,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                drag="x"
+                dragConstraints={{
+                  left: 0,
+                  right: 0,
+                }}
+                dragElastic={0.15}
+                onDragEnd={(_, info) => {
+                  if (info.offset.x < -60) {
+                    nextSlide();
+                  }
+
+                  if (info.offset.x > 60) {
+                    previousSlide();
+                  }
+                }}
                 className="
-                  flex
-                  h-[250px]
-                  w-[270px]
-                  shrink-0
-                  sm:h-[270px]
-                  sm:w-[320px]
-                  md:h-[285px]
-                  md:w-[350px]
-                  lg:h-[300px]
-                  lg:w-[380px]
+                  absolute
+                  inset-x-0
+                  top-0
+                  cursor-grab
+                  active:cursor-grabbing
                 "
               >
                 <TestimonialCard
-                  index={index}
-                  {...item}
+                  {...testimonials[activeIndex]}
+                  index={0}
                 />
-              </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* ===================================================
+              DOT NAVIGATION
+          =================================================== */}
+
+          <div
+            className="
+              mt-7
+              flex
+              items-center
+              justify-center
+              gap-2
+            "
+          >
+            {testimonials.map((testimonial, index) => (
+              <button
+                key={testimonial.id}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                aria-label={`Show testimonial ${index + 1}`}
+                className={`
+                  h-2.5
+                  rounded-full
+                  transition-all
+                  duration-300
+
+                  ${
+                    activeIndex === index
+                      ? "w-8 bg-brand-600"
+                      : "w-2.5 bg-brand-200 hover:bg-brand-300"
+                  }
+                `}
+              />
             ))}
           </div>
 
-          {/* Second Set */}
+          {/* ===================================================
+              OPTIONAL COUNTER
+          =================================================== */}
+
           <div
             className="
-              flex
-              shrink-0
-              gap-3
-              pr-3
-              sm:gap-4
-              sm:pr-4
-              md:gap-5
-              md:pr-5
-              lg:gap-6
-              lg:pr-6
+              mt-3
+              text-center
+              text-xs
+              font-medium
+              text-body/70
             "
           >
-            {testimonialItems.map((item, index) => (
-              <div
-                key={`second-${item.id}`}
-                className="
-                  flex
-                  h-[250px]
-                  w-[270px]
-                  shrink-0
-                  sm:h-[270px]
-                  sm:w-[320px]
-                  md:h-[285px]
-                  md:w-[350px]
-                  lg:h-[300px]
-                  lg:w-[380px]
-                "
-              >
-                <TestimonialCard
-                  index={index}
-                  {...item}
-                />
-              </div>
-            ))}
+            {String(activeIndex + 1).padStart(2, "0")}
+            {" / "}
+            {String(testimonials.length).padStart(2, "0")}
           </div>
-        </motion.div>
-      </div>
+        </div>
+      </Container>
     </section>
   );
 }

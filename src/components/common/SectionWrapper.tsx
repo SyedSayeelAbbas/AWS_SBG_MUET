@@ -8,7 +8,7 @@ interface SectionWrapperProps {
 
   id?: string;
 
-  background?: "white" | "soft" | "gradient";
+  background?: "white" | "soft" | "gradient" | "lavender" | "sky" | "mint" | "peach" | "rose" | "indigo";
 
   animate?: boolean;
 }
@@ -22,9 +22,14 @@ export default function SectionWrapper({
 }: SectionWrapperProps) {
   const backgrounds = {
     white: "bg-white",
-    soft: "bg-[#FAF7FF]",
-    gradient:
-      "bg-gradient-to-b from-white via-brand-50/40 to-white",
+    soft: "bg-tint-lavender",
+    gradient: "bg-tint-indigo",
+    lavender: "bg-tint-lavender",
+    sky: "bg-tint-sky",
+    mint: "bg-tint-mint",
+    peach: "bg-tint-peach",
+    rose: "bg-tint-rose",
+    indigo: "bg-tint-indigo",
   };
 
   const content = (

@@ -9,7 +9,7 @@ export default function CommunityStats() {
   const otherStats = communityStats.slice(1);
 
   return (
-    <section className="section relative overflow-hidden bg-white">
+    <section className="section section-tone-lavender relative overflow-hidden">
       {/* =====================================================
           BACKGROUND DECORATION
       ===================================================== */}

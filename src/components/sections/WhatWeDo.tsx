@@ -8,7 +8,7 @@ import { services } from "../../constants/home.constants";
 
 export default function WhatWeDo() {
   return (
-    <section className="section overflow-hidden bg-brand-50/40">
+    <section className="section section-tone-sky overflow-hidden">
       <Container>
         {/* =====================================================
             SECTION HEADING

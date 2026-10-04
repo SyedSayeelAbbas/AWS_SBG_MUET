@@ -9,8 +9,7 @@ import { impactStats } from "../../constants/home.constants";
 
 export default function CommunityImpact() {
   return (
-    <section className="section relative overflow-hidden bg-gradient-to-b from-brand-50/50 via-white to-white">
-      {/* Decorative radial glows */}
+    <section className="section relative overflow-hidden bg-gradient-to-b from-brand-100/70 via-brand-50/40 to-white">
       <div
         className="
           pointer-events-none

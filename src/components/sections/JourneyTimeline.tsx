@@ -6,7 +6,7 @@ import { timeline } from "../../constants/home.constants";
 
 export default function JourneyTimeline() {
   return (
-    <section className="section relative overflow-hidden">
+    <section className="section section-tone-lavender relative overflow-hidden">
       <div className="aurora" />
 
       <Container>

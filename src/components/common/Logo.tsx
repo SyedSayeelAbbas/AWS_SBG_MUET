@@ -19,8 +19,8 @@ export default function Logo() {
         className="
           relative
           flex
-          h-12
-          w-12
+          h-14
+          w-14
           shrink-0
           items-center
           justify-center
@@ -61,8 +61,8 @@ export default function Logo() {
           className="
             relative
             z-10
-            h-9
-            w-9
+            h-12
+            w-11
             object-contain
             transition-transform
             duration-300

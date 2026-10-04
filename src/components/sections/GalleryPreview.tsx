@@ -12,7 +12,7 @@ export default function GalleryPreview() {
   const rightBottom = galleryImages[4];
 
   return (
-    <section className="section bg-white">
+    <section className="section section-tone-warm">
       <Container>
         {/* =====================================================
             SECTION HEADER
